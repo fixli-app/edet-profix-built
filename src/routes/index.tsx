@@ -85,7 +85,9 @@ function Index() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-header-border bg-header/95 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
           <a href="#start" className="flex items-center gap-3" aria-label="Edet Profix Bygg, startsida">
-            <img src={logoAsset.url} alt="Edet Profix Bygg" className="h-14 w-24 rounded-sm object-cover object-center" />
+            <span className="flex items-center rounded-lg bg-logo-chip p-1.5 shadow-sm">
+              <img src={logoAsset.url} alt="Edet Profix Bygg" className="h-11 w-auto rounded-md object-contain" />
+            </span>
           </a>
           <nav className="hidden items-center gap-8 md:flex" aria-label="Huvudnavigation">
             <a className="nav-link" href="#tjanster">Tjänster</a>
@@ -209,7 +211,9 @@ function Index() {
 
       <footer className="bg-footer py-10 text-footer-foreground">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-          <img src={logoAsset.url} alt="Edet Profix Bygg" className="h-16 w-28 rounded-sm object-cover" />
+          <span className="inline-flex items-center rounded-lg bg-logo-chip p-2">
+            <img src={logoAsset.url} alt="Edet Profix Bygg" className="h-14 w-auto rounded-md object-contain" />
+          </span>
           <p className="text-sm text-footer-muted">© {new Date().getFullYear()} Edet Profix Bygg · Kvalitet. Pålitlighet. Resultat.</p>
         </div>
       </footer>

@@ -63,6 +63,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-primary-hover: var(--primary-hover);
   --color-primary-soft: var(--primary-soft);
+  --color-logo-chip: var(--logo-chip);
   --color-border-strong: var(--border-strong);
   --color-header: var(--header);
   --color-header-foreground: var(--header-foreground);
@@ -83,7 +84,7 @@
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 0.75rem;
   --background: oklch(0.985 0.004 90);
   --foreground: oklch(0.19 0.035 246);
   --card: oklch(1 0 0);
@@ -94,6 +95,7 @@
   --primary-foreground: oklch(0.16 0.028 244);
   --primary-hover: oklch(0.62 0.143 81);
   --primary-soft: oklch(0.93 0.045 86);
+  --logo-chip: oklch(1 0 0);
   --secondary: oklch(0.955 0.009 92);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.95 0.01 90);
