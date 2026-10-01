@@ -110,9 +110,9 @@ function Index() {
       </header>
 
       <main>
-        <section id="start" className="hero-grid relative flex min-h-[94svh] items-center overflow-hidden bg-hero pt-20 text-hero-foreground">
+        <section id="start" className="hero-grid relative flex min-h-[940px] items-center overflow-hidden bg-hero pt-20 text-hero-foreground sm:min-h-[94svh]">
           <div className="hero-watermark" aria-hidden="true">EP</div>
-          <div className="relative mx-auto w-full max-w-7xl px-5 py-20 lg:px-8">
+          <div className="relative mx-auto w-full max-w-7xl px-5 pb-72 pt-16 sm:py-20 lg:px-8">
             <div className="max-w-4xl animate-fade-in">
               <p className="mb-5 flex items-center gap-3 text-sm font-bold uppercase text-primary"><span className="h-px w-10 bg-primary" /> Åstorp · Hela Skåne</p>
               <h1 className="max-w-4xl font-display text-5xl font-black leading-[1.03] sm:text-6xl lg:text-8xl">
