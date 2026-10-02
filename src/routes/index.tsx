@@ -17,7 +17,8 @@ import {
   X,
 } from "lucide-react";
 
-import logoAsset from "@/assets/edet-profix-logo.jpg.asset.json";
+import builderAsset from "@/assets/edet-profix-builder.jpg.asset.json";
+import logoAsset from "@/assets/edet-profix-logo-transparent.png.asset.json";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -77,17 +78,15 @@ function Index() {
     if (!name || !email || !message) return;
     const subject = encodeURIComponent(`Förfrågan från ${name}`);
     const body = encodeURIComponent(`Namn: ${name}\nE-post: ${email}\n\n${message}`);
-    window.location.href = `mailto:info@edetprofix.se?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:edet.profix.info@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-header-border bg-header/95 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-          <a href="#start" className="flex items-center gap-3" aria-label="Edet Profix Bygg, startsida">
-            <span className="flex items-center rounded-lg bg-logo-chip p-1.5 shadow-sm">
-              <img src={logoAsset.url} alt="Edet Profix Bygg" className="h-11 w-auto rounded-md object-contain" />
-            </span>
+        <div className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 md:flex md:justify-between lg:px-8">
+          <a href="#start" className="flex min-w-0 items-center" aria-label="Edet Profix Bygg, startsida">
+            <img src={logoAsset.url} alt="Edet Profix Bygg" className="h-auto w-40 object-contain sm:w-44" />
           </a>
           <nav className="hidden items-center gap-8 md:flex" aria-label="Huvudnavigation">
             <a className="nav-link" href="#tjanster">Tjänster</a>
@@ -98,7 +97,7 @@ function Index() {
           <a href="#kontakt" className="hidden rounded-sm bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary-hover md:inline-flex">
             Kostnadsfri offert
           </a>
-          <Button variant="outline" className="h-11 w-11 px-0 md:hidden" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? "Stäng meny" : "Öppna meny"}>
+          <Button className="h-11 w-11 shrink-0 border border-primary bg-primary px-0 text-primary-foreground shadow-sm md:hidden" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? "Stäng meny" : "Öppna meny"} aria-expanded={menuOpen}>
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </Button>
         </div>
@@ -177,7 +176,11 @@ function Index() {
             <div>
               <p className="eyebrow">Varför välja oss</p>
               <h2 className="section-title">Din pålitliga partner i hela Skåne</h2>
-              <p className="mt-6 text-base leading-8 text-muted-foreground">Vi kombinerar erfarenhet, kvalitet och personlig service. Med noggrannhet och tydlig kommunikation ser vi till att varje projekt genomförs med högsta standard.</p>
+              <p className="mt-6 text-base leading-8 text-muted-foreground">Vi kombinerar erfarenhet, kvalitet och personlig service. Med utgångspunkt i Åstorp arbetar vi i hela Skåne och är flexibla för rätt projekt även utanför området.</p>
+              <figure className="mt-8 overflow-hidden rounded-xl border border-border bg-card shadow-strong">
+                <img src={builderAsset.url} alt="Byggare från Edet Profix Bygg i ett färdigställt träarbete" className="aspect-[4/5] w-full object-cover object-center" />
+                <figcaption className="border-t border-border px-5 py-4 text-sm font-bold text-foreground">Professionellt hantverk med omsorg om varje detalj.</figcaption>
+              </figure>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {reasons.map((reason) => <div key={reason} className="flex min-h-20 items-center gap-4 border-b border-border p-3"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check size={17} strokeWidth={3} /></span><span className="font-semibold leading-6">{reason}</span></div>)}
@@ -192,8 +195,8 @@ function Index() {
               <h2 className="section-title">Låt oss prata om ditt nästa projekt</h2>
               <p className="mt-6 max-w-lg text-base leading-8 text-muted-foreground">Beskriv vad du behöver hjälp med så återkommer vi för att prata vidare om en lösning som passar ditt projekt.</p>
               <div className="mt-9 space-y-4">
-                <a href="mailto:info@edetprofix.se" className="flex items-center gap-4 font-bold hover:text-primary"><span className="contact-icon"><Mail size={20} /></span>info@edetprofix.se</a>
-                <div className="flex items-center gap-4 font-bold"><span className="contact-icon"><MapPin size={20} /></span>Åstorp · Uppdrag i hela Skåne</div>
+                <a href="mailto:edet.profix.info@gmail.com" className="flex min-w-0 items-center gap-4 font-bold hover:text-primary"><span className="contact-icon"><Mail size={20} /></span><span className="break-all">edet.profix.info@gmail.com</span></a>
+                <div className="flex items-center gap-4 font-bold"><span className="contact-icon"><MapPin size={20} /></span>Åstorp · Hela Skåne och flexibelt vid rätt jobb</div>
               </div>
             </div>
             <form onSubmit={submitContact} className="grid gap-5 rounded-sm border border-border bg-card p-6 shadow-strong sm:p-8">
@@ -211,9 +214,7 @@ function Index() {
 
       <footer className="bg-footer py-10 text-footer-foreground">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-          <span className="inline-flex items-center rounded-lg bg-logo-chip p-2">
-            <img src={logoAsset.url} alt="Edet Profix Bygg" className="h-14 w-auto rounded-md object-contain" />
-          </span>
+          <img src={logoAsset.url} alt="Edet Profix Bygg" className="h-auto w-52 object-contain" />
           <p className="text-sm text-footer-muted">© {new Date().getFullYear()} Edet Profix Bygg · Kvalitet. Pålitlighet. Resultat.</p>
         </div>
       </footer>
