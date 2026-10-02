@@ -177,7 +177,7 @@ function Index() {
                 Pålitliga fastighets- & byggtjänster <span className="text-primary">du kan lita på.</span>
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-hero-muted sm:text-xl">
-                Professionellt hantverk med kvalitetsmaterial, tydlig kommunikation och omsorg om varje detalj. Från
+                Professionellt hantverk med kvalitetsmaterial, tydlig kommunikation och omsorg om varje detalj, från
                 start till mål.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
