@@ -96,7 +96,7 @@ const projects: Project[] = [
     title: (t) => t.houseProject,
     altBefore: (t) => t.houseAlt,
     altAfter: (t) => t.houseAlt,
-    inProgressImages: [hus1Asset, hus2Asset, hus3Asset, hus4Asset, hus5Asset, hus6Asset, hus7Asset, hus8Asset, hus9Asset, hus10Asset],
+    inProgressImages: [hus1Asset, hus2Asset, hus3Asset, hus4Asset, hus5Asset, hus6Asset, hus7Asset, hus8Asset, hus9Asset, hus10Asset, hus11Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
 ];
