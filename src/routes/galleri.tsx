@@ -1,21 +1,27 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
-import efter1Asset from "@/assets/badrum-efter-1.jpg.asset.json";
-import efter2Asset from "@/assets/badrum-efter-2.jpg.asset.json";
-import efter3Asset from "@/assets/badrum-efter-3.jpg.asset.json";
-import fore1Asset from "@/assets/badrum-fore-1.jpg.asset.json";
-import fore2Asset from "@/assets/badrum-fore-2.jpg.asset.json";
+import badrumEfter1Asset from "@/assets/badrum-efter-1.jpg.asset.json";
+import badrumEfter2Asset from "@/assets/badrum-efter-2.jpg.asset.json";
+import badrumEfter3Asset from "@/assets/badrum-efter-3.jpg.asset.json";
+import badrumFore1Asset from "@/assets/badrum-fore-1.jpg.asset.json";
+import badrumFore2Asset from "@/assets/badrum-fore-2.jpg.asset.json";
+import fasadEfter1Asset from "@/assets/fasad-efter-1.jpg.asset.json";
+import fasadEfter2Asset from "@/assets/fasad-efter-2.jpg.asset.json";
+import fasadEfter3Asset from "@/assets/fasad-efter-3.jpg.asset.json";
+import fasadFore1Asset from "@/assets/fasad-fore-1.jpg.asset.json";
+import fasadFore2Asset from "@/assets/fasad-fore-2.jpg.asset.json";
 import logoAsset from "@/assets/edet-profix-logo-transparent.png.asset.json";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/use-language";
+import type { SiteTranslation } from "@/lib/site-translations";
 
 export const Route = createFileRoute("/galleri")({
   head: () => ({
     meta: [
       { title: "Galleri – Före & efter | Edet Profix Bygg" },
-      { name: "description", content: "Se före- och efterbilder från projekt av Edet Profix Bygg – bland annat badrumsrenovering i Åstorp och hela Skåne." },
+      { name: "description", content: "Se före- och efterbilder från projekt av Edet Profix Bygg – bland annat badrumsrenovering och fasadmålning i Åstorp och hela Skåne." },
       { property: "og:title", content: "Galleri – Före & efter | Edet Profix Bygg" },
       { property: "og:description", content: "Före- och efterbilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
       { property: "og:type", content: "website" },
@@ -25,8 +31,65 @@ export const Route = createFileRoute("/galleri")({
   component: GalleriPage,
 });
 
-const beforeImages = [fore1Asset, fore2Asset];
-const afterImages = [efter1Asset, efter2Asset, efter3Asset];
+type Project = {
+  title: (t: SiteTranslation) => string;
+  altBefore: (t: SiteTranslation) => string;
+  altAfter: (t: SiteTranslation) => string;
+  beforeImages: { url: string }[];
+  afterImages: { url: string }[];
+  wideClass: string;
+};
+
+const projects: Project[] = [
+  {
+    title: (t) => t.bathroomProject,
+    altBefore: (t) => t.galleryAltBefore,
+    altAfter: (t) => t.galleryAltAfter,
+    beforeImages: [badrumFore1Asset, badrumFore2Asset],
+    afterImages: [badrumEfter1Asset, badrumEfter2Asset, badrumEfter3Asset],
+    wideClass: "col-span-2 aspect-[3/1]",
+  },
+  {
+    title: (t) => t.facadeProject,
+    altBefore: (t) => t.facadeAltBefore,
+    altAfter: (t) => t.facadeAltAfter,
+    beforeImages: [fasadFore1Asset, fasadFore2Asset],
+    afterImages: [fasadEfter1Asset, fasadEfter2Asset, fasadEfter3Asset],
+    wideClass: "col-span-2 aspect-[16/10]",
+  },
+];
+
+function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
+  return (
+    <article className="mx-auto max-w-4xl overflow-hidden rounded-lg border border-border bg-card shadow-strong">
+      <h2 className="border-b border-border px-6 py-5 text-xl font-extrabold">{project.title(t)}</h2>
+      <div className="flex flex-col gap-px bg-border">
+        <div>
+          <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.beforeLabel}</p>
+          <div className="grid grid-cols-2 gap-px bg-border">
+            {project.beforeImages.map((image, index) => (
+              <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className="aspect-[4/3] w-full bg-card object-cover" />
+            ))}
+          </div>
+        </div>
+        <div>
+          <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.afterLabel}</p>
+          <div className="grid grid-cols-2 gap-px bg-border">
+            {project.afterImages.map((image, index) => (
+              <img
+                key={index}
+                src={image.url}
+                alt={project.altAfter(t)}
+                loading={index === 0 ? undefined : "lazy"}
+                className={index === 2 ? `${project.wideClass} w-full bg-card object-cover` : "aspect-[4/3] w-full bg-card object-cover"}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 function GalleriPage() {
   const { language, setLanguage, t } = useLanguage();
@@ -45,34 +108,10 @@ function GalleriPage() {
         </section>
 
         <section className="py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <article className="mx-auto max-w-4xl overflow-hidden rounded-lg border border-border bg-card shadow-strong">
-              <h2 className="border-b border-border px-6 py-5 text-xl font-extrabold">{t.bathroomProject}</h2>
-              <div className="flex flex-col gap-px bg-border">
-                <div>
-                  <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.beforeLabel}</p>
-                  <div className="grid grid-cols-2 gap-px bg-border">
-                    {beforeImages.map((image, index) => (
-                      <img key={index} src={image.url} alt={t.galleryAltBefore} loading="lazy" className="aspect-[4/3] w-full bg-card object-cover" />
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.afterLabel}</p>
-                  <div className="grid grid-cols-2 gap-px bg-border">
-                    {afterImages.map((image, index) => (
-                      <img
-                        key={index}
-                        src={image.url}
-                        alt={t.galleryAltAfter}
-                        loading={index === 0 ? undefined : "lazy"}
-                        className={index === 2 ? "col-span-2 aspect-[3/1] w-full bg-card object-cover" : "aspect-[4/3] w-full bg-card object-cover"}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </article>
+          <div className="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:px-8">
+            {projects.map((project) => (
+              <ProjectCard key={project.title(t)} project={project} t={t} />
+            ))}
           </div>
         </section>
 
