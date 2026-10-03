@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown, ExternalLink } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 import badrumEfter1Asset from "@/assets/badrum-efter-1.jpg.asset.json";
 import badrumEfter2Asset from "@/assets/badrum-efter-2.jpg.asset.json";
@@ -346,7 +346,7 @@ function GalleriPage() {
               title={t.offertaLabel}
               className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-header-border text-footer-foreground transition-colors hover:text-primary"
             >
-              <ExternalLink size={18} />
+              <img src="/images/offerta-icon.png" alt="" className="h-5 w-5 rounded-sm" />
             </a>
           </div>
         </div>
