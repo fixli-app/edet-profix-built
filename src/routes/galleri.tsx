@@ -11,6 +11,16 @@ import fasadEfter2Asset from "@/assets/fasad-efter-2.jpg.asset.json";
 import fasadEfter3Asset from "@/assets/fasad-efter-3.jpg.asset.json";
 import fasadFore1Asset from "@/assets/fasad-fore-1.jpg.asset.json";
 import fasadFore2Asset from "@/assets/fasad-fore-2.jpg.asset.json";
+import hus1Asset from "@/assets/hus-1.jpg.asset.json";
+import hus2Asset from "@/assets/hus-2.jpg.asset.json";
+import hus3Asset from "@/assets/hus-3.jpg.asset.json";
+import hus4Asset from "@/assets/hus-4.jpg.asset.json";
+import hus5Asset from "@/assets/hus-5.jpg.asset.json";
+import hus6Asset from "@/assets/hus-6.jpg.asset.json";
+import hus7Asset from "@/assets/hus-7.jpg.asset.json";
+import hus8Asset from "@/assets/hus-8.jpg.asset.json";
+import hus9Asset from "@/assets/hus-9.jpg.asset.json";
+import hus10Asset from "@/assets/hus-10.jpg.asset.json";
 import renovering1Asset from "@/assets/renovering-1.jpg.asset.json";
 import renovering2Asset from "@/assets/renovering-2.jpg.asset.json";
 import renovering3Asset from "@/assets/renovering-3.jpg.asset.json";
@@ -79,6 +89,13 @@ const projects: Project[] = [
     altBefore: (t) => t.wipAlt,
     altAfter: (t) => t.wipAlt,
     inProgressImages: [renovering1Asset, renovering2Asset, renovering3Asset, renovering4Asset],
+    wideClass: "col-span-2 aspect-[16/10]",
+  },
+  {
+    title: (t) => t.houseProject,
+    altBefore: (t) => t.houseAlt,
+    altAfter: (t) => t.houseAlt,
+    inProgressImages: [hus1Asset, hus2Asset, hus3Asset, hus4Asset, hus5Asset, hus6Asset, hus7Asset, hus8Asset, hus9Asset, hus10Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
 ];
