@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ChevronDown, ExternalLink } from "lucide-react";
 
 import badrumEfter1Asset from "@/assets/badrum-efter-1.jpg.asset.json";
 import badrumEfter2Asset from "@/assets/badrum-efter-2.jpg.asset.json";
@@ -60,6 +61,7 @@ type Project = {
   title: (t: SiteTranslation) => string;
   altBefore: (t: SiteTranslation) => string;
   altAfter: (t: SiteTranslation) => string;
+  cover: { url: string };
   beforeImages?: { url: string }[];
   afterImages?: { url: string }[];
   inProgressImages?: { url: string }[];
@@ -73,6 +75,7 @@ const projects: Project[] = [
     title: (t) => t.bathroomProject,
     altBefore: (t) => t.galleryAltBefore,
     altAfter: (t) => t.galleryAltAfter,
+    cover: badrumEfter1Asset,
     beforeImages: [badrumFore1Asset, badrumFore2Asset],
     afterImages: [badrumEfter1Asset, badrumEfter2Asset, badrumEfter3Asset],
     wideClass: "col-span-2 aspect-[3/1]",
@@ -81,6 +84,7 @@ const projects: Project[] = [
     title: (t) => t.facadeProject,
     altBefore: (t) => t.facadeAltBefore,
     altAfter: (t) => t.facadeAltAfter,
+    cover: fasadEfter2Asset,
     beforeImages: [fasadFore1Asset, fasadFore2Asset],
     afterImages: [fasadEfter1Asset, fasadEfter2Asset, fasadEfter3Asset],
     wideClass: "col-span-2 aspect-[16/10]",
@@ -89,6 +93,7 @@ const projects: Project[] = [
     title: (t) => t.roofProject,
     altBefore: (t) => t.roofAltBefore,
     altAfter: (t) => t.roofAltAfter,
+    cover: takEfter1Asset,
     beforeImages: [takFore1Asset, takFore2Asset],
     afterImages: [takEfter1Asset, takEfter2Asset],
     wideClass: "col-span-2 aspect-[16/10]",
@@ -97,6 +102,7 @@ const projects: Project[] = [
     title: (t) => t.wipProject,
     altBefore: (t) => t.wipAlt,
     altAfter: (t) => t.wipAlt,
+    cover: renovering1Asset,
     inProgressImages: [renovering1Asset, renovering2Asset, renovering3Asset, renovering4Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
@@ -104,6 +110,7 @@ const projects: Project[] = [
     title: (t) => t.houseProject,
     altBefore: (t) => t.houseAlt,
     altAfter: (t) => t.houseAlt,
+    cover: hus1Asset,
     inProgressImages: [hus1Asset, hus2Asset, hus3Asset, hus4Asset, hus5Asset, hus6Asset, hus7Asset, hus8Asset, hus9Asset, hus10Asset, hus11Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
@@ -111,6 +118,7 @@ const projects: Project[] = [
     title: (t) => t.terraceProject,
     altBefore: (t) => t.terraceAlt,
     altAfter: (t) => t.terraceAlt,
+    cover: terass1Asset,
     inProgressImages: [terass3Asset, terass2Asset, terass1Asset, terass4Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
@@ -118,6 +126,7 @@ const projects: Project[] = [
     title: (t) => t.toiletProject,
     altBefore: (t) => t.toiletAltBefore,
     altAfter: (t) => t.toiletAltAfter,
+    cover: toalettEfter1Asset,
     beforeImages: [toalettFore1Asset],
     afterImages: [toalettEfter1Asset],
     wideClass: "col-span-2 aspect-[16/10]",
@@ -125,58 +134,111 @@ const projects: Project[] = [
   },
 ];
 
-function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
-  return (
-    <article className="mx-auto max-w-4xl overflow-hidden rounded-lg border border-border bg-card shadow-strong">
-      <h2 className="border-b border-border px-6 py-5 text-xl font-extrabold">{project.title(t)}</h2>
-      {project.inProgressImages ? (
-        <div className="flex flex-col gap-px bg-border">
-          <div>
-            <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.wipLabel}</p>
-            <div className="grid grid-cols-2 gap-px bg-border">
-              {project.inProgressImages.map((image, index) => (
-                <img key={index} src={image.url} alt={project.altBefore(t)} loading={index === 0 ? undefined : "lazy"} className="aspect-[4/3] w-full bg-card object-cover" />
-              ))}
-            </div>
-          </div>
-        </div>
-      ) : project.beforeImages?.length === 1 && project.afterImages?.length === 1 ? (
+function LabelBar({ label }: { label: string }) {
+  return <p className="bg-primary-soft px-4 py-3 text-sm font-bold uppercase tracking-wide text-primary sm:px-6">{label}</p>;
+}
+
+function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }) {
+  if (project.inProgressImages) {
+    return (
+      <div className="mx-auto w-full max-w-5xl">
+        <LabelBar label={t.wipLabel} />
         <div className="grid grid-cols-2 gap-px bg-border">
-          <div>
-            <p className="bg-primary-soft px-4 py-3 text-sm font-bold uppercase tracking-wide text-primary sm:px-6">{t.beforeLabel}</p>
-            {project.beforeImages?.[0] && <img src={project.beforeImages[0].url} alt={project.altBefore(t)} className="aspect-square w-full bg-card object-cover" />}
-          </div>
-          <div>
-            <p className="bg-primary-soft px-4 py-3 text-sm font-bold uppercase tracking-wide text-primary sm:px-6">{t.afterLabel}</p>
-            {project.afterImages?.[0] && <img src={project.afterImages[0].url} alt={project.altAfter(t)} className="aspect-square w-full bg-card object-cover" />}
+          {project.inProgressImages.map((image, index) => (
+            <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className="aspect-[4/3] w-full bg-card object-cover" />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (project.beforeImages?.length === 1 && project.afterImages?.length === 1) {
+    return (
+      <div className="mx-auto grid w-full max-w-3xl grid-cols-2 gap-px bg-border">
+        <div>
+          <LabelBar label={t.beforeLabel} />
+          {project.beforeImages?.[0] && <img src={project.beforeImages[0].url} alt={project.altBefore(t)} className="aspect-square w-full bg-card object-cover" />}
+        </div>
+        <div>
+          <LabelBar label={t.afterLabel} />
+          {project.afterImages?.[0] && <img src={project.afterImages[0].url} alt={project.altAfter(t)} className="aspect-square w-full bg-card object-cover" />}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-px bg-border">
+      <div>
+        <LabelBar label={t.beforeLabel} />
+        <div className="grid grid-cols-2 gap-px bg-border">
+          {project.beforeImages?.map((image, index) => (
+            <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className={project.beforeImgClass ?? "aspect-[4/3] w-full bg-card object-cover"} />
+          ))}
+        </div>
+      </div>
+      <div>
+        <LabelBar label={t.afterLabel} />
+        <div className="grid grid-cols-2 gap-px bg-border">
+          {project.afterImages?.map((image, index) => (
+            <img
+              key={index}
+              src={image.url}
+              alt={project.altAfter(t)}
+              loading="lazy"
+              className={index === 2 ? `${project.wideClass} w-full bg-card object-cover` : project.afterImgClass ?? "aspect-[4/3] w-full bg-card object-cover"}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
+  const [open, setOpen] = useState(false);
+  const imageCount = project.inProgressImages?.length ?? (project.beforeImages?.length ?? 0) + (project.afterImages?.length ?? 0);
+  const badge = project.inProgressImages ? t.wipLabel : `${t.beforeLabel} · ${t.afterLabel}`;
+
+  return (
+    <article
+      className={`overflow-hidden rounded-lg border border-border bg-card shadow-strong transition-all duration-300 md:col-span-1 ${open ? "md:col-span-2" : ""}`}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        aria-expanded={open}
+        className="block w-full cursor-pointer text-start"
+      >
+        <div className="relative overflow-hidden">
+          <img
+            src={project.cover.url}
+            alt={project.title(t)}
+            loading="lazy"
+            className={`w-full bg-card object-cover transition-all duration-500 ${open ? "aspect-[21/9]" : "aspect-[16/10] hover:scale-[1.03]"}`}
+          />
+          <span className="absolute start-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-bold uppercase tracking-wide text-foreground shadow-soft backdrop-blur-sm">
+            {badge}
+          </span>
+          <span className="absolute end-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-bold text-foreground shadow-soft backdrop-blur-sm">
+            {imageCount}
+          </span>
+        </div>
+        <div className="flex items-center justify-between gap-4 px-5 py-4">
+          <h2 className="text-lg font-extrabold">{project.title(t)}</h2>
+          <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-bold text-primary">
+            {open ? t.collapseLabel : t.expandLabel}
+            <ChevronDown size={18} className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+          </span>
+        </div>
+      </button>
+      <div className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+        <div className="overflow-hidden">
+          <div className="border-t border-border py-px">
+            <ExpandedImages project={project} t={t} />
           </div>
         </div>
-      ) : (
-        <div className="flex flex-col gap-px bg-border">
-          <div>
-            <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.beforeLabel}</p>
-            <div className="grid grid-cols-2 gap-px bg-border">
-              {project.beforeImages?.map((image, index) => (
-                <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className={project.beforeImgClass ?? "aspect-[4/3] w-full bg-card object-cover"} />
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.afterLabel}</p>
-            <div className="grid grid-cols-2 gap-px bg-border">
-              {project.afterImages?.map((image, index) => (
-                <img
-                  key={index}
-                  src={image.url}
-                  alt={project.altAfter(t)}
-                  loading={index === 0 ? undefined : "lazy"}
-                  className={index === 2 ? `${project.wideClass} w-full bg-card object-cover` : project.afterImgClass ?? "aspect-[4/3] w-full bg-card object-cover"}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      </div>
     </article>
   );
 }
@@ -198,7 +260,7 @@ function GalleriPage() {
         </section>
 
         <section className="py-16 sm:py-24">
-          <div className="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:px-8">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-5 md:grid-cols-2 lg:px-8">
             {projects.map((project) => (
               <ProjectCard key={project.title(t)} project={project} t={t} />
             ))}
