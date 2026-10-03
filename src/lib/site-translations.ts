@@ -8,7 +8,7 @@ export const languages = [
 
 export type LanguageCode = (typeof languages)[number]["code"];
 
-type Service = { title: string; text: string };
+type Service = { title: string; text: string; examples: string[] };
 
 export type SiteTranslation = {
   languageLabel: string;
@@ -102,13 +102,26 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     servicesIntro:
       "Från mindre reparationer och invändiga renoveringar till plattsättning, dränering och byggstädning. Vi tar oss an både små och stora projekt för bostäder och kommersiella fastigheter.",
     services: [
-      { title: "Renovering & bygg", text: "Invändiga renoveringar, ombyggnationer och kompletta bygglösningar." },
+      {
+        title: "Renovering & bygg",
+        text: "Invändiga renoveringar, ombyggnationer och kompletta bygglösningar.",
+        examples: ["Badrumsrenovering", "Köksrenovering", "Golvläggning", "Altan & uterum"],
+      },
       {
         title: "Fastighetsunderhåll",
         text: "Löpande underhåll och reparationer som håller fastigheten i bästa skick.",
+        examples: ["Tak & fasad", "Fönster & dörrar", "Snickerier", "Reparationer"],
       },
-      { title: "Mark & anläggning", text: "Plattsättning, dränering och trädgårdsanläggning utfört med precision." },
-      { title: "Byggstädning", text: "Noggrann städning som lämnar projektet rent, säkert och redo att användas." },
+      {
+        title: "Mark & anläggning",
+        text: "Plattsättning, dränering och trädgårdsanläggning utfört med precision.",
+        examples: ["Plattsättning", "Dränering", "Stenläggning", "Trädgård"],
+      },
+      {
+        title: "Byggstädning",
+        text: "Noggrann städning som lämnar projektet rent, säkert och redo att användas.",
+        examples: ["Grovstädning", "Finstädning", "Fönsterputs", "Efter renovering"],
+      },
     ],
     aboutEyebrow: "Om Edet Profix Bygg",
     aboutTitle: "Ett byggföretag med bas i Åstorp",
@@ -205,18 +218,22 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       {
         title: "Renovation & construction",
         text: "Interior renovations, remodelling and complete construction solutions.",
+        examples: ["Bathroom renovation", "Kitchen renovation", "Flooring", "Deck & conservatory"],
       },
       {
         title: "Property maintenance",
         text: "Ongoing maintenance and repairs that keep your property in excellent condition.",
+        examples: ["Roof & facade", "Windows & doors", "Carpentry", "Repairs"],
       },
       {
         title: "Groundworks & landscaping",
         text: "Paving, drainage and garden construction completed with precision.",
+        examples: ["Paving", "Drainage", "Stone laying", "Garden"],
       },
       {
         title: "Post-construction cleaning",
         text: "Thorough cleaning that leaves the project clean, safe and ready to use.",
+        examples: ["Rough cleaning", "Final cleaning", "Window cleaning", "After renovation"],
       },
     ],
     aboutEyebrow: "About Edet Profix Bygg",
@@ -310,10 +327,26 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     servicesIntro:
       "من الإصلاحات الصغيرة والتجديدات الداخلية إلى الرصف والصرف الصحي وتنظيف مواقع البناء. نتولى المشاريع الصغيرة والكبيرة للمنازل والعقارات التجارية.",
     services: [
-      { title: "التجديد والبناء", text: "تجديدات داخلية وإعادة تصميم وحلول بناء متكاملة." },
-      { title: "صيانة العقارات", text: "صيانة وإصلاحات مستمرة تحافظ على العقار بأفضل حالة." },
-      { title: "أعمال الأرض والتنسيق", text: "رصف وتصريف وتنسيق حدائق يُنفّذ بدقة." },
-      { title: "تنظيف ما بعد البناء", text: "تنظيف دقيق يترك المشروع نظيفًا وآمنًا وجاهزًا للاستخدام." },
+      {
+        title: "التجديد والبناء",
+        text: "تجديدات داخلية وإعادة تصميم وحلول بناء متكاملة.",
+        examples: ["ترميم الحمام", "ترميم المطبخ", "تركيب الأرضيات", "شرفة وفناء"],
+      },
+      {
+        title: "صيانة العقارات",
+        text: "صيانة وإصلاحات مستمرة تحافظ على العقار بأفضل حالة.",
+        examples: ["السقف والواجهة", "النوافذ والأبواب", "أعمال النجارة", "إصلاحات"],
+      },
+      {
+        title: "أعمال الأرض والتنسيق",
+        text: "رصف وتصريف وتنسيق حدائق يُنفّذ بدقة.",
+        examples: ["الرصف", "الصرف", "رصف الحجارة", "تنسيق الحدائق"],
+      },
+      {
+        title: "تنظيف ما بعد البناء",
+        text: "تنظيف دقيق يترك المشروع نظيفًا وآمنًا وجاهزًا للاستخدام.",
+        examples: ["تنظيف أولي", "تنظيف نهائي", "تنظيف النوافذ", "بعد الترميم"],
+      },
     ],
     aboutEyebrow: "عن Edet Profix Bygg",
     aboutTitle: "شركة بناء مقرها أوستورب",
@@ -405,13 +438,26 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     servicesIntro:
       "Fra mindre reparationer og indvendige renoveringer til belægning, dræning og byggerengøring. Vi påtager os både små og store projekter for boliger og erhvervsejendomme.",
     services: [
-      { title: "Renovering & byggeri", text: "Indvendige renoveringer, ombygninger og komplette byggeløsninger." },
+      {
+        title: "Renovering & byggeri",
+        text: "Indvendige renoveringer, ombygninger og komplette byggeløsninger.",
+        examples: ["Badeværelsesrenovering", "Køkkenrenovering", "Gulvlægning", "Terrasse & vinterhave"],
+      },
       {
         title: "Ejendomsvedligeholdelse",
         text: "Løbende vedligeholdelse og reparationer, der holder ejendommen i topform.",
+        examples: ["Tag & facade", "Vinduer & døre", "Snedkeri", "Reparationer"],
       },
-      { title: "Jord- & anlægsarbejde", text: "Belægning, dræning og haveanlæg udført med præcision." },
-      { title: "Byggerengøring", text: "Grundig rengøring, der efterlader projektet rent, sikkert og klar til brug." },
+      {
+        title: "Jord- & anlægsarbejde",
+        text: "Belægning, dræning og haveanlæg udført med præcision.",
+        examples: ["Belægning", "Dræning", "Stenlægning", "Have"],
+      },
+      {
+        title: "Byggerengøring",
+        text: "Grundig rengøring, der efterlader projektet rent, sikkert og klar til brug.",
+        examples: ["Grovrengøring", "Finrengøring", "Vinduespudsning", "Efter renovering"],
+      },
     ],
     aboutEyebrow: "Om Edet Profix Bygg",
     aboutTitle: "Et byggefirma med base i Åstorp",
@@ -504,15 +550,25 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     servicesIntro:
       "Od manjih popravki i unutrašnjih renoviranja do popločavanja, drenaže i čišćenja nakon gradnje. Preuzimamo male i velike projekte za domove i poslovne objekte.",
     services: [
-      { title: "Renoviranje i gradnja", text: "Unutrašnja renoviranja, preuređenja i kompletna građevinska rješenja." },
+      {
+        title: "Renoviranje i gradnja",
+        text: "Unutrašnja renoviranja, preuređenja i kompletna građevinska rješenja.",
+        examples: ["Renoviranje kupatila", "Renoviranje kuhinje", "Postavljanje podova", "Terasa i zimski vrt"],
+      },
       {
         title: "Održavanje nekretnina",
         text: "Redovno održavanje i popravke koje čuvaju nekretninu u odličnom stanju.",
+        examples: ["Krov i fasada", "Prozori i vrata", "Stolarija", "Popravke"],
       },
-      { title: "Zemljani i vanjski radovi", text: "Popločavanje, drenaža i uređenje vrtova izvedeni precizno." },
+      {
+        title: "Zemljani i vanjski radovi",
+        text: "Popločavanje, drenaža i uređenje vrtova izvedeni precizno.",
+        examples: ["Popločavanje", "Drenaža", "Polaganje kamena", "Vrt"],
+      },
       {
         title: "Čišćenje nakon gradnje",
         text: "Temeljito čišćenje koje ostavlja projekat čistim, sigurnim i spremnim za korištenje.",
+        examples: ["Grubo čišćenje", "Finalno čišćenje", "Pranje prozora", "Nakon renoviranja"],
       },
     ],
     aboutEyebrow: "O Edet Profix Bygg",

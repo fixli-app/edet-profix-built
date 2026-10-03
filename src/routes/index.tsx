@@ -144,9 +144,9 @@ function Index() {
               <p className="max-w-2xl text-base leading-8 text-muted-foreground lg:justify-self-end">{t.servicesIntro}</p>
             </div>
             <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
-              {t.services.map(({ title, text }, index) => {
+              {t.services.map(({ title, text, examples }, index) => {
                 const Icon = serviceIcons[index];
-                return <article key={index} className="min-h-64 bg-card p-7 transition-colors hover:bg-secondary"><span className="mb-12 flex h-12 w-12 items-center justify-center rounded-md bg-primary-soft text-primary">{Icon && <Icon size={24} />}</span><span className="text-xs font-bold text-muted-foreground">0{index + 1}</span><h3 className="mt-2 text-xl font-extrabold">{title}</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p></article>;
+                return <article key={index} className="flex min-h-64 flex-col bg-card p-7 transition-colors hover:bg-secondary"><span className="mb-12 flex h-12 w-12 items-center justify-center rounded-md bg-primary-soft text-primary">{Icon && <Icon size={24} />}</span><span className="text-xs font-bold text-muted-foreground">0{index + 1}</span><h3 className="mt-2 text-xl font-extrabold">{title}</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p><ul className="mt-4 flex flex-wrap gap-2">{examples.map((example) => <li key={example} className="rounded-full bg-primary-soft px-3 py-1 text-xs font-semibold text-primary">{example}</li>)}</ul></article>;
               })}
             </div>
           </div>
