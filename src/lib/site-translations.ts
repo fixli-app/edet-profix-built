@@ -180,8 +180,10 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Möjlighet att diskutera jobb utanför Skåne",
     ],
     benefitsTitle: "För dig som privatperson",
-    rotLine: "ROT-avdrag: Du kan ha rätt till avdrag för godkänt arbetsarbete enligt Skatteverkets regler. Vi går igenom vad som gäller för ditt uppdrag.",
-    guaranteeLine: "Garanti för privatpersoner: Fråga oss om garantins omfattning och villkor för ditt arbete – det framgår av offerten.",
+    rotLine:
+      "ROT-avdrag: Du kan ha rätt till avdrag för godkänt arbetsarbete enligt Skatteverkets regler. Vi går igenom vad som gäller för ditt uppdrag.",
+    guaranteeLine:
+      "Garanti för privatpersoner: Fråga oss om garantins omfattning och villkor för ditt arbete – det framgår av offerten.",
     responseLine: "Svarslöfte: Vi återkommer på din förfrågan inom 24 timmar.",
     processEyebrow: "Så går det till",
     processTitle: "Fyra steg från idé till färdigt arbete",
@@ -194,13 +196,29 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     faqEyebrow: "Vanliga frågor",
     faqTitle: "Bra att veta innan du hör av dig",
     faq: [
-      { question: "Kostar det att be om en offert?", answer: "Nej, du kan skicka en offertförfrågan utan kostnad. Beskriv gärna arbetet så konkret du kan." },
-      { question: "Kan jag använda ROT-avdrag?", answer: "Som privatperson kan du ha rätt till ROT-avdrag för arbete som uppfyller Skatteverkets villkor. Vi hjälper dig att reda ut vad som kan gälla för ditt projekt." },
-      { question: "Var arbetar ni?", answer: "Vi utgår från Åstorp och arbetar i hela Skåne, exempelvis Helsingborg, Ängelholm, Höganäs, Landskrona, Lund och Malmö. Andra orter kan vara möjliga beroende på uppdraget." },
-      { question: "Hur fungerar betalningen?", answer: "Betalningsvillkor och eventuellt ROT-avdrag går vi igenom i samband med offerten, så att du vet vad som gäller innan arbetet börjar." },
+      {
+        question: "Kostar det att be om en offert?",
+        answer: "Nej, du kan skicka en offertförfrågan utan kostnad. Beskriv gärna arbetet så konkret du kan.",
+      },
+      {
+        question: "Kan jag använda ROT-avdrag?",
+        answer:
+          "Som privatperson kan du ha rätt till ROT-avdrag för arbete som uppfyller Skatteverkets villkor. Vi hjälper dig att reda ut vad som kan gälla för ditt projekt.",
+      },
+      {
+        question: "Var arbetar ni?",
+        answer:
+          "Vi utgår från Åstorp och arbetar i hela Skåne, exempelvis Helsingborg, Ängelholm, Höganäs, Landskrona, Lund och Malmö. Andra orter kan vara möjliga beroende på uppdraget.",
+      },
+      {
+        question: "Hur fungerar betalningen?",
+        answer:
+          "Betalningsvillkor och eventuellt ROT-avdrag går vi igenom i samband med offerten, så att du vet vad som gäller innan arbetet börjar.",
+      },
     ],
     privacyTitle: "Personuppgifter",
-    privacyText: "När du öppnar e-postutkastet fylls namn, e-postadress och meddelande i ditt e-postprogram. Inget skickas till oss förrän du själv skickar mejlet. Vi använder uppgifterna för att besvara din förfrågan. Kontakta oss via e-post om du vill veta mer eller begära att dina uppgifter raderas.",
+    privacyText:
+      "När du öppnar e-postutkastet fylls namn, e-postadress och meddelande i ditt e-postprogram. Inget skickas till oss förrän du själv skickar mejlet. Vi använder uppgifterna för att besvara din förfrågan. Kontakta oss via e-post om du vill veta mer eller begära att dina uppgifter raderas.",
     offertaLabel: "Edet Profix Bygg på Offerta",
     contactEyebrow: "Kontakta oss",
     contactTitle: "Låt oss prata om ditt nästa projekt",
@@ -219,7 +237,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailBody: (name, email, message) => `Namn: ${name}\nE-post: ${email}\n\n${message}`,
     galleryEyebrow: "Våra projekt",
     galleryTitle: "Före & efter",
-    galleryIntro: "Exempel på projekt vi har utfört i Skåne. Här ser du skillnaden vi gör – från slitet och gammalt till nytt och fräscht. Vi fyller på med fler projekt löpande.",
+    galleryIntro:
+      "Exempel på projekt vi har utfört i Skåne. Här ser du skillnaden vi gör – från slitet och gammalt till nytt och fräscht. Vi fyller på med fler projekt löpande.",
     beforeLabel: "Före",
     afterLabel: "Efter",
     bathroomProject: "Badrumsrenovering",
@@ -236,13 +255,14 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     houseAlt: "Pågående totalrenovering av hus – nya golv, målade väggar och tak, badrum och köksmontage",
     terraceProject: "Betongterrass",
     terraceAlt: "Gjutning av betongterrass med trappsteg – armering, formsättning och slät yta",
-    toiletProject: "Toalettronovation",
+    toiletProject: "Toalettrenovation",
     toiletAltBefore: "Toalett före renovering",
     toiletAltAfter: "Renoverad toalett med nya plattor och målad vägg",
     galleryAltBefore: "Badrummet före renoveringen",
     galleryAltAfter: "Badrummet efter renoveringen",
     galleryCtaTitle: "Har du ett projekt i tankarna?",
-    galleryCtaText: "Från badrum och tak till hela hus – vi tar oss an uppdrag i hela Skåne, med utgångspunkt i Åstorp. Berätta om ditt projekt så återkommer vi inom 24 timmar.",
+    galleryCtaText:
+      "Från badrum och tak till hela hus – vi tar oss an uppdrag i hela Skåne, med utgångspunkt i Åstorp. Berätta om ditt projekt så återkommer vi inom 24 timmar.",
     expandLabel: "Visa bilder",
     collapseLabel: "Dölj bilder",
     footerMotto: "Kvalitet. Pålitlighet. Resultat.",
@@ -323,8 +343,10 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Open to discussing projects outside Skåne",
     ],
     benefitsTitle: "For private homeowners",
-    rotLine: "ROT tax deduction: You may qualify for a deduction on eligible labour under Swedish Tax Agency rules. We can discuss what applies to your project.",
-    guaranteeLine: "Guarantee for private customers: Ask us about the scope and terms for your work; these will be stated in the quote.",
+    rotLine:
+      "ROT tax deduction: You may qualify for a deduction on eligible labour under Swedish Tax Agency rules. We can discuss what applies to your project.",
+    guaranteeLine:
+      "Guarantee for private customers: Ask us about the scope and terms for your work; these will be stated in the quote.",
     responseLine: "Our response promise: We will get back to you within 24 hours of your enquiry.",
     processEyebrow: "How it works",
     processTitle: "Four steps from idea to completed work",
@@ -337,13 +359,29 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     faqEyebrow: "Frequently asked questions",
     faqTitle: "Good to know before contacting us",
     faq: [
-      { question: "Does requesting a quote cost anything?", answer: "No, you can request a quote free of charge. Please describe the work as specifically as possible." },
-      { question: "Can I use the ROT tax deduction?", answer: "Private customers may qualify for ROT on work that meets Swedish Tax Agency requirements. We can help discuss what may apply to your project." },
-      { question: "Where do you work?", answer: "We are based in Åstorp and work throughout Skåne, including Helsingborg, Ängelholm, Höganäs, Landskrona, Lund and Malmö. Other locations may be possible depending on the project." },
-      { question: "How does payment work?", answer: "We discuss payment terms and any ROT deduction with the quote, so you know what applies before work begins." },
+      {
+        question: "Does requesting a quote cost anything?",
+        answer: "No, you can request a quote free of charge. Please describe the work as specifically as possible.",
+      },
+      {
+        question: "Can I use the ROT tax deduction?",
+        answer:
+          "Private customers may qualify for ROT on work that meets Swedish Tax Agency requirements. We can help discuss what may apply to your project.",
+      },
+      {
+        question: "Where do you work?",
+        answer:
+          "We are based in Åstorp and work throughout Skåne, including Helsingborg, Ängelholm, Höganäs, Landskrona, Lund and Malmö. Other locations may be possible depending on the project.",
+      },
+      {
+        question: "How does payment work?",
+        answer:
+          "We discuss payment terms and any ROT deduction with the quote, so you know what applies before work begins.",
+      },
     ],
     privacyTitle: "Personal information",
-    privacyText: "Opening the email draft fills your name, email address and message into your email app. Nothing is sent to us until you send the email yourself. We use your information to reply to your enquiry. Contact us by email to ask about or request deletion of your data.",
+    privacyText:
+      "Opening the email draft fills your name, email address and message into your email app. Nothing is sent to us until you send the email yourself. We use your information to reply to your enquiry. Contact us by email to ask about or request deletion of your data.",
     offertaLabel: "Edet Profix Bygg on Offerta",
     contactEyebrow: "Contact us",
     contactTitle: "Let’s talk about your next project",
@@ -361,7 +399,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailBody: (name, email, message) => `Name: ${name}\nEmail: ${email}\n\n${message}`,
     galleryEyebrow: "Our projects",
     galleryTitle: "Before & after",
-    galleryIntro: "Examples of projects we have completed in Skåne. Here you can see the difference we make – from worn and dated to fresh and new. More projects are added on an ongoing basis.",
+    galleryIntro:
+      "Examples of projects we have completed in Skåne. Here you can see the difference we make – from worn and dated to fresh and new. More projects are added on an ongoing basis.",
     beforeLabel: "Before",
     afterLabel: "After",
     bathroomProject: "Bathroom renovation",
@@ -375,7 +414,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipLabel: "In progress",
     wipAlt: "Ongoing interior renovation – drywall walls and ceilings, plastering and a newly built fireplace",
     houseProject: "House renovation – whole house",
-    houseAlt: "Ongoing full house renovation – new floors, painted walls and ceilings, bathrooms and kitchen installation",
+    houseAlt:
+      "Ongoing full house renovation – new floors, painted walls and ceilings, bathrooms and kitchen installation",
     terraceProject: "Concrete terrace",
     terraceAlt: "Concrete terrace with steps under construction – reinforcement, formwork and smooth finish",
     toiletProject: "Toilet renovation",
@@ -384,7 +424,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     galleryAltBefore: "The bathroom before renovation",
     galleryAltAfter: "The bathroom after renovation",
     galleryCtaTitle: "Do you have a project in mind?",
-    galleryCtaText: "From bathrooms and roofs to entire houses – we take on projects across Skåne, based in Åstorp. Tell us about your project and we will get back to you within 24 hours.",
+    galleryCtaText:
+      "From bathrooms and roofs to entire houses – we take on projects across Skåne, based in Åstorp. Tell us about your project and we will get back to you within 24 hours.",
     expandLabel: "Show photos",
     collapseLabel: "Hide photos",
     footerMotto: "Quality. Reliability. Results.",
@@ -464,7 +505,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "يمكن مناقشة مشاريع خارج سكونه",
     ],
     benefitsTitle: "لأصحاب المنازل",
-    rotLine: "خصم ROT الضريبي: قد يحق لك خصم على أجور العمل المؤهل وفق قواعد مصلحة الضرائب السويدية. نناقش ما ينطبق على مشروعك.",
+    rotLine:
+      "خصم ROT الضريبي: قد يحق لك خصم على أجور العمل المؤهل وفق قواعد مصلحة الضرائب السويدية. نناقش ما ينطبق على مشروعك.",
     guaranteeLine: "ضمان للعملاء الأفراد: اسألنا عن نطاق الضمان وشروطه لعملك؛ وتُذكر في عرض السعر.",
     responseLine: "وعد الرد: نرد على استفسارك خلال 24 ساعة.",
     processEyebrow: "طريقة العمل",
@@ -478,13 +520,25 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     faqEyebrow: "أسئلة شائعة",
     faqTitle: "معلومات قبل التواصل معنا",
     faq: [
-      { question: "هل طلب عرض السعر مجاني؟", answer: "نعم، يمكنك طلب عرض سعر دون تكلفة. صف العمل بأكبر قدر ممكن من الوضوح." },
-      { question: "هل يمكنني الاستفادة من خصم ROT؟", answer: "قد يستحق العملاء الأفراد خصم ROT للأعمال المستوفية لشروط مصلحة الضرائب السويدية. نناقش ما قد ينطبق على مشروعك." },
-      { question: "أين تعملون؟", answer: "ننطلق من أوستورب ونعمل في أنحاء سكونه، بما فيها هلسنبوري وأنجلهولم وهوغاناس ولاندسكرونا ولوند ومالمو. وقد نقبل مناطق أخرى حسب المشروع." },
+      {
+        question: "هل طلب عرض السعر مجاني؟",
+        answer: "نعم، يمكنك طلب عرض سعر دون تكلفة. صف العمل بأكبر قدر ممكن من الوضوح.",
+      },
+      {
+        question: "هل يمكنني الاستفادة من خصم ROT؟",
+        answer:
+          "قد يستحق العملاء الأفراد خصم ROT للأعمال المستوفية لشروط مصلحة الضرائب السويدية. نناقش ما قد ينطبق على مشروعك.",
+      },
+      {
+        question: "أين تعملون؟",
+        answer:
+          "ننطلق من أوستورب ونعمل في أنحاء سكونه، بما فيها هلسنبوري وأنجلهولم وهوغاناس ولاندسكرونا ولوند ومالمو. وقد نقبل مناطق أخرى حسب المشروع.",
+      },
       { question: "كيف يتم الدفع؟", answer: "نوضح شروط الدفع وأي خصم ROT مع عرض السعر، لتعرف التفاصيل قبل بدء العمل." },
     ],
     privacyTitle: "البيانات الشخصية",
-    privacyText: "عند فتح مسودة البريد، يُملأ اسمك وبريدك ورسالتك في تطبيق البريد لديك. لا يصلنا شيء حتى ترسل البريد بنفسك. نستخدم معلوماتك للرد على استفسارك. راسلنا للسؤال عن بياناتك أو طلب حذفها.",
+    privacyText:
+      "عند فتح مسودة البريد، يُملأ اسمك وبريدك ورسالتك في تطبيق البريد لديك. لا يصلنا شيء حتى ترسل البريد بنفسك. نستخدم معلوماتك للرد على استفسارك. راسلنا للسؤال عن بياناتك أو طلب حذفها.",
     offertaLabel: "Edet Profix Bygg على Offerta",
     contactEyebrow: "تواصل معنا",
     contactTitle: "لنتحدث عن مشروعك القادم",
@@ -502,7 +556,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailBody: (name, email, message) => `الاسم: ${name}\nالبريد الإلكتروني: ${email}\n\n${message}`,
     galleryEyebrow: "مشاريعنا",
     galleryTitle: "قبل وبعد",
-    galleryIntro: "أمثلة على مشاريع نفذناها في سكونه. هنا ترى الفرق الذي نصنعه – من مهترئ وقديم إلى جديد وجميل. نضيف المزيد من المشاريع باستمرار.",
+    galleryIntro:
+      "أمثلة على مشاريع نفذناها في سكونه. هنا ترى الفرق الذي نصنعه – من مهترئ وقديم إلى جديد وجميل. نضيف المزيد من المشاريع باستمرار.",
     beforeLabel: "قبل",
     afterLabel: "بعد",
     bathroomProject: "تجديد الحمام",
@@ -525,7 +580,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     galleryAltBefore: "الحمام قبل التجديد",
     galleryAltAfter: "الحمام بعد التجديد",
     galleryCtaTitle: "هل لديك مشروع في ذهنك؟",
-    galleryCtaText: "من الحمامات والأسطح إلى المنازل بأكملها – ننفذ مشاريع في جميع أنحاء سكونه، ومقرنا أستورب. أخبرنا عن مشروعك وسنعود إليك خلال 24 ساعة.",
+    galleryCtaText:
+      "من الحمامات والأسطح إلى المنازل بأكملها – ننفذ مشاريع في جميع أنحاء سكونه، ومقرنا أستورب. أخبرنا عن مشروعك وسنعود إليك خلال 24 ساعة.",
     expandLabel: "عرض الصور",
     collapseLabel: "إخفاء الصور",
     footerMotto: "الجودة. الموثوقية. النتائج.",
@@ -605,8 +661,10 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Mulighed for at drøfte opgaver uden for Skåne",
     ],
     benefitsTitle: "For private boligejere",
-    rotLine: "ROT-fradrag: Du kan have ret til fradrag for godkendt arbejdsløn efter det svenske skattevæsens regler. Vi gennemgår, hvad der gælder for din opgave.",
-    guaranteeLine: "Garanti for private kunder: Spørg os om garantiens omfang og vilkår for dit arbejde; de fremgår af tilbuddet.",
+    rotLine:
+      "ROT-fradrag: Du kan have ret til fradrag for godkendt arbejdsløn efter det svenske skattevæsens regler. Vi gennemgår, hvad der gælder for din opgave.",
+    guaranteeLine:
+      "Garanti for private kunder: Spørg os om garantiens omfang og vilkår for dit arbejde; de fremgår af tilbuddet.",
     responseLine: "Svarløfte: Vi vender tilbage på din forespørgsel inden for 24 timer.",
     processEyebrow: "Sådan foregår det",
     processTitle: "Fire trin fra idé til færdigt arbejde",
@@ -619,13 +677,28 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     faqEyebrow: "Ofte stillede spørgsmål",
     faqTitle: "Godt at vide, før du kontakter os",
     faq: [
-      { question: "Koster det noget at bede om et tilbud?", answer: "Nej, du kan bede om et tilbud uden beregning. Beskriv gerne opgaven så konkret som muligt." },
-      { question: "Kan jeg bruge ROT-fradraget?", answer: "Private kunder kan være berettigede til ROT for arbejde, der opfylder det svenske skattevæsens krav. Vi gennemgår, hvad der kan gælde for din opgave." },
-      { question: "Hvor arbejder I?", answer: "Vi starter i Åstorp og arbejder i hele Skåne, f.eks. Helsingborg, Ängelholm, Höganäs, Landskrona, Lund og Malmö. Andre steder kan være mulige afhængigt af opgaven." },
-      { question: "Hvordan foregår betalingen?", answer: "Betalingsvilkår og et eventuelt ROT-fradrag gennemgår vi sammen med tilbuddet, før arbejdet begynder." },
+      {
+        question: "Koster det noget at bede om et tilbud?",
+        answer: "Nej, du kan bede om et tilbud uden beregning. Beskriv gerne opgaven så konkret som muligt.",
+      },
+      {
+        question: "Kan jeg bruge ROT-fradraget?",
+        answer:
+          "Private kunder kan være berettigede til ROT for arbejde, der opfylder det svenske skattevæsens krav. Vi gennemgår, hvad der kan gælde for din opgave.",
+      },
+      {
+        question: "Hvor arbejder I?",
+        answer:
+          "Vi starter i Åstorp og arbejder i hele Skåne, f.eks. Helsingborg, Ängelholm, Höganäs, Landskrona, Lund og Malmö. Andre steder kan være mulige afhængigt af opgaven.",
+      },
+      {
+        question: "Hvordan foregår betalingen?",
+        answer: "Betalingsvilkår og et eventuelt ROT-fradrag gennemgår vi sammen med tilbuddet, før arbejdet begynder.",
+      },
     ],
     privacyTitle: "Personoplysninger",
-    privacyText: "Når du åbner e-mailudkastet, udfyldes navn, e-mail og besked i dit eget e-mailprogram. Intet sendes til os, før du selv sender mailen. Vi bruger oplysningerne til at besvare din forespørgsel. Kontakt os på mail for at spørge til eller bede om sletning af dine oplysninger.",
+    privacyText:
+      "Når du åbner e-mailudkastet, udfyldes navn, e-mail og besked i dit eget e-mailprogram. Intet sendes til os, før du selv sender mailen. Vi bruger oplysningerne til at besvare din forespørgsel. Kontakt os på mail for at spørge til eller bede om sletning af dine oplysninger.",
     offertaLabel: "Edet Profix Bygg på Offerta",
     contactEyebrow: "Kontakt os",
     contactTitle: "Lad os tale om dit næste projekt",
@@ -644,7 +717,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailBody: (name, email, message) => `Navn: ${name}\nE-mail: ${email}\n\n${message}`,
     galleryEyebrow: "Vores projekter",
     galleryTitle: "Før & efter",
-    galleryIntro: "Eksempler på projekter, vi har udført i Skåne. Her ser du forskellen, vi gør – fra slidt og gammelt til nyt og flot. Vi tilføjer flere projekter løbende.",
+    galleryIntro:
+      "Eksempler på projekter, vi har udført i Skåne. Her ser du forskellen, vi gør – fra slidt og gammelt til nyt og flot. Vi tilføjer flere projekter løbende.",
     beforeLabel: "Før",
     afterLabel: "Efter",
     bathroomProject: "Badeværelsesrenovering",
@@ -658,7 +732,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipLabel: "Under arbejde",
     wipAlt: "Igangværende indvendig renovering – gipsvægge og lofter, pudsning og nymuret kamin",
     houseProject: "Husrenovering – hele huset",
-    houseAlt: "Igangværende totalrenovering af hus – nye gulve, malede vægge og lofter, badeværelser og køkkenmontering",
+    houseAlt:
+      "Igangværende totalrenovering af hus – nye gulve, malede vægge og lofter, badeværelser og køkkenmontering",
     terraceProject: "Betonterrasse",
     terraceAlt: "Støbning af betonterrasse med trin under udførelse – armering, forskalling og glat overflade",
     toiletProject: "Toiletrenovering",
@@ -667,7 +742,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     galleryAltBefore: "Badeværelset før renoveringen",
     galleryAltAfter: "Badeværelset efter renoveringen",
     galleryCtaTitle: "Har du et projekt i tankerne?",
-    galleryCtaText: "Fra badeværelser og tage til hele huse – vi tager opgaver i hele Skåne med udgangspunkt i Åstorp. Fortæl os om dit projekt, så vender vi tilbage inden for 24 timer.",
+    galleryCtaText:
+      "Fra badeværelser og tage til hele huse – vi tager opgaver i hele Skåne med udgangspunkt i Åstorp. Fortæl os om dit projekt, så vender vi tilbage inden for 24 timer.",
     expandLabel: "Vis billeder",
     collapseLabel: "Skjul billeder",
     footerMotto: "Kvalitet. Pålidelighed. Resultater.",
@@ -748,8 +824,10 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Moguć dogovor za poslove izvan pokrajine Skåne",
     ],
     benefitsTitle: "Za vlasnike privatnih domova",
-    rotLine: "Poreska olakšica ROT: Možete imati pravo na odbitak za prihvatljiv rad prema pravilima švedske poreske uprave. Razgovarat ćemo o tome šta važi za vaš posao.",
-    guaranteeLine: "Garancija za privatne klijente: Pitajte nas o obimu i uslovima garancije za vaš posao; oni se navode u ponudi.",
+    rotLine:
+      "Poreska olakšica ROT: Možete imati pravo na odbitak za prihvatljiv rad prema pravilima švedske poreske uprave. Razgovarat ćemo o tome šta važi za vaš posao.",
+    guaranteeLine:
+      "Garancija za privatne klijente: Pitajte nas o obimu i uslovima garancije za vaš posao; oni se navode u ponudi.",
     responseLine: "Obećanje odgovora: Odgovaramo na vaš upit u roku od 24 sata.",
     processEyebrow: "Kako radimo",
     processTitle: "Četiri koraka od ideje do završetka",
@@ -762,13 +840,28 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     faqEyebrow: "Česta pitanja",
     faqTitle: "Šta treba znati prije javljanja",
     faq: [
-      { question: "Da li se naplaćuje traženje ponude?", answer: "Ne, ponudu možete zatražiti besplatno. Opišite posao što konkretnije." },
-      { question: "Mogu li koristiti ROT olakšicu?", answer: "Privatni klijenti mogu ostvariti ROT za radove koji ispunjavaju uslove švedske poreske uprave. Razgovarat ćemo o tome šta se može primijeniti na vaš posao." },
-      { question: "Gdje radite?", answer: "Polazimo iz Åstorpa i radimo širom pokrajine Skåne, uključujući Helsingborg, Ängelholm, Höganäs, Landskronu, Lund i Malmö. Druge lokacije su moguće zavisno od posla." },
-      { question: "Kako funkcioniše plaćanje?", answer: "Uslove plaćanja i moguću ROT olakšicu prolazimo uz ponudu, prije početka radova." },
+      {
+        question: "Da li se naplaćuje traženje ponude?",
+        answer: "Ne, ponudu možete zatražiti besplatno. Opišite posao što konkretnije.",
+      },
+      {
+        question: "Mogu li koristiti ROT olakšicu?",
+        answer:
+          "Privatni klijenti mogu ostvariti ROT za radove koji ispunjavaju uslove švedske poreske uprave. Razgovarat ćemo o tome šta se može primijeniti na vaš posao.",
+      },
+      {
+        question: "Gdje radite?",
+        answer:
+          "Polazimo iz Åstorpa i radimo širom pokrajine Skåne, uključujući Helsingborg, Ängelholm, Höganäs, Landskronu, Lund i Malmö. Druge lokacije su moguće zavisno od posla.",
+      },
+      {
+        question: "Kako funkcioniše plaćanje?",
+        answer: "Uslove plaćanja i moguću ROT olakšicu prolazimo uz ponudu, prije početka radova.",
+      },
     ],
     privacyTitle: "Lični podaci",
-    privacyText: "Otvaranjem nacrta e-maila vaše ime, adresa i poruka unose se u vaš e-mail program. Ništa nam se ne šalje dok sami ne pošaljete poruku. Podatke koristimo za odgovor na upit. Javite nam se e-mailom za informacije ili zahtjev za brisanje podataka.",
+    privacyText:
+      "Otvaranjem nacrta e-maila vaše ime, adresa i poruka unose se u vaš e-mail program. Ništa nam se ne šalje dok sami ne pošaljete poruku. Podatke koristimo za odgovor na upit. Javite nam se e-mailom za informacije ili zahtjev za brisanje podataka.",
     offertaLabel: "Edet Profix Bygg na Offerta",
     contactEyebrow: "Kontaktirajte nas",
     contactTitle: "Razgovarajmo o vašem sljedećem projektu",
@@ -787,7 +880,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailBody: (name, email, message) => `Ime: ${name}\nE-mail: ${email}\n\n${message}`,
     galleryEyebrow: "Naši projekti",
     galleryTitle: "Prije i poslije",
-    galleryIntro: "Primjeri projekata koje smo izveli u Skåneu. Ovdje vidite razliku koju pravimo – od istrošenog i starog do novog i lijepog. Redovno dodajemo nove projekte.",
+    galleryIntro:
+      "Primjeri projekata koje smo izveli u Skåneu. Ovdje vidite razliku koju pravimo – od istrošenog i starog do novog i lijepog. Redovno dodajemo nove projekte.",
     beforeLabel: "Prije",
     afterLabel: "Poslije",
     bathroomProject: "Renoviranje kupatila",
@@ -810,7 +904,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     galleryAltBefore: "Kupatilo prije renoviranja",
     galleryAltAfter: "Kupatilo poslije renoviranja",
     galleryCtaTitle: "Imate li projekat na umu?",
-    galleryCtaText: "Od kupatila i krovova do cijelih kuća – preuzimamo poslove u cijeloj Skåne, sa sjedištem u Åstorp. Recite nam o svom projektu i odgovorit ćemo u roku od 24 sata.",
+    galleryCtaText:
+      "Od kupatila i krovova do cijelih kuća – preuzimamo poslove u cijeloj Skåne, sa sjedištem u Åstorp. Recite nam o svom projektu i odgovorit ćemo u roku od 24 sata.",
     expandLabel: "Prikaži slike",
     collapseLabel: "Sakrij slike",
     footerMotto: "Kvalitet. Pouzdanost. Rezultat.",
