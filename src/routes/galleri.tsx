@@ -11,6 +11,10 @@ import fasadEfter2Asset from "@/assets/fasad-efter-2.jpg.asset.json";
 import fasadEfter3Asset from "@/assets/fasad-efter-3.jpg.asset.json";
 import fasadFore1Asset from "@/assets/fasad-fore-1.jpg.asset.json";
 import fasadFore2Asset from "@/assets/fasad-fore-2.jpg.asset.json";
+import renovering1Asset from "@/assets/renovering-1.jpg.asset.json";
+import renovering2Asset from "@/assets/renovering-2.jpg.asset.json";
+import renovering3Asset from "@/assets/renovering-3.jpg.asset.json";
+import renovering4Asset from "@/assets/renovering-4.jpg.asset.json";
 import logoAsset from "@/assets/edet-profix-logo-transparent.png.asset.json";
 import takEfter1Asset from "@/assets/tak-efter-1.jpg.asset.json";
 import takEfter2Asset from "@/assets/tak-efter-2.jpg.asset.json";
@@ -25,9 +29,9 @@ export const Route = createFileRoute("/galleri")({
   head: () => ({
     meta: [
       { title: "Galleri – Före & efter | Edet Profix Bygg" },
-      { name: "description", content: "Se före- och efterbilder från projekt av Edet Profix Bygg – badrumsrenovering, fasadmålning och takläggning i Åstorp och hela Skåne." },
+      { name: "description", content: "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, fasadmålning, takläggning och pågående interiörrenovering i Åstorp och hela Skåne." },
       { property: "og:title", content: "Galleri – Före & efter | Edet Profix Bygg" },
-      { property: "og:description", content: "Före- och efterbilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
+      { property: "og:description", content: "Bilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -39,8 +43,9 @@ type Project = {
   title: (t: SiteTranslation) => string;
   altBefore: (t: SiteTranslation) => string;
   altAfter: (t: SiteTranslation) => string;
-  beforeImages: { url: string }[];
-  afterImages: { url: string }[];
+  beforeImages?: { url: string }[];
+  afterImages?: { url: string }[];
+  inProgressImages?: { url: string }[];
   wideClass: string;
 };
 
@@ -69,36 +74,56 @@ const projects: Project[] = [
     afterImages: [takEfter1Asset, takEfter2Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
+  {
+    title: (t) => t.wipProject,
+    altBefore: (t) => t.wipAlt,
+    altAfter: (t) => t.wipAlt,
+    inProgressImages: [renovering1Asset, renovering2Asset, renovering3Asset, renovering4Asset],
+    wideClass: "col-span-2 aspect-[16/10]",
+  },
 ];
 
 function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
   return (
     <article className="mx-auto max-w-4xl overflow-hidden rounded-lg border border-border bg-card shadow-strong">
       <h2 className="border-b border-border px-6 py-5 text-xl font-extrabold">{project.title(t)}</h2>
-      <div className="flex flex-col gap-px bg-border">
-        <div>
-          <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.beforeLabel}</p>
-          <div className="grid grid-cols-2 gap-px bg-border">
-            {project.beforeImages.map((image, index) => (
-              <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className="aspect-[4/3] w-full bg-card object-cover" />
-            ))}
+      {project.inProgressImages ? (
+        <div className="flex flex-col gap-px bg-border">
+          <div>
+            <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.wipLabel}</p>
+            <div className="grid grid-cols-2 gap-px bg-border">
+              {project.inProgressImages.map((image, index) => (
+                <img key={index} src={image.url} alt={project.altBefore(t)} loading={index === 0 ? undefined : "lazy"} className="aspect-[4/3] w-full bg-card object-cover" />
+              ))}
+            </div>
           </div>
         </div>
-        <div>
-          <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.afterLabel}</p>
-          <div className="grid grid-cols-2 gap-px bg-border">
-            {project.afterImages.map((image, index) => (
-              <img
-                key={index}
-                src={image.url}
-                alt={project.altAfter(t)}
-                loading={index === 0 ? undefined : "lazy"}
-                className={index === 2 ? `${project.wideClass} w-full bg-card object-cover` : "aspect-[4/3] w-full bg-card object-cover"}
-              />
-            ))}
+      ) : (
+        <div className="flex flex-col gap-px bg-border">
+          <div>
+            <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.beforeLabel}</p>
+            <div className="grid grid-cols-2 gap-px bg-border">
+              {project.beforeImages?.map((image, index) => (
+                <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className="aspect-[4/3] w-full bg-card object-cover" />
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.afterLabel}</p>
+            <div className="grid grid-cols-2 gap-px bg-border">
+              {project.afterImages?.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.url}
+                  alt={project.altAfter(t)}
+                  loading={index === 0 ? undefined : "lazy"}
+                  className={index === 2 ? `${project.wideClass} w-full bg-card object-cover` : "aspect-[4/3] w-full bg-card object-cover"}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </article>
   );
 }
