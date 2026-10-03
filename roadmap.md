@@ -8,3 +8,4 @@
 - [x] Fjärde galleriprojekt: Interiörrenovering & kamin – pågående arbete (4 bilder, "Under arbete" i stället för före/efter), komprimerade bilder, fem språk, verifierad på dator/mobil.
 - [x] Fjärde galleriprojekt: Husrenovering – hela huset (10 bilder, etikett "Under arbete"), komprimerade ~15–56 KB, fem språk, verifierad på dator/mobil/arabiska.
 - [x] Sjätte galleriprojekt: Betongterrass – gjutning med trappsteg (4 bilder, "Under arbete"), komprimerade bilder, fem språk, verifierad på dator/mobil.
+- [x] Sjunde galleriprojekt: Toalettronovation – före/efter sida vid sida (1 + 1 bild), komprimerade bilder, fem språk, verifierad på dator/mobil.
