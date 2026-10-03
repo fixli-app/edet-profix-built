@@ -275,7 +275,7 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
   );
 }
 
-function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
+function ProjectCard({ project, t, onZoom }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler }) {
   const [open, setOpen] = useState(false);
   const imageCount =
     project.inProgressImages?.length ?? (project.beforeImages?.length ?? 0) + (project.afterImages?.length ?? 0);
@@ -318,7 +318,7 @@ function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
       >
         <div className="overflow-hidden">
           <div className="border-t border-border py-px">
-            <ExpandedImages project={project} t={t} />
+            <ExpandedImages project={project} t={t} onZoom={onZoom} />
           </div>
         </div>
       </div>
@@ -328,6 +328,7 @@ function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
 
 function GalleriPage() {
   const { language, setLanguage, t } = useLanguage();
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
