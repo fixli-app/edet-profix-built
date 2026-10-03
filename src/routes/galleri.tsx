@@ -74,6 +74,13 @@ const projects: Project[] = [
     afterImages: [takEfter1Asset, takEfter2Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
+  {
+    title: (t) => t.wipProject,
+    altBefore: (t) => t.wipAlt,
+    altAfter: (t) => t.wipAlt,
+    inProgressImages: [renovering1Asset, renovering2Asset, renovering3Asset, renovering4Asset],
+    wideClass: "col-span-2 aspect-[16/10]",
+  },
 ];
 
 function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
