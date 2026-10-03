@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, ArrowUp, Check, ChevronDown, Hammer, Mail, MapPin, ShieldCheck, Sparkles, Target, Trees, Wrench } from "lucide-react";
 import { z } from "zod";
 
@@ -69,7 +69,7 @@ const contactSchema = z.object({
 
 // Bildspel: börjar alltid med aktuell startbild, roterar slumpmässigt var 10e sekund.
 // Aldrig före-bilder — bara färdiga projektbilder och pågående arbete.
-const heroStartImage = "/images/edet-profix-hero.jpg";
+const heroStartImage = "/images/edet-profix-builder-real.jpg";
 const heroRotatingImages = [
   "/images/badrum-efter-1.jpg",
   "/images/badrum-efter-2.jpg",
