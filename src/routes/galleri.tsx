@@ -144,11 +144,11 @@ function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
         <div className="grid grid-cols-2 gap-px bg-border">
           <div>
             <p className="bg-primary-soft px-4 py-3 text-sm font-bold uppercase tracking-wide text-primary sm:px-6">{t.beforeLabel}</p>
-            <img src={project.beforeImages[0].url} alt={project.altBefore(t)} className="aspect-square w-full bg-card object-cover" />
+            {project.beforeImages?.[0] && <img src={project.beforeImages[0].url} alt={project.altBefore(t)} className="aspect-square w-full bg-card object-cover" />}
           </div>
           <div>
             <p className="bg-primary-soft px-4 py-3 text-sm font-bold uppercase tracking-wide text-primary sm:px-6">{t.afterLabel}</p>
-            <img src={project.afterImages[0].url} alt={project.altAfter(t)} className="aspect-square w-full bg-card object-cover" />
+            {project.afterImages?.[0] && <img src={project.afterImages[0].url} alt={project.altAfter(t)} className="aspect-square w-full bg-card object-cover" />}
           </div>
         </div>
       ) : (
