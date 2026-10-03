@@ -3,7 +3,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { ArrowRight, ArrowUp, Check, ChevronDown, ExternalLink, Hammer, Mail, MapPin, Menu, ShieldCheck, Sparkles, Target, Trees, Wrench, X } from "lucide-react";
 import { z } from "zod";
 
-import builderAsset from "@/assets/edet-profix-builder.jpg.asset.json";
+import builderAsset from "@/assets/edet-profix-builder-real.jpg.asset.json";
 import logoAsset from "@/assets/edet-profix-logo-transparent.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { languages, translations, type LanguageCode } from "@/lib/site-translations";
