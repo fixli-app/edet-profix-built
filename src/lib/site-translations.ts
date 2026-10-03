@@ -73,6 +73,7 @@ export type SiteTranslation = {
   mailSubject: (name: string) => string;
   mailBody: (name: string, email: string, message: string) => string;
   footerMotto: string;
+  siteCredit: string;
   backToTop: string;
   galleryEyebrow: string;
   galleryTitle: string;
@@ -245,6 +246,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     expandLabel: "Visa bilder",
     collapseLabel: "Dölj bilder",
     footerMotto: "Kvalitet. Pålitlighet. Resultat.",
+    siteCredit: "Webbdesign: Haris Hasanbegovic, Höganäs",
     backToTop: "Tillbaka till toppen",
   },
   en: {
@@ -386,6 +388,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     expandLabel: "Show photos",
     collapseLabel: "Hide photos",
     footerMotto: "Quality. Reliability. Results.",
+    siteCredit: "Web design: Haris Hasanbegovic, Höganäs",
     backToTop: "Back to top",
   },
   ar: {
@@ -526,6 +529,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     expandLabel: "عرض الصور",
     collapseLabel: "إخفاء الصور",
     footerMotto: "الجودة. الموثوقية. النتائج.",
+    siteCredit: "تصميم الموقع: Haris Hasanbegovic، Höganäs",
     backToTop: "العودة إلى الأعلى",
   },
   da: {
@@ -667,6 +671,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     expandLabel: "Vis billeder",
     collapseLabel: "Skjul billeder",
     footerMotto: "Kvalitet. Pålidelighed. Resultater.",
+    siteCredit: "Webdesign: Haris Hasanbegovic, Höganäs",
     backToTop: "Tilbage til toppen",
   },
   bs: {
@@ -809,6 +814,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     expandLabel: "Prikaži slike",
     collapseLabel: "Sakrij slike",
     footerMotto: "Kvalitet. Pouzdanost. Rezultat.",
+    siteCredit: "Dizajn weba: Haris Hasanbegovic, Höganäs",
     backToTop: "Nazad na vrh",
   },
 };

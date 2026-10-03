@@ -295,6 +295,7 @@ function GalleriPage() {
             ><ExternalLink size={18} /></a>
           </div>
         </div>
+        <p className="mx-auto mt-6 max-w-7xl px-5 text-[11px] text-footer-muted opacity-60 lg:px-8">{t.siteCredit}</p>
       </footer>
     </div>
   );
