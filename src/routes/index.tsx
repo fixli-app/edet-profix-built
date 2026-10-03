@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, ArrowUp, Check, ChevronDown, Hammer, Mail, MapPin, ShieldCheck, Sparkles, Target, Trees, Wrench } from "lucide-react";
 import { z } from "zod";
 
@@ -69,7 +69,7 @@ const contactSchema = z.object({
 
 // Bildspel: börjar alltid med aktuell startbild, roterar slumpmässigt var 10e sekund.
 // Aldrig före-bilder — bara färdiga projektbilder och pågående arbete.
-const heroStartImage = "/images/edet-profix-hero.jpg";
+const heroStartImage = "/images/edet-profix-builder-real.jpg";
 const heroRotatingImages = [
   "/images/badrum-efter-1.jpg",
   "/images/badrum-efter-2.jpg",
@@ -101,6 +101,9 @@ function Index() {
   const { language, setLanguage, t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
   const [heroImage, setHeroImage] = useState(heroStartImage);
+  const [heroPrevImage, setHeroPrevImage] = useState<string | null>(null);
+  const [heroLoaded, setHeroLoaded] = useState(true);
+  const heroRef = useRef(heroStartImage);
 
   useEffect(() => {
     heroRotatingImages.forEach((src) => {
@@ -108,14 +111,24 @@ function Index() {
       img.src = src;
     });
     const id = setInterval(() => {
-      setHeroImage((prev) => {
-        let next = prev;
-        while (next === prev) next = heroRotatingImages[Math.floor(Math.random() * heroRotatingImages.length)] ?? prev;
-        return next;
-      });
+      const prev = heroRef.current;
+      let next = prev;
+      while (next === prev) next = heroRotatingImages[Math.floor(Math.random() * heroRotatingImages.length)] ?? prev;
+      if (next === prev) return;
+      heroRef.current = next;
+      setHeroPrevImage(prev);
+      setHeroLoaded(false);
+      setHeroImage(next);
     }, 10000);
     return () => clearInterval(id);
   }, []);
+
+  // Ta bort den gamla bilden ur stapeln när toningen är klar.
+  useEffect(() => {
+    if (!heroPrevImage) return;
+    const timer = setTimeout(() => setHeroPrevImage(null), 1200);
+    return () => clearTimeout(timer);
+  }, [heroPrevImage]);
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 560);
@@ -188,7 +201,7 @@ function Index() {
         <section id="varfor" className="scroll-mt-20 py-20 sm:py-28">
           <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
             <div><p className="eyebrow">{t.whyEyebrow}</p><h2 className="section-title">{t.whyTitle}</h2><p className="mt-6 text-base leading-8 text-muted-foreground">{t.whyText}</p>
-              <figure className="mt-8 overflow-hidden rounded-lg border border-border bg-card shadow-strong"><img key={heroImage} src={heroImage} alt={t.photoAlt} className="aspect-[4/5] w-full animate-fade-in object-cover object-center" /><figcaption className="border-t border-border px-5 py-4 text-sm font-bold text-foreground">{t.photoCaption}</figcaption></figure>
+              <figure className="mt-8 overflow-hidden rounded-lg border border-border bg-card shadow-strong"><div className="relative aspect-[4/5] w-full">{heroPrevImage && <img src={heroPrevImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-center" />}<img key={heroImage} src={heroImage} alt={t.photoAlt} onLoad={() => setHeroLoaded(true)} className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out ${heroLoaded ? "opacity-100" : "opacity-0"}`} /></div><figcaption className="border-t border-border px-5 py-4 text-sm font-bold text-foreground">{t.photoCaption}</figcaption></figure>
             </div>
             <div>
               <div className="grid gap-3 sm:grid-cols-2">{t.reasons.map((reason, index) => <div key={index} className="flex min-h-20 items-center gap-4 border-b border-border p-3"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check size={17} strokeWidth={3} /></span><span className="font-semibold leading-6">{reason}</span></div>)}</div>
