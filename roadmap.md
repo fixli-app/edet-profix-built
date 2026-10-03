@@ -1,0 +1,4 @@
+- [ ] Förtydliga Åstorp, Skåne och närliggande orter med konkreta företagstexter.
+- [ ] Koppla fem fullständiga översättningar till sidan och kontrollera RTL/mobil/dator.
+- [ ] Lägg till ROT, garanti, svarslöfte, arbetsgång, FAQ, integritetstext och Offerta-länk.
+- [ ] Kontrollera formulärets språkberoende e-postutkast och sidans visning.

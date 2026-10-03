@@ -11,3 +11,4 @@
 
 - Keep the public site as a single-page experience with anchored sections because the business needs a simple, direct customer journey.
 - Reuse the shared semantic design tokens and UI controls so the brand remains consistent and maintainable.
+- Keep all visible site copy in a local typed translation dictionary and persist language preference in browser storage, because the single-page site must work consistently in five languages without a translation service.

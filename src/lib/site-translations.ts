@@ -44,6 +44,19 @@ export type SiteTranslation = {
   photoAlt: string;
   photoCaption: string;
   reasons: string[];
+  benefitsTitle: string;
+  rotLine: string;
+  guaranteeLine: string;
+  responseLine: string;
+  processEyebrow: string;
+  processTitle: string;
+  processSteps: Array<{ title: string; text: string }>;
+  faqEyebrow: string;
+  faqTitle: string;
+  faq: Array<{ question: string; answer: string }>;
+  privacyTitle: string;
+  privacyText: string;
+  offertaLabel: string;
   contactEyebrow: string;
   contactTitle: string;
   contactText: string;
@@ -73,10 +86,10 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     nav: { services: "Tjänster", about: "Om oss", why: "Varför oss", contact: "Kontakt" },
     freeQuote: "Kostnadsfri offert",
     areaKicker: "Utgångspunkt Åstorp · Hela Skåne · Flexibla vid rätt uppdrag",
-    heroTitle: "Pålitliga fastighets- & byggtjänster",
-    heroAccent: "du kan lita på.",
+    heroTitle: "Bygg och renovering i Skåne",
+    heroAccent: "med start i Åstorp.",
     heroText:
-      "Vi utgår från Åstorp, arbetar i hela Skåne och kan vara flexibla beroende på uppdraget. Professionellt hantverk från start till mål.",
+      "Från reparationer och renovering till markarbete och byggstädning. Vi utgår från Åstorp, arbetar i hela Skåne och kan resa längre beroende på uppdraget.",
     requestQuote: "Begär en offert",
     seeServices: "Se våra tjänster",
     values: [
@@ -85,7 +98,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       { title: "Resultat", text: "Omsorg i varje detalj" },
     ],
     servicesEyebrow: "Vad vi gör",
-    servicesTitle: "Kompletta lösningar för din fastighet",
+    servicesTitle: "Från renovering till färdigt markarbete",
     servicesIntro:
       "Från mindre reparationer och invändiga renoveringar till plattsättning, dränering och byggstädning. Vi tar oss an både små och stora projekt för bostäder och kommersiella fastigheter.",
     services: [
@@ -97,31 +110,54 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       { title: "Mark & anläggning", text: "Plattsättning, dränering och trädgårdsanläggning utfört med precision." },
       { title: "Byggstädning", text: "Noggrann städning som lämnar projektet rent, säkert och redo att användas." },
     ],
-    aboutEyebrow: "Drivna av kvalitet",
-    aboutTitle: "Byggda på förtroende",
+    aboutEyebrow: "Om Edet Profix Bygg",
+    aboutTitle: "Ett byggföretag med bas i Åstorp",
     aboutTextOne:
-      "Vårt arbetssätt bygger på pålitligt hantverk, tydlig kommunikation och bestående resultat. Varje projekt planeras noggrant och genomförs med precision, från första möte till slutgiltig överlämning.",
+      "Behöver du renovera inomhus, reparera en fastighet, lägga plattor eller ordna byggstädningen? Vi tar oss an flera delar av projektet och pratar igenom arbetets omfattning innan vi lämnar offert.",
     aboutTextTwo:
-      "Vi är ett engagerat team med erfarenhet inom fastighetsunderhåll, renovering, byggtjänster och trädgårdsanläggning. Målet är alltid långsiktiga kundrelationer och resultat som håller över tid.",
+      "Åstorp är vår utgångspunkt. Vi tar uppdrag i hela Skåne, bland annat i Helsingborg, Ängelholm och Höganäs. För rätt uppdrag kan vi vara flexibla även utanför området.",
     missionTitle: "Vårt uppdrag",
     missionText:
       "Att förbättra värdet, funktionaliteten och utseendet på varje fastighet genom kvalitet och kundnöjdhet.",
     valuesTitle: "Våra värderingar",
     valuesText: "Integritet, kvalitet, pålitlighet och professionalism i varje beslut, handling och detalj.",
     whyEyebrow: "Varför välja oss",
-    whyTitle: "Din pålitliga partner i hela Skåne",
+    whyTitle: "Ett samtal om hela jobbet",
     whyText:
-      "Vår utgångspunkt är Åstorp och vi arbetar i hela Skåne. Beroende på uppdragets omfattning och förutsättningar är vi även flexibla med var vi tar oss an arbeten.",
+      "Vi arbetar med både bygg, löpande underhåll, markarbete och städning efteråt. Berätta vad som behöver göras, så går vi igenom nästa steg och vad som passar just ditt projekt.",
     photoAlt: "Byggare från Edet Profix Bygg i ett färdigställt träarbete",
-    photoCaption: "Professionellt hantverk med omsorg om varje detalj.",
+    photoCaption: "Byggarbete på plats – från första genomgång till färdigt resultat.",
     reasons: [
-      "Erfarna och skickliga yrkespersoner",
-      "Högkvalitativt hantverk i varje projekt",
-      "Pålitlig service med leverans i tid",
-      "Transparent kommunikation från start till mål",
-      "Skräddarsydda lösningar för bostäder och företag",
-      "Kvalitetsmaterial och beprövade arbetsmetoder",
+      "En förfrågan kan omfatta flera typer av byggarbete",
+      "Från små reparationer till större renoveringar",
+      "Markarbete och byggstädning när det behövs",
+      "Åstorp som bas – uppdrag i hela Skåne",
+      "Helsingborg, Ängelholm och Höganäs ingår i området",
+      "Möjlighet att diskutera jobb utanför Skåne",
     ],
+    benefitsTitle: "För dig som privatperson",
+    rotLine: "ROT-avdrag: Du kan ha rätt till avdrag för godkänt arbetsarbete enligt Skatteverkets regler. Vi går igenom vad som gäller för ditt uppdrag.",
+    guaranteeLine: "Garanti för privatpersoner: Fråga oss om garantins omfattning och villkor för ditt arbete – det framgår av offerten.",
+    responseLine: "Svarslöfte: Vi återkommer på din förfrågan inom 24 timmar.",
+    processEyebrow: "Så går det till",
+    processTitle: "Fyra steg från idé till färdigt arbete",
+    processSteps: [
+      { title: "Förfrågan", text: "Berätta vad du vill få gjort och var arbetet ska utföras." },
+      { title: "Platsbesök", text: "Vid behov tittar vi på förutsättningarna tillsammans på plats." },
+      { title: "Offert", text: "Du får ett förslag på arbetets omfattning och kostnad." },
+      { title: "Genomförande", text: "När vi är överens planerar vi och utför arbetet." },
+    ],
+    faqEyebrow: "Vanliga frågor",
+    faqTitle: "Bra att veta innan du hör av dig",
+    faq: [
+      { question: "Kostar det att be om en offert?", answer: "Nej, du kan skicka en offertförfrågan utan kostnad. Beskriv gärna arbetet så konkret du kan." },
+      { question: "Kan jag använda ROT-avdrag?", answer: "Som privatperson kan du ha rätt till ROT-avdrag för arbete som uppfyller Skatteverkets villkor. Vi hjälper dig att reda ut vad som kan gälla för ditt projekt." },
+      { question: "Var arbetar ni?", answer: "Vi utgår från Åstorp och arbetar i hela Skåne, exempelvis Helsingborg, Ängelholm och Höganäs. Andra orter kan vara möjliga beroende på uppdraget." },
+      { question: "Hur fungerar betalningen?", answer: "Betalningsvillkor och eventuellt ROT-avdrag går vi igenom i samband med offerten, så att du vet vad som gäller innan arbetet börjar." },
+    ],
+    privacyTitle: "Personuppgifter",
+    privacyText: "När du öppnar e-postutkastet fylls namn, e-postadress och meddelande i ditt e-postprogram. Inget skickas till oss förrän du själv skickar mejlet. Vi använder uppgifterna för att besvara din förfrågan. Kontakta oss via e-post om du vill veta mer eller begära att dina uppgifter raderas.",
+    offertaLabel: "Edet Profix Bygg på Offerta",
     contactEyebrow: "Kontakta oss",
     contactTitle: "Låt oss prata om ditt nästa projekt",
     contactText:
@@ -150,10 +186,10 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     nav: { services: "Services", about: "About us", why: "Why us", contact: "Contact" },
     freeQuote: "Free quote",
     areaKicker: "Based in Åstorp · All of Skåne · Flexible for the right project",
-    heroTitle: "Reliable property & construction services",
-    heroAccent: "you can count on.",
+    heroTitle: "Building and renovation in Skåne",
+    heroAccent: "based in Åstorp.",
     heroText:
-      "Based in Åstorp, we work throughout Skåne and can be flexible depending on the project. Professional craftsmanship from start to finish.",
+      "From repairs and renovations to groundworks and post-build cleaning. We are based in Åstorp, work across Skåne and can travel further depending on the job.",
     requestQuote: "Request a quote",
     seeServices: "View our services",
     values: [
@@ -162,7 +198,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       { title: "Results", text: "Care in every detail" },
     ],
     servicesEyebrow: "What we do",
-    servicesTitle: "Complete solutions for your property",
+    servicesTitle: "From renovations to finished groundworks",
     servicesIntro:
       "From minor repairs and interior renovations to paving, drainage and post-construction cleaning. We handle projects of all sizes for homes and commercial properties.",
     services: [
@@ -183,31 +219,54 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
         text: "Thorough cleaning that leaves the project clean, safe and ready to use.",
       },
     ],
-    aboutEyebrow: "Driven by quality",
-    aboutTitle: "Built on trust",
+    aboutEyebrow: "About Edet Profix Bygg",
+    aboutTitle: "A building company based in Åstorp",
     aboutTextOne:
-      "Our approach is based on reliable craftsmanship, clear communication and lasting results. Every project is carefully planned and completed with precision — from the first meeting to final handover.",
+      "Need an interior renovation, property repair, paving or post-build cleaning? We can take on several parts of a project and discuss the scope before providing a quote.",
     aboutTextTwo:
-      "We are a committed team with experience in property maintenance, renovation, construction and landscaping. Our goal is always long-term customer relationships and results that stand the test of time.",
+      "We start from Åstorp and take on work throughout Skåne, including Helsingborg, Ängelholm and Höganäs. For the right project, we can be flexible beyond the region.",
     missionTitle: "Our mission",
     missionText:
       "To improve the value, function and appearance of every property through quality and customer satisfaction.",
     valuesTitle: "Our values",
     valuesText: "Integrity, quality, reliability and professionalism in every decision, action and detail.",
     whyEyebrow: "Why choose us",
-    whyTitle: "Your reliable partner across Skåne",
+    whyTitle: "One conversation about the whole job",
     whyText:
-      "We are based in Åstorp and work throughout Skåne. Depending on the scale and requirements of the project, we can also be flexible about where we take on work.",
+      "We handle building work, ongoing maintenance, groundworks and cleaning afterwards. Tell us what needs doing and we will talk through the next steps for your project.",
     photoAlt: "Edet Profix Bygg craftsman beside completed woodwork",
-    photoCaption: "Professional craftsmanship with care in every detail.",
+    photoCaption: "Building work on site, from the first discussion to completion.",
     reasons: [
-      "Experienced and skilled professionals",
-      "High-quality workmanship on every project",
-      "Reliable service delivered on time",
-      "Clear communication from start to finish",
-      "Tailored solutions for homes and businesses",
-      "Quality materials and proven methods",
+      "One enquiry can cover several types of building work",
+      "From small repairs to larger renovations",
+      "Groundworks and post-build cleaning when needed",
+      "Based in Åstorp, working across Skåne",
+      "Helsingborg, Ängelholm and Höganäs are within our area",
+      "Open to discussing projects outside Skåne",
     ],
+    benefitsTitle: "For private homeowners",
+    rotLine: "ROT tax deduction: You may qualify for a deduction on eligible labour under Swedish Tax Agency rules. We can discuss what applies to your project.",
+    guaranteeLine: "Guarantee for private customers: Ask us about the scope and terms for your work; these will be stated in the quote.",
+    responseLine: "Our response promise: We will get back to you within 24 hours of your enquiry.",
+    processEyebrow: "How it works",
+    processTitle: "Four steps from idea to completed work",
+    processSteps: [
+      { title: "Enquiry", text: "Tell us what you need done and where the work will take place." },
+      { title: "Site visit", text: "If needed, we review the conditions together on site." },
+      { title: "Quote", text: "You receive a proposal outlining the work and the cost." },
+      { title: "Work begins", text: "Once we agree, we plan and carry out the work." },
+    ],
+    faqEyebrow: "Frequently asked questions",
+    faqTitle: "Good to know before contacting us",
+    faq: [
+      { question: "Does requesting a quote cost anything?", answer: "No, you can request a quote free of charge. Please describe the work as specifically as possible." },
+      { question: "Can I use the ROT tax deduction?", answer: "Private customers may qualify for ROT on work that meets Swedish Tax Agency requirements. We can help discuss what may apply to your project." },
+      { question: "Where do you work?", answer: "We are based in Åstorp and work throughout Skåne, including Helsingborg, Ängelholm and Höganäs. Other locations may be possible depending on the project." },
+      { question: "How does payment work?", answer: "We discuss payment terms and any ROT deduction with the quote, so you know what applies before work begins." },
+    ],
+    privacyTitle: "Personal information",
+    privacyText: "Opening the email draft fills your name, email address and message into your email app. Nothing is sent to us until you send the email yourself. We use your information to reply to your enquiry. Contact us by email to ask about or request deletion of your data.",
+    offertaLabel: "Edet Profix Bygg on Offerta",
     contactEyebrow: "Contact us",
     contactTitle: "Let’s talk about your next project",
     contactText: "Tell us what you need help with and we will get back to discuss a solution that suits your project.",
