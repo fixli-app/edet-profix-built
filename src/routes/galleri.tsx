@@ -37,6 +37,7 @@ import terass1Asset from "@/assets/terass-1.jpg.asset.json";
 import terass2Asset from "@/assets/terass-2.jpg.asset.json";
 import terass3Asset from "@/assets/terass-3.jpg.asset.json";
 import terass4Asset from "@/assets/terass-4.jpg.asset.json";
+import { ImageLightbox } from "@/components/image-lightbox";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/use-language";
@@ -155,19 +156,49 @@ function LabelBar({ label }: { label: string }) {
   );
 }
 
-function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }) {
+type ZoomHandler = (src: string, alt: string) => void;
+
+function ZoomableImage({
+  image,
+  alt,
+  className,
+  onZoom,
+}: {
+  image: { url: string };
+  alt: string;
+  className: string;
+  onZoom: ZoomHandler;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => onZoom(image.url, alt)}
+      aria-label={alt}
+      className={`group relative block w-full cursor-zoom-in overflow-hidden ${className}`}
+    >
+      <img
+        src={image.url}
+        alt={alt}
+        loading="lazy"
+        className="h-full w-full bg-card object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+      />
+    </button>
+  );
+}
+
+function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler }) {
   if (project.inProgressImages) {
     return (
       <div className="mx-auto w-full max-w-5xl">
         <LabelBar label={t.wipLabel} />
         <div className="grid grid-cols-2 gap-px bg-border">
           {project.inProgressImages.map((image, index) => (
-            <img
+            <ZoomableImage
               key={index}
-              src={image.url}
+              image={image}
               alt={project.altBefore(t)}
-              loading="lazy"
-              className="aspect-[4/3] w-full bg-card object-cover"
+              onZoom={onZoom}
+              className="aspect-[4/3]"
             />
           ))}
         </div>
