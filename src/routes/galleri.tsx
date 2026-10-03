@@ -79,7 +79,7 @@ const projects: Project[] = [
     altAfter: (t) => t.galleryAltAfter,
     cover: badrumEfter1Asset,
     beforeImages: [badrumFore1Asset, badrumFore2Asset],
-    afterImages: [badrumEfter1Asset, badrumEfter2Asset, badrumEfter3Asset],
+    afterImages: [badrumEfter1Asset],
     wideClass: "col-span-2 aspect-[3/1]",
   },
   {
