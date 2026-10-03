@@ -91,6 +91,8 @@ export type SiteTranslation = {
   wipAlt: string;
   houseProject: string;
   houseAlt: string;
+  terraceProject: string;
+  terraceAlt: string;
   galleryAltBefore: string;
   galleryAltAfter: string;
   galleryCtaTitle: string;
@@ -226,6 +228,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipAlt: "Pågående interiörrenovering – gipsväggar och tak, spackling och nymurad kamin",
     houseProject: "Husrenovering – hela huset",
     houseAlt: "Pågående totalrenovering av hus – nya golv, målade väggar och tak, badrum och köksmontage",
+    terraceProject: "Betongterrass",
+    terraceAlt: "Gjutning av betongterrass med trappsteg – armering, formsättning och slät yta",
     galleryAltBefore: "Badrummet före renoveringen",
     galleryAltAfter: "Badrummet efter renoveringen",
     galleryCtaTitle: "Ska vi förvandla ditt badrum?",
@@ -360,6 +364,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipAlt: "Ongoing interior renovation – drywall walls and ceilings, plastering and a newly built fireplace",
     houseProject: "House renovation – whole house",
     houseAlt: "Ongoing full house renovation – new floors, painted walls and ceilings, bathrooms and kitchen installation",
+    terraceProject: "Concrete terrace",
+    terraceAlt: "Concrete terrace with steps under construction – reinforcement, formwork and smooth finish",
     galleryAltBefore: "The bathroom before renovation",
     galleryAltAfter: "The bathroom after renovation",
     galleryCtaTitle: "Shall we transform your bathroom?",
@@ -493,6 +499,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipAlt: "تجديد داخلي جارٍ – جدران وأسقف جبسية، معجون وموقد مبني حديثًا",
     houseProject: "تجديد المنزل بالكامل",
     houseAlt: "تجديد شامل جارٍ للمنزل – أرضيات جديدة، جدران وأسقف مطليّة، حمّامات وتركيب مطبخ",
+    terraceProject: "شرفة خرسانية",
+    terraceAlt: "صب شرفة خرسانية مع درجات قيد التنفيذ – التسليح والقوالب وسطح أملس",
     galleryAltBefore: "الحمام قبل التجديد",
     galleryAltAfter: "الحمام بعد التجديد",
     galleryCtaTitle: "هل نحوّل حمامك؟",
@@ -627,6 +635,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipAlt: "Igangværende indvendig renovering – gipsvægge og lofter, pudsning og nymuret kamin",
     houseProject: "Husrenovering – hele huset",
     houseAlt: "Igangværende totalrenovering af hus – nye gulve, malede vægge og lofter, badeværelser og køkkenmontering",
+    terraceProject: "Betonterrasse",
+    terraceAlt: "Støbning af betonterrasse med trin under udførelse – armering, forskalling og glat overflade",
     galleryAltBefore: "Badeværelset før renoveringen",
     galleryAltAfter: "Badeværelset efter renoveringen",
     galleryCtaTitle: "Skal vi forvandle dit badeværelse?",
@@ -762,6 +772,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipAlt: "Tekuća unutrašnja renovacija – gipsani zidovi i plafoni, malterisanje i novozidana kamin",
     houseProject: "Renovacija kuće – cijela kuća",
     houseAlt: "Tekuća potpuna renovacija kuće – novi podovi, bojeni zidovi i plafoni, kupatila i montaža kuhinje",
+    terraceProject: "Betonska terasa",
+    terraceAlt: "Izlivavanje betonske terase sa stepenicima u toku – armatura, oplata i glatka površina",
     galleryAltBefore: "Kupatilo prije renoviranja",
     galleryAltAfter: "Kupatilo poslije renoviranja",
     galleryCtaTitle: "Želite li novo kupatilo?",

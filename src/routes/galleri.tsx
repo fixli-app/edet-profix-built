@@ -31,6 +31,10 @@ import takEfter1Asset from "@/assets/tak-efter-1.jpg.asset.json";
 import takEfter2Asset from "@/assets/tak-efter-2.jpg.asset.json";
 import takFore1Asset from "@/assets/tak-fore-1.jpg.asset.json";
 import takFore2Asset from "@/assets/tak-fore-2.jpg.asset.json";
+import terass1Asset from "@/assets/terass-1.jpg.asset.json";
+import terass2Asset from "@/assets/terass-2.jpg.asset.json";
+import terass3Asset from "@/assets/terass-3.jpg.asset.json";
+import terass4Asset from "@/assets/terass-4.jpg.asset.json";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/use-language";
@@ -40,7 +44,7 @@ export const Route = createFileRoute("/galleri")({
   head: () => ({
     meta: [
       { title: "Galleri – Före & efter | Edet Profix Bygg" },
-      { name: "description", content: "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, fasadmålning, takläggning och pågående renoveringar av hela hus i Åstorp och hela Skåne." },
+      { name: "description", content: "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, fasadmålning, takläggning, betongterrasser och pågående renoveringar av hela hus i Åstorp och hela Skåne." },
       { property: "og:title", content: "Galleri – Före & efter | Edet Profix Bygg" },
       { property: "og:description", content: "Bilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
       { property: "og:type", content: "website" },
@@ -97,6 +101,13 @@ const projects: Project[] = [
     altBefore: (t) => t.houseAlt,
     altAfter: (t) => t.houseAlt,
     inProgressImages: [hus1Asset, hus2Asset, hus3Asset, hus4Asset, hus5Asset, hus6Asset, hus7Asset, hus8Asset, hus9Asset, hus10Asset, hus11Asset],
+    wideClass: "col-span-2 aspect-[16/10]",
+  },
+  {
+    title: (t) => t.terraceProject,
+    altBefore: (t) => t.terraceAlt,
+    altAfter: (t) => t.terraceAlt,
+    inProgressImages: [terass3Asset, terass2Asset, terass1Asset, terass4Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
 ];
