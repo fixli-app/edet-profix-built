@@ -80,6 +80,9 @@ export type SiteTranslation = {
   beforeLabel: string;
   afterLabel: string;
   bathroomProject: string;
+  facadeProject: string;
+  facadeAltBefore: string;
+  facadeAltAfter: string;
   galleryAltBefore: string;
   galleryAltAfter: string;
   galleryCtaTitle: string;
@@ -204,6 +207,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     beforeLabel: "Före",
     afterLabel: "Efter",
     bathroomProject: "Badrumsrenovering",
+    facadeProject: "Fasadmålning & balkong",
+    facadeAltBefore: "Fasaden och balkongen före målning",
+    facadeAltAfter: "Fasaden och balkongen efter målning",
     galleryAltBefore: "Badrummet före renoveringen",
     galleryAltAfter: "Badrummet efter renoveringen",
     galleryCtaTitle: "Ska vi förvandla ditt badrum?",
@@ -327,6 +333,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     beforeLabel: "Before",
     afterLabel: "After",
     bathroomProject: "Bathroom renovation",
+    facadeProject: "Facade painting & balcony",
+    facadeAltBefore: "The facade and balcony before painting",
+    facadeAltAfter: "The facade and balcony after painting",
     galleryAltBefore: "The bathroom before renovation",
     galleryAltAfter: "The bathroom after renovation",
     galleryCtaTitle: "Shall we transform your bathroom?",
@@ -449,6 +458,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     beforeLabel: "قبل",
     afterLabel: "بعد",
     bathroomProject: "تجديد الحمام",
+    facadeProject: "دهان الواجهة والشرفة",
+    facadeAltBefore: "الواجهة والشرفة قبل الدهان",
+    facadeAltAfter: "الواجهة والشرفة بعد الدهان",
     galleryAltBefore: "الحمام قبل التجديد",
     galleryAltAfter: "الحمام بعد التجديد",
     galleryCtaTitle: "هل نحوّل حمامك؟",
@@ -572,6 +584,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     beforeLabel: "Før",
     afterLabel: "Efter",
     bathroomProject: "Badeværelsesrenovering",
+    facadeProject: "Facademaling & altan",
+    facadeAltBefore: "Fasaden og altanen før malingen",
+    facadeAltAfter: "Fasaden og altanen efter malingen",
     galleryAltBefore: "Badeværelset før renoveringen",
     galleryAltAfter: "Badeværelset efter renoveringen",
     galleryCtaTitle: "Skal vi forvandle dit badeværelse?",
@@ -696,6 +711,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     beforeLabel: "Prije",
     afterLabel: "Poslije",
     bathroomProject: "Renoviranje kupatila",
+    facadeProject: "Farbanje fasade i balkona",
+    facadeAltBefore: "Fasada i balkon prije farbanja",
+    facadeAltAfter: "Fasada i balkon poslije farbanja",
     galleryAltBefore: "Kupatilo prije renoviranja",
     galleryAltAfter: "Kupatilo poslije renoviranja",
     galleryCtaTitle: "Želite li novo kupatilo?",
