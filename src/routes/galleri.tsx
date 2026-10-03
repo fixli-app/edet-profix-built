@@ -156,23 +156,27 @@ function LabelBar({ label }: { label: string }) {
   );
 }
 
-type ZoomHandler = (src: string, alt: string) => void;
+type ZoomHandler = (images: { src: string; alt: string }[], index: number) => void;
 
 function ZoomableImage({
   image,
   alt,
   className,
   onZoom,
+  images,
+  index,
 }: {
   image: { url: string };
   alt: string;
   className: string;
   onZoom: ZoomHandler;
+  images: { src: string; alt: string }[];
+  index: number;
 }) {
   return (
     <button
       type="button"
-      onClick={() => onZoom(image.url, alt)}
+      onClick={() => onZoom(images, index)}
       aria-label={alt}
       className={`group relative block w-full cursor-zoom-in overflow-hidden ${className}`}
     >
@@ -187,6 +191,13 @@ function ZoomableImage({
 }
 
 function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler }) {
+  const allImages = project.inProgressImages
+    ? project.inProgressImages.map((image) => ({ src: image.url, alt: project.altBefore(t) }))
+    : [
+        ...(project.beforeImages?.map((image) => ({ src: image.url, alt: project.altBefore(t) })) ?? []),
+        ...(project.afterImages?.map((image) => ({ src: image.url, alt: project.altAfter(t) })) ?? []),
+      ];
+
   if (project.inProgressImages) {
     return (
       <div className="mx-auto w-full max-w-5xl">
@@ -198,6 +209,8 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
               image={image}
               alt={project.altBefore(t)}
               onZoom={onZoom}
+              images={allImages}
+              index={index}
               className="aspect-[4/3]"
             />
           ))}
@@ -216,6 +229,8 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
               image={project.beforeImages[0]}
               alt={project.altBefore(t)}
               onZoom={onZoom}
+              images={allImages}
+              index={0}
               className="aspect-square"
             />
           )}
@@ -227,6 +242,8 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
               image={project.afterImages[0]}
               alt={project.altAfter(t)}
               onZoom={onZoom}
+              images={allImages}
+              index={1}
               className="aspect-square"
             />
           )}
@@ -246,6 +263,8 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
               image={image}
               alt={project.altBefore(t)}
               onZoom={onZoom}
+              images={allImages}
+              index={index}
               className={project.beforeImgClass ?? "aspect-[4/3]"}
             />
           ))}
@@ -260,6 +279,8 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
               image={image}
               alt={project.altAfter(t)}
               onZoom={onZoom}
+              images={allImages}
+              index={(project.beforeImages?.length ?? 0) + index}
               className={
                 project.afterImages?.length === 1
                   ? "col-span-2 aspect-[16/9]"
@@ -328,7 +349,7 @@ function ProjectCard({ project, t, onZoom }: { project: Project; t: SiteTranslat
 
 function GalleriPage() {
   const { language, setLanguage, t } = useLanguage();
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [lightbox, setLightbox] = useState<{ images: { src: string; alt: string }[]; index: number } | null>(null);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -346,7 +367,12 @@ function GalleriPage() {
         <section className="py-16 sm:py-24">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-5 md:grid-cols-2 lg:px-8">
             {projects.map((project) => (
-              <ProjectCard key={project.title(t)} project={project} t={t} onZoom={(src, alt) => setLightbox({ src, alt })} />
+              <ProjectCard
+                key={project.title(t)}
+                project={project}
+                t={t}
+                onZoom={(images, index) => setLightbox({ images, index })}
+              />
             ))}
           </div>
         </section>
@@ -388,7 +414,12 @@ function GalleriPage() {
         <p className="mx-auto mt-6 max-w-7xl px-5 text-[9px] text-footer-muted opacity-40 lg:px-8">{t.siteCredit}</p>
       </footer>
 
-      <ImageLightbox image={lightbox} onClose={() => setLightbox(null)} />
+      <ImageLightbox
+        images={lightbox?.images ?? []}
+        index={lightbox?.index ?? null}
+        onNavigate={(index) => setLightbox((current) => (current ? { ...current, index } : current))}
+        onClose={() => setLightbox(null)}
+      />
     </div>
   );
 }

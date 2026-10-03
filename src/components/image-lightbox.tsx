@@ -1,12 +1,23 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { X, ZoomIn, ZoomOut } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from "lucide-react";
 
-type LightboxImage = { src: string; alt: string } | null;
+type LightboxImage = { src: string; alt: string };
 
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 4;
+const SWIPE_THRESHOLD = 60;
 
-export function ImageLightbox({ image, onClose }: { image: LightboxImage; onClose: () => void }) {
+export function ImageLightbox({
+  images,
+  index,
+  onNavigate,
+  onClose,
+}: {
+  images: LightboxImage[];
+  index: number | null;
+  onNavigate: (index: number) => void;
+  onClose: () => void;
+}) {
   const [visible, setVisible] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -16,9 +27,14 @@ export function ImageLightbox({ image, onClose }: { image: LightboxImage; onClos
   const dragRef = useRef<{ startX: number; startY: number; baseX: number; baseY: number } | null>(null);
   const pinchRef = useRef<{ distance: number; zoom: number } | null>(null);
   const lastTapRef = useRef(0);
+  const indexRef = useRef<number | null>(null);
 
   zoomRef.current = zoom;
   offsetRef.current = offset;
+
+  const image = index !== null ? (images[index] ?? null) : null;
+  const hasMany = images.length > 1;
+  indexRef.current = index;
 
   const applyZoom = useCallback((next: number, px?: number, py?: number) => {
     const clamped = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, next));
@@ -39,15 +55,33 @@ export function ImageLightbox({ image, onClose }: { image: LightboxImage; onClos
     });
   }, []);
 
-  // Open/close animation + body scroll lock + Escape
+  const goTo = useCallback(
+    (next: number) => {
+      if (!hasMany) return;
+      const wrapped = (next + images.length) % images.length;
+      setZoom(1);
+      setOffset({ x: 0, y: 0 });
+      onNavigate(wrapped);
+    },
+    [hasMany, images.length, onNavigate],
+  );
+
+  const handleClose = useCallback(() => {
+    setVisible(false);
+    window.setTimeout(onClose, 250);
+  }, [onClose]);
+
+  // Open/close animation + body scroll lock + keyboard
   useEffect(() => {
-    if (!image) return;
+    if (index === null) return;
     setZoom(1);
     setOffset({ x: 0, y: 0 });
     const frame = requestAnimationFrame(() => setVisible(true));
     document.body.style.overflow = "hidden";
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") handleClose();
+      if (event.key === "ArrowRight") goTo((indexRef.current ?? 0) + 1);
+      if (event.key === "ArrowLeft") goTo((indexRef.current ?? 0) - 1);
     };
     window.addEventListener("keydown", onKey);
     return () => {
@@ -56,12 +90,12 @@ export function ImageLightbox({ image, onClose }: { image: LightboxImage; onClos
       window.removeEventListener("keydown", onKey);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [image]);
+  }, [index === null]);
 
   // Wheel zoom (non-passive so the page never scrolls behind)
   useEffect(() => {
     const el = containerRef.current;
-    if (!el || !image) return;
+    if (!el || index === null) return;
     const onWheel = (event: WheelEvent) => {
       event.preventDefault();
       const dy = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? 100 : 1);
@@ -69,14 +103,9 @@ export function ImageLightbox({ image, onClose }: { image: LightboxImage; onClos
     };
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
-  }, [image, applyZoom]);
+  }, [index === null, applyZoom]);
 
-  const handleClose = useCallback(() => {
-    setVisible(false);
-    window.setTimeout(onClose, 250);
-  }, [onClose]);
-
-  if (!image) return null;
+  if (!image || index === null) return null;
 
   const onPointerDown = (event: React.PointerEvent) => {
     if (event.pointerType === "touch") return; // touch handled via onTouchStart
@@ -94,7 +123,14 @@ export function ImageLightbox({ image, onClose }: { image: LightboxImage; onClos
     const drag = dragRef.current;
     dragRef.current = null;
     if (!drag) return;
-    const moved = Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY);
+    const dx = event.clientX - drag.startX;
+    const dy = event.clientY - drag.startY;
+    const moved = Math.hypot(dx, dy);
+    // Horizontal swipe while not zoomed → previous / next image
+    if (zoom <= 1 && hasMany && Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      goTo(index + (dx < 0 ? 1 : -1));
+      return;
+    }
     if (moved < 6) {
       // Click / double-click toggles zoom
       const now = Date.now();
@@ -138,7 +174,14 @@ export function ImageLightbox({ image, onClose }: { image: LightboxImage; onClos
       pinchRef.current = null;
       dragRef.current = null;
       if (drag) {
-        const moved = Math.hypot(event.changedTouches[0]!.clientX - drag.startX, event.changedTouches[0]!.clientY - drag.startY);
+        const dx = event.changedTouches[0]!.clientX - drag.startX;
+        const dy = event.changedTouches[0]!.clientY - drag.startY;
+        const moved = Math.hypot(dx, dy);
+        // Horizontal swipe while not zoomed → previous / next image
+        if (zoom <= 1 && hasMany && Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy) * 1.5) {
+          goTo(index + (dx < 0 ? 1 : -1));
+          return;
+        }
         if (moved < 8) {
           const now = Date.now();
           if (now - lastTapRef.current < 300) {
@@ -151,6 +194,9 @@ export function ImageLightbox({ image, onClose }: { image: LightboxImage; onClos
       }
     }
   };
+
+  const navButtonClass =
+    "absolute top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/25";
 
   return (
     <div
@@ -170,6 +216,29 @@ export function ImageLightbox({ image, onClose }: { image: LightboxImage; onClos
       >
         <X size={22} />
       </button>
+      {hasMany && (
+        <>
+          <button
+            type="button"
+            onClick={() => goTo(index - 1)}
+            aria-label="Föregående bild"
+            className={`${navButtonClass} start-3`}
+          >
+            <ChevronLeft size={24} className="rtl:rotate-180" />
+          </button>
+          <button
+            type="button"
+            onClick={() => goTo(index + 1)}
+            aria-label="Nästa bild"
+            className={`${navButtonClass} end-3`}
+          >
+            <ChevronRight size={24} className="rtl:rotate-180" />
+          </button>
+          <span className="absolute start-1/2 top-4 z-10 -translate-x-1/2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-white">
+            {index + 1} / {images.length}
+          </span>
+        </>
+      )}
       <div className="absolute bottom-4 start-1/2 z-10 flex -translate-x-1/2 items-center gap-2">
         <button
           type="button"
@@ -202,6 +271,7 @@ export function ImageLightbox({ image, onClose }: { image: LightboxImage; onClos
         onTouchEnd={onTouchEnd}
       >
         <img
+          key={image.src}
           src={image.src}
           alt={image.alt}
           draggable={false}
