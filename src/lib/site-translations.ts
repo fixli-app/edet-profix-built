@@ -89,6 +89,8 @@ export type SiteTranslation = {
   wipProject: string;
   wipLabel: string;
   wipAlt: string;
+  houseProject: string;
+  houseAlt: string;
   galleryAltBefore: string;
   galleryAltAfter: string;
   galleryCtaTitle: string;
@@ -222,6 +224,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipProject: "Interiörrenovering & kamin",
     wipLabel: "Under arbete",
     wipAlt: "Pågående interiörrenovering – gipsväggar och tak, spackling och nymurad kamin",
+    houseProject: "Husrenovering – hela huset",
+    houseAlt: "Pågående totalrenovering av hus – nya golv, målade väggar och tak, badrum och köksmontage",
     galleryAltBefore: "Badrummet före renoveringen",
     galleryAltAfter: "Badrummet efter renoveringen",
     galleryCtaTitle: "Ska vi förvandla ditt badrum?",
@@ -354,6 +358,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipProject: "Interior renovation & fireplace",
     wipLabel: "In progress",
     wipAlt: "Ongoing interior renovation – drywall walls and ceilings, plastering and a newly built fireplace",
+    houseProject: "House renovation – whole house",
+    houseAlt: "Ongoing full house renovation – new floors, painted walls and ceilings, bathrooms and kitchen installation",
     galleryAltBefore: "The bathroom before renovation",
     galleryAltAfter: "The bathroom after renovation",
     galleryCtaTitle: "Shall we transform your bathroom?",
@@ -485,6 +491,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipProject: "تجديد داخلي ومدفأة",
     wipLabel: "قيد التنفيذ",
     wipAlt: "تجديد داخلي جارٍ – جدران وأسقف جبسية، معجون وموقد مبني حديثًا",
+    houseProject: "تجديد المنزل بالكامل",
+    houseAlt: "تجديد شامل جارٍ للمنزل – أرضيات جديدة، جدران وأسقف مطليّة، حمّامات وتركيب مطبخ",
     galleryAltBefore: "الحمام قبل التجديد",
     galleryAltAfter: "الحمام بعد التجديد",
     galleryCtaTitle: "هل نحوّل حمامك؟",
@@ -617,6 +625,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipProject: "Indvendig renovering & kamin",
     wipLabel: "Under arbejde",
     wipAlt: "Igangværende indvendig renovering – gipsvægge og lofter, pudsning og nymuret kamin",
+    houseProject: "Husrenovering – hele huset",
+    houseAlt: "Igangværende totalrenovering af hus – nye gulve, malede vægge og lofter, badeværelser og køkkenmontering",
     galleryAltBefore: "Badeværelset før renoveringen",
     galleryAltAfter: "Badeværelset efter renoveringen",
     galleryCtaTitle: "Skal vi forvandle dit badeværelse?",
@@ -750,6 +760,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     wipProject: "Unutrašnja renovacija i kamin",
     wipLabel: "U toku",
     wipAlt: "Tekuća unutrašnja renovacija – gipsani zidovi i plafoni, malterisanje i novozidana kamin",
+    houseProject: "Renovacija kuće – cijela kuća",
+    houseAlt: "Tekuća potpuna renovacija kuće – novi podovi, bojeni zidovi i plafoni, kupatila i montaža kuhinje",
     galleryAltBefore: "Kupatilo prije renoviranja",
     galleryAltAfter: "Kupatilo poslije renoviranja",
     galleryCtaTitle: "Želite li novo kupatilo?",

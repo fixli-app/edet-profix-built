@@ -6,3 +6,4 @@
 - [x] Andra galleriprojekt: Fasadmålning & balkong (2 före + 3 efter), översatt till fem språk och verifierad på dator/mobil.
 - [x] Tredje galleriprojekt: Takläggning – platt tak (2 före + 2 efter), komprimerade bilder, fem språk, verifierad på dator/mobil/arabiska.
 - [x] Fjärde galleriprojekt: Interiörrenovering & kamin – pågående arbete (4 bilder, "Under arbete" i stället för före/efter), komprimerade bilder, fem språk, verifierad på dator/mobil.
+- [x] Fjärde galleriprojekt: Husrenovering – hela huset (10 bilder, etikett "Under arbete"), komprimerade ~15–56 KB, fem språk, verifierad på dator/mobil/arabiska.
