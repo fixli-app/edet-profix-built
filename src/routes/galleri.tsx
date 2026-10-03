@@ -87,30 +87,43 @@ function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
   return (
     <article className="mx-auto max-w-4xl overflow-hidden rounded-lg border border-border bg-card shadow-strong">
       <h2 className="border-b border-border px-6 py-5 text-xl font-extrabold">{project.title(t)}</h2>
-      <div className="flex flex-col gap-px bg-border">
-        <div>
-          <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.beforeLabel}</p>
-          <div className="grid grid-cols-2 gap-px bg-border">
-            {project.beforeImages.map((image, index) => (
-              <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className="aspect-[4/3] w-full bg-card object-cover" />
-            ))}
+      {project.inProgressImages ? (
+        <div className="flex flex-col gap-px bg-border">
+          <div>
+            <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.wipLabel}</p>
+            <div className="grid grid-cols-2 gap-px bg-border">
+              {project.inProgressImages.map((image, index) => (
+                <img key={index} src={image.url} alt={project.altBefore(t)} loading={index === 0 ? undefined : "lazy"} className="aspect-[4/3] w-full bg-card object-cover" />
+              ))}
+            </div>
           </div>
         </div>
-        <div>
-          <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.afterLabel}</p>
-          <div className="grid grid-cols-2 gap-px bg-border">
-            {project.afterImages.map((image, index) => (
-              <img
-                key={index}
-                src={image.url}
-                alt={project.altAfter(t)}
-                loading={index === 0 ? undefined : "lazy"}
-                className={index === 2 ? `${project.wideClass} w-full bg-card object-cover` : "aspect-[4/3] w-full bg-card object-cover"}
-              />
-            ))}
+      ) : (
+        <div className="flex flex-col gap-px bg-border">
+          <div>
+            <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.beforeLabel}</p>
+            <div className="grid grid-cols-2 gap-px bg-border">
+              {project.beforeImages?.map((image, index) => (
+                <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className="aspect-[4/3] w-full bg-card object-cover" />
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.afterLabel}</p>
+            <div className="grid grid-cols-2 gap-px bg-border">
+              {project.afterImages?.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.url}
+                  alt={project.altAfter(t)}
+                  loading={index === 0 ? undefined : "lazy"}
+                  className={index === 2 ? `${project.wideClass} w-full bg-card object-cover` : "aspect-[4/3] w-full bg-card object-cover"}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </article>
   );
 }
