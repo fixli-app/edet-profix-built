@@ -4,3 +4,4 @@
 - [x] Kontrollera formulärets språkberoende e-postutkast och sidans visning.
 - [x] Ny Galleri-sida (/galleri) med före/efter-bilder (badrumsrenovering), komprimerade bilder, meny-länk och fem språk.
 - [x] Andra galleriprojekt: Fasadmålning & balkong (2 före + 3 efter), översatt till fem språk och verifierad på dator/mobil.
+- [x] Tredje galleriprojekt: Takläggning – platt tak (2 före + 2 efter), komprimerade bilder, fem språk, verifierad på dator/mobil/arabiska.
