@@ -47,7 +47,11 @@ export const Route = createFileRoute("/galleri")({
   head: () => ({
     meta: [
       { title: "Galleri – Före & efter | Edet Profix Bygg" },
-      { name: "description", content: "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, toalettronovation, fasadmålning, takläggning, betongterrasser och pågående renoveringar av hela hus i Åstorp och hela Skåne." },
+      {
+        name: "description",
+        content:
+          "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, toalettrenovation, fasadmålning, takläggning, betongterrasser och pågående renoveringar av hela hus i Åstorp och hela Skåne.",
+      },
       { property: "og:title", content: "Galleri – Före & efter | Edet Profix Bygg" },
       { property: "og:description", content: "Bilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
       { property: "og:type", content: "website" },
@@ -111,7 +115,19 @@ const projects: Project[] = [
     altBefore: (t) => t.houseAlt,
     altAfter: (t) => t.houseAlt,
     cover: hus1Asset,
-    inProgressImages: [hus1Asset, hus2Asset, hus3Asset, hus4Asset, hus5Asset, hus6Asset, hus7Asset, hus8Asset, hus9Asset, hus10Asset, hus11Asset],
+    inProgressImages: [
+      hus1Asset,
+      hus2Asset,
+      hus3Asset,
+      hus4Asset,
+      hus5Asset,
+      hus6Asset,
+      hus7Asset,
+      hus8Asset,
+      hus9Asset,
+      hus10Asset,
+      hus11Asset,
+    ],
     wideClass: "col-span-2 aspect-[16/10]",
   },
   {
@@ -135,7 +151,9 @@ const projects: Project[] = [
 ];
 
 function LabelBar({ label }: { label: string }) {
-  return <p className="bg-primary-soft px-4 py-3 text-sm font-bold uppercase tracking-wide text-primary sm:px-6">{label}</p>;
+  return (
+    <p className="bg-primary-soft px-4 py-3 text-sm font-bold uppercase tracking-wide text-primary sm:px-6">{label}</p>
+  );
 }
 
 function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }) {
@@ -145,7 +163,13 @@ function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }
         <LabelBar label={t.wipLabel} />
         <div className="grid grid-cols-2 gap-px bg-border">
           {project.inProgressImages.map((image, index) => (
-            <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className="aspect-[4/3] w-full bg-card object-cover" />
+            <img
+              key={index}
+              src={image.url}
+              alt={project.altBefore(t)}
+              loading="lazy"
+              className="aspect-[4/3] w-full bg-card object-cover"
+            />
           ))}
         </div>
       </div>
@@ -157,11 +181,23 @@ function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }
       <div className="mx-auto grid w-full max-w-3xl grid-cols-2 gap-px bg-border">
         <div>
           <LabelBar label={t.beforeLabel} />
-          {project.beforeImages?.[0] && <img src={project.beforeImages[0].url} alt={project.altBefore(t)} className="aspect-square w-full bg-card object-cover" />}
+          {project.beforeImages?.[0] && (
+            <img
+              src={project.beforeImages[0].url}
+              alt={project.altBefore(t)}
+              className="aspect-square w-full bg-card object-cover"
+            />
+          )}
         </div>
         <div>
           <LabelBar label={t.afterLabel} />
-          {project.afterImages?.[0] && <img src={project.afterImages[0].url} alt={project.altAfter(t)} className="aspect-square w-full bg-card object-cover" />}
+          {project.afterImages?.[0] && (
+            <img
+              src={project.afterImages[0].url}
+              alt={project.altAfter(t)}
+              className="aspect-square w-full bg-card object-cover"
+            />
+          )}
         </div>
       </div>
     );
@@ -173,7 +209,13 @@ function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }
         <LabelBar label={t.beforeLabel} />
         <div className="grid grid-cols-2 gap-px bg-border">
           {project.beforeImages?.map((image, index) => (
-            <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className={project.beforeImgClass ?? "aspect-[4/3] w-full bg-card object-cover"} />
+            <img
+              key={index}
+              src={image.url}
+              alt={project.altBefore(t)}
+              loading="lazy"
+              className={project.beforeImgClass ?? "aspect-[4/3] w-full bg-card object-cover"}
+            />
           ))}
         </div>
       </div>
@@ -186,7 +228,11 @@ function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }
               src={image.url}
               alt={project.altAfter(t)}
               loading="lazy"
-              className={index === 2 ? `${project.wideClass} w-full bg-card object-cover` : project.afterImgClass ?? "aspect-[4/3] w-full bg-card object-cover"}
+              className={
+                index === 2
+                  ? `${project.wideClass} w-full bg-card object-cover`
+                  : (project.afterImgClass ?? "aspect-[4/3] w-full bg-card object-cover")
+              }
             />
           ))}
         </div>
@@ -197,7 +243,8 @@ function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }
 
 function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
   const [open, setOpen] = useState(false);
-  const imageCount = project.inProgressImages?.length ?? (project.beforeImages?.length ?? 0) + (project.afterImages?.length ?? 0);
+  const imageCount =
+    project.inProgressImages?.length ?? (project.beforeImages?.length ?? 0) + (project.afterImages?.length ?? 0);
   const badge = project.inProgressImages ? t.wipLabel : `${t.beforeLabel} · ${t.afterLabel}`;
 
   return (
@@ -232,7 +279,9 @@ function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
           </span>
         </div>
       </button>
-      <div className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+      <div
+        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+      >
         <div className="overflow-hidden">
           <div className="border-t border-border py-px">
             <ExpandedImages project={project} t={t} />
@@ -272,7 +321,9 @@ function GalleriPage() {
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">{t.galleryCtaTitle}</h2>
             <p className="mt-4 leading-8 text-muted-foreground">{t.galleryCtaText}</p>
             <Button asChild className="mt-8 min-h-12 px-6">
-              <Link to="/" hash="kontakt">{t.requestQuote} <ArrowRight size={18} /></Link>
+              <Link to="/" hash="kontakt">
+                {t.requestQuote} <ArrowRight size={18} />
+              </Link>
             </Button>
           </div>
         </section>
@@ -284,7 +335,9 @@ function GalleriPage() {
             <img src={logoAsset.url} alt="Edet Profix Bygg" className="h-auto w-52 object-contain" />
           </Link>
           <div className="flex flex-wrap items-center gap-5">
-            <p className="text-sm text-footer-muted">© {new Date().getFullYear()} Edet Profix Bygg · {t.footerMotto}</p>
+            <p className="text-sm text-footer-muted">
+              © {new Date().getFullYear()} Edet Profix Bygg · {t.footerMotto}
+            </p>
             <a
               href="https://offerta.se/foretag/edet-profix-bygg"
               target="_blank"
@@ -292,7 +345,9 @@ function GalleriPage() {
               aria-label={t.offertaLabel}
               title={t.offertaLabel}
               className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-header-border text-footer-foreground transition-colors hover:text-primary"
-            ><ExternalLink size={18} /></a>
+            >
+              <ExternalLink size={18} />
+            </a>
           </div>
         </div>
         <p className="mx-auto mt-6 max-w-7xl px-5 text-[9px] text-footer-muted opacity-40 lg:px-8">{t.siteCredit}</p>
