@@ -115,7 +115,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     aboutTextOne:
       "Behöver du renovera inomhus, reparera en fastighet, lägga plattor eller ordna byggstädningen? Vi tar oss an flera delar av projektet och pratar igenom arbetets omfattning innan vi lämnar offert.",
     aboutTextTwo:
-      "Åstorp är vår utgångspunkt. Vi tar uppdrag i hela Skåne, bland annat i Helsingborg, Ängelholm och Höganäs. För rätt uppdrag kan vi vara flexibla även utanför området.",
+      "Åstorp är vår utgångspunkt. Vi tar uppdrag i hela Skåne, bland annat i Helsingborg, Ängelholm, Höganäs, Landskrona, Lund och Malmö. För rätt uppdrag kan vi vara flexibla även utanför området.",
     missionTitle: "Vårt uppdrag",
     missionText:
       "Att förbättra värdet, funktionaliteten och utseendet på varje fastighet genom kvalitet och kundnöjdhet.",
@@ -132,7 +132,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Från små reparationer till större renoveringar",
       "Markarbete och byggstädning när det behövs",
       "Åstorp som bas – uppdrag i hela Skåne",
-      "Helsingborg, Ängelholm och Höganäs ingår i området",
+      "Helsingborg, Ängelholm, Höganäs, Landskrona, Lund och Malmö ingår i området",
       "Möjlighet att diskutera jobb utanför Skåne",
     ],
     benefitsTitle: "För dig som privatperson",
@@ -152,7 +152,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     faq: [
       { question: "Kostar det att be om en offert?", answer: "Nej, du kan skicka en offertförfrågan utan kostnad. Beskriv gärna arbetet så konkret du kan." },
       { question: "Kan jag använda ROT-avdrag?", answer: "Som privatperson kan du ha rätt till ROT-avdrag för arbete som uppfyller Skatteverkets villkor. Vi hjälper dig att reda ut vad som kan gälla för ditt projekt." },
-      { question: "Var arbetar ni?", answer: "Vi utgår från Åstorp och arbetar i hela Skåne, exempelvis Helsingborg, Ängelholm och Höganäs. Andra orter kan vara möjliga beroende på uppdraget." },
+      { question: "Var arbetar ni?", answer: "Vi utgår från Åstorp och arbetar i hela Skåne, exempelvis Helsingborg, Ängelholm, Höganäs, Landskrona, Lund och Malmö. Andra orter kan vara möjliga beroende på uppdraget." },
       { question: "Hur fungerar betalningen?", answer: "Betalningsvillkor och eventuellt ROT-avdrag går vi igenom i samband med offerten, så att du vet vad som gäller innan arbetet börjar." },
     ],
     privacyTitle: "Personuppgifter",
@@ -224,7 +224,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     aboutTextOne:
       "Need an interior renovation, property repair, paving or post-build cleaning? We can take on several parts of a project and discuss the scope before providing a quote.",
     aboutTextTwo:
-      "We start from Åstorp and take on work throughout Skåne, including Helsingborg, Ängelholm and Höganäs. For the right project, we can be flexible beyond the region.",
+      "We start from Åstorp and take on work throughout Skåne, including Helsingborg, Ängelholm, Höganäs, Landskrona, Lund and Malmö. For the right project, we can be flexible beyond the region.",
     missionTitle: "Our mission",
     missionText:
       "To improve the value, function and appearance of every property through quality and customer satisfaction.",
@@ -241,7 +241,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "From small repairs to larger renovations",
       "Groundworks and post-build cleaning when needed",
       "Based in Åstorp, working across Skåne",
-      "Helsingborg, Ängelholm and Höganäs are within our area",
+      "Helsingborg, Ängelholm, Höganäs, Landskrona, Lund and Malmö are within our area",
       "Open to discussing projects outside Skåne",
     ],
     benefitsTitle: "For private homeowners",
@@ -261,7 +261,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     faq: [
       { question: "Does requesting a quote cost anything?", answer: "No, you can request a quote free of charge. Please describe the work as specifically as possible." },
       { question: "Can I use the ROT tax deduction?", answer: "Private customers may qualify for ROT on work that meets Swedish Tax Agency requirements. We can help discuss what may apply to your project." },
-      { question: "Where do you work?", answer: "We are based in Åstorp and work throughout Skåne, including Helsingborg, Ängelholm and Höganäs. Other locations may be possible depending on the project." },
+      { question: "Where do you work?", answer: "We are based in Åstorp and work throughout Skåne, including Helsingborg, Ängelholm, Höganäs, Landskrona, Lund and Malmö. Other locations may be possible depending on the project." },
       { question: "How does payment work?", answer: "We discuss payment terms and any ROT deduction with the quote, so you know what applies before work begins." },
     ],
     privacyTitle: "Personal information",
@@ -320,7 +320,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     aboutTextOne:
       "هل تحتاج إلى ترميم داخلي أو إصلاح عقار أو رصف أو تنظيف بعد البناء؟ نستطيع تولّي عدة أجزاء من المشروع ونتفق على نطاق العمل قبل تقديم عرض السعر.",
     aboutTextTwo:
-      "ننطلق من أوستورب ونتولى أعمالًا في جميع أنحاء سكونه، ومنها هلسنبوري وأنجلهولم وهوغاناس. ويمكننا النظر في مشاريع خارج المنطقة حسب طبيعتها.",
+      "ننطلق من أوستورب ونتولى أعمالًا في جميع أنحاء سكونه، ومنها هلسنبوري وأنجلهولم وهوغاناس ولاندسكرونا ولوند ومالمو. ويمكننا النظر في مشاريع خارج المنطقة حسب طبيعتها.",
     missionTitle: "مهمتنا",
     missionText: "تحسين قيمة كل عقار ووظيفته ومظهره من خلال الجودة ورضا العملاء.",
     valuesTitle: "قيمنا",
@@ -336,7 +336,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "من الإصلاحات الصغيرة إلى الترميمات الكبيرة",
       "أعمال الأرض والتنظيف بعد البناء عند الحاجة",
       "مقرنا أوستورب ونعمل في أنحاء سكونه",
-      "هلسنبوري وأنجلهولم وهوغاناس ضمن نطاقنا",
+      "هلسنبوري وأنجلهولم وهوغاناس ولاندسكرونا ولوند ومالمو ضمن نطاقنا",
       "يمكن مناقشة مشاريع خارج سكونه",
     ],
     benefitsTitle: "لأصحاب المنازل",
@@ -356,7 +356,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     faq: [
       { question: "هل طلب عرض السعر مجاني؟", answer: "نعم، يمكنك طلب عرض سعر دون تكلفة. صف العمل بأكبر قدر ممكن من الوضوح." },
       { question: "هل يمكنني الاستفادة من خصم ROT؟", answer: "قد يستحق العملاء الأفراد خصم ROT للأعمال المستوفية لشروط مصلحة الضرائب السويدية. نناقش ما قد ينطبق على مشروعك." },
-      { question: "أين تعملون؟", answer: "ننطلق من أوستورب ونعمل في أنحاء سكونه، بما فيها هلسنبوري وأنجلهولم وهوغاناس. وقد نقبل مناطق أخرى حسب المشروع." },
+      { question: "أين تعملون؟", answer: "ننطلق من أوستورب ونعمل في أنحاء سكونه، بما فيها هلسنبوري وأنجلهولم وهوغاناس ولاندسكرونا ولوند ومالمو. وقد نقبل مناطق أخرى حسب المشروع." },
       { question: "كيف يتم الدفع؟", answer: "نوضح شروط الدفع وأي خصم ROT مع عرض السعر، لتعرف التفاصيل قبل بدء العمل." },
     ],
     privacyTitle: "البيانات الشخصية",
@@ -418,7 +418,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     aboutTextOne:
       "Skal du renovere indendørs, reparere en ejendom, lægge fliser eller have gjort rent efter byggeri? Vi kan tage os af flere dele af opgaven og afklare omfanget, før vi giver et tilbud.",
     aboutTextTwo:
-      "Vi starter i Åstorp og tager opgaver i hele Skåne, blandt andet i Helsingborg, Ängelholm og Höganäs. Ved den rette opgave kan vi også arbejde uden for området.",
+      "Vi starter i Åstorp og tager opgaver i hele Skåne, blandt andet i Helsingborg, Ängelholm, Höganäs, Landskrona, Lund og Malmö. Ved den rette opgave kan vi også arbejde uden for området.",
     missionTitle: "Vores mission",
     missionText: "At forbedre værdien, funktionen og udseendet af enhver ejendom gennem kvalitet og kundetilfredshed.",
     valuesTitle: "Vores værdier",
@@ -434,7 +434,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Fra små reparationer til større renoveringer",
       "Anlægsarbejde og byggerengøring ved behov",
       "Base i Åstorp – opgaver i hele Skåne",
-      "Helsingborg, Ängelholm og Höganäs er i vores område",
+      "Helsingborg, Ängelholm, Höganäs, Landskrona, Lund og Malmö er i vores område",
       "Mulighed for at drøfte opgaver uden for Skåne",
     ],
     benefitsTitle: "For private boligejere",
@@ -454,7 +454,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     faq: [
       { question: "Koster det noget at bede om et tilbud?", answer: "Nej, du kan bede om et tilbud uden beregning. Beskriv gerne opgaven så konkret som muligt." },
       { question: "Kan jeg bruge ROT-fradraget?", answer: "Private kunder kan være berettigede til ROT for arbejde, der opfylder det svenske skattevæsens krav. Vi gennemgår, hvad der kan gælde for din opgave." },
-      { question: "Hvor arbejder I?", answer: "Vi starter i Åstorp og arbejder i hele Skåne, f.eks. Helsingborg, Ängelholm og Höganäs. Andre steder kan være mulige afhængigt af opgaven." },
+      { question: "Hvor arbejder I?", answer: "Vi starter i Åstorp og arbejder i hele Skåne, f.eks. Helsingborg, Ängelholm, Höganäs, Landskrona, Lund og Malmö. Andre steder kan være mulige afhængigt af opgaven." },
       { question: "Hvordan foregår betalingen?", answer: "Betalingsvilkår og et eventuelt ROT-fradrag gennemgår vi sammen med tilbuddet, før arbejdet begynder." },
     ],
     privacyTitle: "Personoplysninger",
@@ -520,7 +520,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     aboutTextOne:
       "Trebaju vam unutrašnje renoviranje, popravka objekta, popločavanje ili čišćenje nakon gradnje? Možemo preuzeti više dijelova posla i dogovoriti obim prije slanja ponude.",
     aboutTextTwo:
-      "Polazimo iz Åstorpa i radimo širom pokrajine Skåne, uključujući Helsingborg, Ängelholm i Höganäs. Za odgovarajući posao možemo biti fleksibilni i izvan regije.",
+      "Polazimo iz Åstorpa i radimo širom pokrajine Skåne, uključujući Helsingborg, Ängelholm, Höganäs, Landskronu, Lund i Malmö. Za odgovarajući posao možemo biti fleksibilni i izvan regije.",
     missionTitle: "Naša misija",
     missionText:
       "Poboljšati vrijednost, funkcionalnost i izgled svake nekretnine kroz kvalitet i zadovoljstvo klijenata.",
@@ -537,7 +537,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Od malih popravki do većih renoviranja",
       "Zemljani radovi i čišćenje po potrebi",
       "Sjedište u Åstorpu – poslovi širom pokrajine Skåne",
-      "Helsingborg, Ängelholm i Höganäs su u našem području",
+      "Helsingborg, Ängelholm, Höganäs, Landskrona, Lund i Malmö su u našem području",
       "Moguć dogovor za poslove izvan pokrajine Skåne",
     ],
     benefitsTitle: "Za vlasnike privatnih domova",
@@ -557,7 +557,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     faq: [
       { question: "Da li se naplaćuje traženje ponude?", answer: "Ne, ponudu možete zatražiti besplatno. Opišite posao što konkretnije." },
       { question: "Mogu li koristiti ROT olakšicu?", answer: "Privatni klijenti mogu ostvariti ROT za radove koji ispunjavaju uslove švedske poreske uprave. Razgovarat ćemo o tome šta se može primijeniti na vaš posao." },
-      { question: "Gdje radite?", answer: "Polazimo iz Åstorpa i radimo širom pokrajine Skåne, uključujući Helsingborg, Ängelholm i Höganäs. Druge lokacije su moguće zavisno od posla." },
+      { question: "Gdje radite?", answer: "Polazimo iz Åstorpa i radimo širom pokrajine Skåne, uključujući Helsingborg, Ängelholm, Höganäs, Landskronu, Lund i Malmö. Druge lokacije su moguće zavisno od posla." },
       { question: "Kako funkcioniše plaćanje?", answer: "Uslove plaćanja i moguću ROT olakšicu prolazimo uz ponudu, prije početka radova." },
     ],
     privacyTitle: "Lični podaci",
