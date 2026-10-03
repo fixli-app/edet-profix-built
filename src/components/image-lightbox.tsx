@@ -27,6 +27,7 @@ export function ImageLightbox({
   const dragRef = useRef<{ startX: number; startY: number; baseX: number; baseY: number } | null>(null);
   const pinchRef = useRef<{ distance: number; zoom: number } | null>(null);
   const lastTapRef = useRef(0);
+  const indexRef = useRef<number | null>(null);
 
   zoomRef.current = zoom;
   offsetRef.current = offset;
