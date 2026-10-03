@@ -2,3 +2,4 @@
 - [x] Koppla fem fullständiga översättningar till sidan och kontrollera RTL/mobil/dator.
 - [x] Lägg till ROT, garanti, svarslöfte, arbetsgång, FAQ, integritetstext och Offerta-länk.
 - [x] Kontrollera formulärets språkberoende e-postutkast och sidans visning.
+- [x] Ny Galleri-sida (/galleri) med före/efter-bilder (badrumsrenovering), komprimerade bilder, meny-länk och fem språk.
