@@ -156,23 +156,27 @@ function LabelBar({ label }: { label: string }) {
   );
 }
 
-type ZoomHandler = (src: string, alt: string) => void;
+type ZoomHandler = (images: { src: string; alt: string }[], index: number) => void;
 
 function ZoomableImage({
   image,
   alt,
   className,
   onZoom,
+  images,
+  index,
 }: {
   image: { url: string };
   alt: string;
   className: string;
   onZoom: ZoomHandler;
+  images: { src: string; alt: string }[];
+  index: number;
 }) {
   return (
     <button
       type="button"
-      onClick={() => onZoom(image.url, alt)}
+      onClick={() => onZoom(images, index)}
       aria-label={alt}
       className={`group relative block w-full cursor-zoom-in overflow-hidden ${className}`}
     >
