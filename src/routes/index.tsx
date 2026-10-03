@@ -67,9 +67,9 @@ const contactSchema = z.object({
   message: z.string().trim().min(1).max(1500),
 });
 
-// Bildspel: börjar alltid med nuvarande bild, roterar slumpmässigt var 30e sekund.
+// Bildspel: börjar alltid med aktuell startbild, roterar slumpmässigt var 10e sekund.
 // Aldrig före-bilder — bara färdiga projektbilder och pågående arbete.
-const heroStartImage = builderAsset.url;
+const heroStartImage = "/images/edet-profix-hero.jpg";
 const heroRotatingImages = [
   "/images/badrum-efter-1.jpg",
   "/images/badrum-efter-2.jpg",
