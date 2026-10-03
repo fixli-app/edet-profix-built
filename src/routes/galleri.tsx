@@ -212,20 +212,22 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
         <div>
           <LabelBar label={t.beforeLabel} />
           {project.beforeImages?.[0] && (
-            <img
-              src={project.beforeImages[0].url}
+            <ZoomableImage
+              image={project.beforeImages[0]}
               alt={project.altBefore(t)}
-              className="aspect-square w-full bg-card object-cover"
+              onZoom={onZoom}
+              className="aspect-square"
             />
           )}
         </div>
         <div>
           <LabelBar label={t.afterLabel} />
           {project.afterImages?.[0] && (
-            <img
-              src={project.afterImages[0].url}
+            <ZoomableImage
+              image={project.afterImages[0]}
               alt={project.altAfter(t)}
-              className="aspect-square w-full bg-card object-cover"
+              onZoom={onZoom}
+              className="aspect-square"
             />
           )}
         </div>
@@ -239,12 +241,12 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
         <LabelBar label={t.beforeLabel} />
         <div className="grid grid-cols-2 gap-px bg-border">
           {project.beforeImages?.map((image, index) => (
-            <img
+            <ZoomableImage
               key={index}
-              src={image.url}
+              image={image}
               alt={project.altBefore(t)}
-              loading="lazy"
-              className={project.beforeImgClass ?? "aspect-[4/3] w-full bg-card object-cover"}
+              onZoom={onZoom}
+              className={project.beforeImgClass ?? "aspect-[4/3]"}
             />
           ))}
         </div>
@@ -253,17 +255,17 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
         <LabelBar label={t.afterLabel} />
         <div className="grid grid-cols-2 gap-px bg-border">
           {project.afterImages?.map((image, index) => (
-            <img
+            <ZoomableImage
               key={index}
-              src={image.url}
+              image={image}
               alt={project.altAfter(t)}
-              loading="lazy"
+              onZoom={onZoom}
               className={
                 project.afterImages?.length === 1
-                  ? "col-span-2 aspect-[16/9] w-full bg-card object-cover"
+                  ? "col-span-2 aspect-[16/9]"
                   : index === 2
-                    ? `${project.wideClass} w-full bg-card object-cover`
-                    : (project.afterImgClass ?? "aspect-[4/3] w-full bg-card object-cover")
+                    ? project.wideClass
+                    : (project.afterImgClass ?? "aspect-[4/3]")
               }
             />
           ))}
