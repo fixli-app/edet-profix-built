@@ -346,7 +346,7 @@ function GalleriPage() {
               title={t.offertaLabel}
               className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-header-border text-footer-foreground transition-colors hover:text-primary"
             >
-              <ExternalLink size={18} />
+              <img src="/images/offerta-icon.png" alt="" className="h-5 w-5 rounded-sm" />
             </a>
           </div>
         </div>
