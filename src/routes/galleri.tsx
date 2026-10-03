@@ -229,6 +229,8 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
               image={project.beforeImages[0]}
               alt={project.altBefore(t)}
               onZoom={onZoom}
+              images={allImages}
+              index={0}
               className="aspect-square"
             />
           )}
@@ -240,6 +242,8 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
               image={project.afterImages[0]}
               alt={project.altAfter(t)}
               onZoom={onZoom}
+              images={allImages}
+              index={1}
               className="aspect-square"
             />
           )}
