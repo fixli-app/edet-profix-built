@@ -21,6 +21,7 @@ import hus7Asset from "@/assets/hus-7.jpg.asset.json";
 import hus8Asset from "@/assets/hus-8.jpg.asset.json";
 import hus9Asset from "@/assets/hus-9.jpg.asset.json";
 import hus10Asset from "@/assets/hus-10.jpg.asset.json";
+import hus11Asset from "@/assets/hus-11.jpg.asset.json";
 import renovering1Asset from "@/assets/renovering-1.jpg.asset.json";
 import renovering2Asset from "@/assets/renovering-2.jpg.asset.json";
 import renovering3Asset from "@/assets/renovering-3.jpg.asset.json";
