@@ -3,7 +3,6 @@ import { useEffect, useState, type FormEvent } from "react";
 import { ArrowRight, ArrowUp, Check, ChevronDown, Hammer, Mail, MapPin, ShieldCheck, Sparkles, Target, Trees, Wrench } from "lucide-react";
 import { z } from "zod";
 
-import builderAsset from "@/assets/edet-profix-builder-real.jpg.asset.json";
 import logoAsset from "@/assets/edet-profix-logo-transparent.png.asset.json";
 import { SiteHeader } from "@/components/site-header";
 import { SwedenMap } from "@/components/sweden-map";
@@ -68,9 +67,9 @@ const contactSchema = z.object({
   message: z.string().trim().min(1).max(1500),
 });
 
-// Bildspel: börjar alltid med nuvarande bild, roterar slumpmässigt var 30e sekund.
+// Bildspel: börjar alltid med aktuell startbild, roterar slumpmässigt var 10e sekund.
 // Aldrig före-bilder — bara färdiga projektbilder och pågående arbete.
-const heroStartImage = builderAsset.url;
+const heroStartImage = "/images/edet-profix-hero.jpg";
 const heroRotatingImages = [
   "/images/badrum-efter-1.jpg",
   "/images/badrum-efter-2.jpg",
@@ -114,7 +113,7 @@ function Index() {
         while (next === prev) next = heroRotatingImages[Math.floor(Math.random() * heroRotatingImages.length)] ?? prev;
         return next;
       });
-    }, 30000);
+    }, 10000);
     return () => clearInterval(id);
   }, []);
 
