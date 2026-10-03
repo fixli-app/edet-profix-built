@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import builderAsset from "@/assets/edet-profix-builder-real.jpg.asset.json";
 import logoAsset from "@/assets/edet-profix-logo-transparent.png.asset.json";
+import { SwedenMap } from "@/components/sweden-map";
 import { Button } from "@/components/ui/button";
 import { languages, translations, type LanguageCode } from "@/lib/site-translations";
 
@@ -186,6 +187,10 @@ function Index() {
           <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[.85fr_1.15fr] lg:px-8">
             <div><p className="eyebrow">{t.contactEyebrow}</p><h2 className="section-title">{t.contactTitle}</h2><p className="mt-6 max-w-lg text-base leading-8 text-muted-foreground">{t.contactText}</p><p className="mt-5 border-s-2 border-primary ps-4 font-bold leading-7">{t.responseLine}</p>
               <div className="mt-9 space-y-4"><a href="mailto:edet.profix.info@gmail.com" className="flex min-w-0 items-center gap-4 font-bold hover:text-primary"><span className="contact-icon"><Mail size={20} /></span><span className="break-all" dir="ltr">edet.profix.info@gmail.com</span></a><div className="flex items-center gap-4 font-bold"><span className="contact-icon"><MapPin size={20} /></span>{t.location}</div></div>
+              <figure className="mt-8 w-24 sm:w-28">
+                <SwedenMap className="h-auto w-full" />
+                <figcaption className="mt-2 flex items-center justify-center gap-1.5 text-xs font-bold text-muted-foreground"><span className="h-2.5 w-2.5 rounded-full bg-primary" />Skåne</figcaption>
+              </figure>
             </div>
             <form onSubmit={submitContact} className="grid gap-5 rounded-md border border-border bg-card p-6 shadow-strong sm:p-8">
               <div className="grid gap-5 sm:grid-cols-2"><label className="field-label">{t.nameLabel}<input name="name" required maxLength={100} autoComplete="name" className="field" placeholder={t.namePlaceholder} /></label><label className="field-label">{t.emailLabel}<input name="email" required maxLength={254} type="email" autoComplete="email" className="field" placeholder={t.emailPlaceholder} dir="auto" /></label></div>
