@@ -48,25 +48,25 @@ function GalleriPage() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <article className="overflow-hidden rounded-lg border border-border bg-card shadow-strong">
               <h2 className="border-b border-border px-6 py-5 text-xl font-extrabold">{t.bathroomProject}</h2>
-              <div className="grid gap-px bg-border lg:grid-cols-2">
-                <div className="flex flex-col">
+              <div className="flex flex-col gap-px bg-border">
+                <div>
                   <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.beforeLabel}</p>
-                  <div className="grid grid-cols-2 gap-px bg-border lg:grid-cols-1 lg:grid-rows-2">
+                  <div className="grid grid-cols-2 gap-px bg-border">
                     {beforeImages.map((image, index) => (
-                      <img key={index} src={image.url} alt={t.galleryAltBefore} loading="lazy" className="aspect-[3/4] w-full bg-card object-cover lg:aspect-auto lg:h-full" />
+                      <img key={index} src={image.url} alt={t.galleryAltBefore} loading="lazy" className="aspect-[3/4] w-full bg-card object-cover" />
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-col">
+                <div>
                   <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.afterLabel}</p>
-                  <div className="grid flex-1 grid-cols-2 gap-px bg-border">
+                  <div className="grid grid-cols-2 gap-px bg-border">
                     {afterImages.map((image, index) => (
                       <img
                         key={index}
                         src={image.url}
                         alt={t.galleryAltAfter}
                         loading={index === 0 ? undefined : "lazy"}
-                        className={index === 2 ? "col-span-2 aspect-[3/2] w-full bg-card object-cover" : "aspect-[3/4] w-full bg-card object-cover"}
+                        className={index === 2 ? "col-span-2 aspect-[2/1] w-full bg-card object-cover" : "aspect-[3/4] w-full bg-card object-cover"}
                       />
                     ))}
                   </div>
