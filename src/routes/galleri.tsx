@@ -37,6 +37,7 @@ import terass1Asset from "@/assets/terass-1.jpg.asset.json";
 import terass2Asset from "@/assets/terass-2.jpg.asset.json";
 import terass3Asset from "@/assets/terass-3.jpg.asset.json";
 import terass4Asset from "@/assets/terass-4.jpg.asset.json";
+import { ImageLightbox } from "@/components/image-lightbox";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/use-language";
@@ -155,19 +156,49 @@ function LabelBar({ label }: { label: string }) {
   );
 }
 
-function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }) {
+type ZoomHandler = (src: string, alt: string) => void;
+
+function ZoomableImage({
+  image,
+  alt,
+  className,
+  onZoom,
+}: {
+  image: { url: string };
+  alt: string;
+  className: string;
+  onZoom: ZoomHandler;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => onZoom(image.url, alt)}
+      aria-label={alt}
+      className={`group relative block w-full cursor-zoom-in overflow-hidden ${className}`}
+    >
+      <img
+        src={image.url}
+        alt={alt}
+        loading="lazy"
+        className="h-full w-full bg-card object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+      />
+    </button>
+  );
+}
+
+function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler }) {
   if (project.inProgressImages) {
     return (
       <div className="mx-auto w-full max-w-5xl">
         <LabelBar label={t.wipLabel} />
         <div className="grid grid-cols-2 gap-px bg-border">
           {project.inProgressImages.map((image, index) => (
-            <img
+            <ZoomableImage
               key={index}
-              src={image.url}
+              image={image}
               alt={project.altBefore(t)}
-              loading="lazy"
-              className="aspect-[4/3] w-full bg-card object-cover"
+              onZoom={onZoom}
+              className="aspect-[4/3]"
             />
           ))}
         </div>
@@ -181,20 +212,22 @@ function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }
         <div>
           <LabelBar label={t.beforeLabel} />
           {project.beforeImages?.[0] && (
-            <img
-              src={project.beforeImages[0].url}
+            <ZoomableImage
+              image={project.beforeImages[0]}
               alt={project.altBefore(t)}
-              className="aspect-square w-full bg-card object-cover"
+              onZoom={onZoom}
+              className="aspect-square"
             />
           )}
         </div>
         <div>
           <LabelBar label={t.afterLabel} />
           {project.afterImages?.[0] && (
-            <img
-              src={project.afterImages[0].url}
+            <ZoomableImage
+              image={project.afterImages[0]}
               alt={project.altAfter(t)}
-              className="aspect-square w-full bg-card object-cover"
+              onZoom={onZoom}
+              className="aspect-square"
             />
           )}
         </div>
@@ -208,12 +241,12 @@ function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }
         <LabelBar label={t.beforeLabel} />
         <div className="grid grid-cols-2 gap-px bg-border">
           {project.beforeImages?.map((image, index) => (
-            <img
+            <ZoomableImage
               key={index}
-              src={image.url}
+              image={image}
               alt={project.altBefore(t)}
-              loading="lazy"
-              className={project.beforeImgClass ?? "aspect-[4/3] w-full bg-card object-cover"}
+              onZoom={onZoom}
+              className={project.beforeImgClass ?? "aspect-[4/3]"}
             />
           ))}
         </div>
@@ -222,17 +255,17 @@ function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }
         <LabelBar label={t.afterLabel} />
         <div className="grid grid-cols-2 gap-px bg-border">
           {project.afterImages?.map((image, index) => (
-            <img
+            <ZoomableImage
               key={index}
-              src={image.url}
+              image={image}
               alt={project.altAfter(t)}
-              loading="lazy"
+              onZoom={onZoom}
               className={
                 project.afterImages?.length === 1
-                  ? "col-span-2 aspect-[16/9] w-full bg-card object-cover"
+                  ? "col-span-2 aspect-[16/9]"
                   : index === 2
-                    ? `${project.wideClass} w-full bg-card object-cover`
-                    : (project.afterImgClass ?? "aspect-[4/3] w-full bg-card object-cover")
+                    ? project.wideClass
+                    : (project.afterImgClass ?? "aspect-[4/3]")
               }
             />
           ))}
@@ -242,7 +275,7 @@ function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }
   );
 }
 
-function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
+function ProjectCard({ project, t, onZoom }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler }) {
   const [open, setOpen] = useState(false);
   const imageCount =
     project.inProgressImages?.length ?? (project.beforeImages?.length ?? 0) + (project.afterImages?.length ?? 0);
@@ -285,7 +318,7 @@ function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
       >
         <div className="overflow-hidden">
           <div className="border-t border-border py-px">
-            <ExpandedImages project={project} t={t} />
+            <ExpandedImages project={project} t={t} onZoom={onZoom} />
           </div>
         </div>
       </div>
@@ -295,6 +328,7 @@ function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
 
 function GalleriPage() {
   const { language, setLanguage, t } = useLanguage();
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -312,7 +346,7 @@ function GalleriPage() {
         <section className="py-16 sm:py-24">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-5 md:grid-cols-2 lg:px-8">
             {projects.map((project) => (
-              <ProjectCard key={project.title(t)} project={project} t={t} />
+              <ProjectCard key={project.title(t)} project={project} t={t} onZoom={(src, alt) => setLightbox({ src, alt })} />
             ))}
           </div>
         </section>
@@ -353,6 +387,8 @@ function GalleriPage() {
         </div>
         <p className="mx-auto mt-6 max-w-7xl px-5 text-[9px] text-footer-muted opacity-40 lg:px-8">{t.siteCredit}</p>
       </footer>
+
+      <ImageLightbox image={lightbox} onClose={() => setLightbox(null)} />
     </div>
   );
 }
