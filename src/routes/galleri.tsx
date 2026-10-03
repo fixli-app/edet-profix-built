@@ -346,7 +346,7 @@ function GalleriPage() {
         <section className="py-16 sm:py-24">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-5 md:grid-cols-2 lg:px-8">
             {projects.map((project) => (
-              <ProjectCard key={project.title(t)} project={project} t={t} />
+              <ProjectCard key={project.title(t)} project={project} t={t} onZoom={(src, alt) => setLightbox({ src, alt })} />
             ))}
           </div>
         </section>
@@ -387,6 +387,8 @@ function GalleriPage() {
         </div>
         <p className="mx-auto mt-6 max-w-7xl px-5 text-[9px] text-footer-muted opacity-40 lg:px-8">{t.siteCredit}</p>
       </footer>
+
+      <ImageLightbox image={lightbox} onClose={() => setLightbox(null)} />
     </div>
   );
 }
