@@ -34,6 +34,7 @@ export function ImageLightbox({
 
   const image = index !== null ? (images[index] ?? null) : null;
   const hasMany = images.length > 1;
+  indexRef.current = index;
 
   const applyZoom = useCallback((next: number, px?: number, py?: number) => {
     const clamped = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, next));
@@ -79,8 +80,8 @@ export function ImageLightbox({
     document.body.style.overflow = "hidden";
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") handleClose();
-      if (event.key === "ArrowRight") goTo((index ?? 0) + 1);
-      if (event.key === "ArrowLeft") goTo((index ?? 0) - 1);
+      if (event.key === "ArrowRight") goTo((indexRef.current ?? 0) + 1);
+      if (event.key === "ArrowLeft") goTo((indexRef.current ?? 0) - 1);
     };
     window.addEventListener("keydown", onKey);
     return () => {
