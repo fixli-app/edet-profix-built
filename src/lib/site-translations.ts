@@ -100,6 +100,8 @@ export type SiteTranslation = {
   galleryAltAfter: string;
   galleryCtaTitle: string;
   galleryCtaText: string;
+  expandLabel: string;
+  collapseLabel: string;
 };
 
 export const translations: Record<LanguageCode, SiteTranslation> = {
