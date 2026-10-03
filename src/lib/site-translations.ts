@@ -17,7 +17,7 @@ export type SiteTranslation = {
   menuClose: string;
   mainNavLabel: string;
   mobileNavLabel: string;
-  nav: { services: string; about: string; why: string; contact: string };
+  nav: { services: string; about: string; gallery: string; why: string; contact: string };
   freeQuote: string;
   areaKicker: string;
   heroTitle: string;
@@ -74,6 +74,16 @@ export type SiteTranslation = {
   mailBody: (name: string, email: string, message: string) => string;
   footerMotto: string;
   backToTop: string;
+  galleryEyebrow: string;
+  galleryTitle: string;
+  galleryIntro: string;
+  beforeLabel: string;
+  afterLabel: string;
+  bathroomProject: string;
+  galleryAltBefore: string;
+  galleryAltAfter: string;
+  galleryCtaTitle: string;
+  galleryCtaText: string;
 };
 
 export const translations: Record<LanguageCode, SiteTranslation> = {
@@ -84,7 +94,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     menuClose: "Stäng meny",
     mainNavLabel: "Huvudnavigation",
     mobileNavLabel: "Mobilnavigation",
-    nav: { services: "Tjänster", about: "Om oss", why: "Varför oss", contact: "Kontakt" },
+    nav: { services: "Tjänster", about: "Om oss", why: "Varför oss", gallery: "Galleri", contact: "Kontakt" },
     freeQuote: "Kostnadsfri offert",
     areaKicker: "Utgångspunkt Åstorp · Hela Skåne · Flexibla vid rätt uppdrag",
     heroTitle: "Bygg och renovering i Skåne",
@@ -188,6 +198,16 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailHelp: "När du skickar öppnas ditt e-postprogram med mottagare och meddelande färdigifyllt.",
     mailSubject: (name) => `Förfrågan från ${name}`,
     mailBody: (name, email, message) => `Namn: ${name}\nE-post: ${email}\n\n${message}`,
+    galleryEyebrow: "Våra projekt",
+    galleryTitle: "Före & efter",
+    galleryIntro: "Exempel på projekt vi har utfört i Skåne. Här ser du skillnaden vi gör – från slitet och gammalt till nytt och fräscht. Vi fyller på med fler projekt löpande.",
+    beforeLabel: "Före",
+    afterLabel: "Efter",
+    bathroomProject: "Badrumsrenovering",
+    galleryAltBefore: "Badrummet före renoveringen",
+    galleryAltAfter: "Badrummet efter renoveringen",
+    galleryCtaTitle: "Ska vi förvandla ditt badrum?",
+    galleryCtaText: "Berätta om ditt projekt så återkommer vi med ett förslag. Vi svarar alltid inom 24 timmar.",
     footerMotto: "Kvalitet. Pålitlighet. Resultat.",
     backToTop: "Tillbaka till toppen",
   },
@@ -198,7 +218,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     menuClose: "Close menu",
     mainNavLabel: "Main navigation",
     mobileNavLabel: "Mobile navigation",
-    nav: { services: "Services", about: "About us", why: "Why us", contact: "Contact" },
+    nav: { services: "Services", about: "About us", why: "Why us", gallery: "Gallery", contact: "Contact" },
     freeQuote: "Free quote",
     areaKicker: "Based in Åstorp · All of Skåne · Flexible for the right project",
     heroTitle: "Building and renovation in Skåne",
@@ -301,6 +321,16 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailHelp: "When you send, your email app opens with the recipient and message ready.",
     mailSubject: (name) => `Enquiry from ${name}`,
     mailBody: (name, email, message) => `Name: ${name}\nEmail: ${email}\n\n${message}`,
+    galleryEyebrow: "Our projects",
+    galleryTitle: "Before & after",
+    galleryIntro: "Examples of projects we have completed in Skåne. Here you can see the difference we make – from worn and dated to fresh and new. More projects are added on an ongoing basis.",
+    beforeLabel: "Before",
+    afterLabel: "After",
+    bathroomProject: "Bathroom renovation",
+    galleryAltBefore: "The bathroom before renovation",
+    galleryAltAfter: "The bathroom after renovation",
+    galleryCtaTitle: "Shall we transform your bathroom?",
+    galleryCtaText: "Tell us about your project and we will come back with a proposal. We always reply within 24 hours.",
     footerMotto: "Quality. Reliability. Results.",
     backToTop: "Back to top",
   },
@@ -311,7 +341,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     menuClose: "إغلاق القائمة",
     mainNavLabel: "التنقل الرئيسي",
     mobileNavLabel: "قائمة الهاتف",
-    nav: { services: "خدماتنا", about: "من نحن", why: "لماذا نحن", contact: "تواصل معنا" },
+    nav: { services: "خدماتنا", about: "من نحن", why: "لماذا نحن", gallery: "المعرض", contact: "تواصل معنا" },
     freeQuote: "عرض سعر مجاني",
     areaKicker: "ننطلق من أوستورب · نخدم سكونه بالكامل · مرونة حسب المشروع",
     heroTitle: "البناء والترميم في سكونه",
@@ -413,6 +443,16 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailHelp: "عند الإرسال، سيفتح برنامج البريد مع عنوان المستلم والرسالة جاهزين.",
     mailSubject: (name) => `طلب من ${name}`,
     mailBody: (name, email, message) => `الاسم: ${name}\nالبريد الإلكتروني: ${email}\n\n${message}`,
+    galleryEyebrow: "مشاريعنا",
+    galleryTitle: "قبل وبعد",
+    galleryIntro: "أمثلة على مشاريع نفذناها في سكونه. هنا ترى الفرق الذي نصنعه – من مهترئ وقديم إلى جديد وجميل. نضيف المزيد من المشاريع باستمرار.",
+    beforeLabel: "قبل",
+    afterLabel: "بعد",
+    bathroomProject: "تجديد الحمام",
+    galleryAltBefore: "الحمام قبل التجديد",
+    galleryAltAfter: "الحمام بعد التجديد",
+    galleryCtaTitle: "هل نحوّل حمامك؟",
+    galleryCtaText: "أخبرنا عن مشروعك وسنعود إليك باقتراح. نرد دائمًا خلال 24 ساعة.",
     footerMotto: "الجودة. الموثوقية. النتائج.",
     backToTop: "العودة إلى الأعلى",
   },
@@ -423,7 +463,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     menuClose: "Luk menu",
     mainNavLabel: "Hovednavigation",
     mobileNavLabel: "Mobilnavigation",
-    nav: { services: "Ydelser", about: "Om os", why: "Hvorfor os", contact: "Kontakt" },
+    nav: { services: "Ydelser", about: "Om os", why: "Hvorfor os", gallery: "Galleri", contact: "Kontakt" },
     freeQuote: "Gratis tilbud",
     areaKicker: "Udgangspunkt i Åstorp · Hele Skåne · Fleksible ved den rette opgave",
     heroTitle: "Byggeri og renovering i Skåne",
@@ -526,6 +566,16 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailHelp: "Når du sender, åbnes dit e-mailprogram med modtager og besked udfyldt.",
     mailSubject: (name) => `Forespørgsel fra ${name}`,
     mailBody: (name, email, message) => `Navn: ${name}\nE-mail: ${email}\n\n${message}`,
+    galleryEyebrow: "Vores projekter",
+    galleryTitle: "Før & efter",
+    galleryIntro: "Eksempler på projekter, vi har udført i Skåne. Her ser du forskellen, vi gør – fra slidt og gammelt til nyt og flot. Vi tilføjer flere projekter løbende.",
+    beforeLabel: "Før",
+    afterLabel: "Efter",
+    bathroomProject: "Badeværelsesrenovering",
+    galleryAltBefore: "Badeværelset før renoveringen",
+    galleryAltAfter: "Badeværelset efter renoveringen",
+    galleryCtaTitle: "Skal vi forvandle dit badeværelse?",
+    galleryCtaText: "Fortæl os om dit projekt, så vender vi tilbage med et forslag. Vi svarer altid inden for 24 timer.",
     footerMotto: "Kvalitet. Pålidelighed. Resultater.",
     backToTop: "Tilbage til toppen",
   },
@@ -536,7 +586,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     menuClose: "Zatvori meni",
     mainNavLabel: "Glavna navigacija",
     mobileNavLabel: "Mobilna navigacija",
-    nav: { services: "Usluge", about: "O nama", why: "Zašto mi", contact: "Kontakt" },
+    nav: { services: "Usluge", about: "O nama", why: "Zašto mi", gallery: "Galerija", contact: "Kontakt" },
     freeQuote: "Besplatna ponuda",
     areaKicker: "Polazimo iz Åstorpa · Cijela Skåne · Fleksibilni za pravi posao",
     heroTitle: "Gradnja i renoviranje u Skåne",
@@ -640,6 +690,16 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailHelp: "Slanjem se otvara vaš e-mail program s popunjenim primaocem i porukom.",
     mailSubject: (name) => `Upit od ${name}`,
     mailBody: (name, email, message) => `Ime: ${name}\nE-mail: ${email}\n\n${message}`,
+    galleryEyebrow: "Naši projekti",
+    galleryTitle: "Prije i poslije",
+    galleryIntro: "Primjeri projekata koje smo izveli u Skåneu. Ovdje vidite razliku koju pravimo – od istrošenog i starog do novog i lijepog. Redovno dodajemo nove projekte.",
+    beforeLabel: "Prije",
+    afterLabel: "Poslije",
+    bathroomProject: "Renoviranje kupatila",
+    galleryAltBefore: "Kupatilo prije renoviranja",
+    galleryAltAfter: "Kupatilo poslije renoviranja",
+    galleryCtaTitle: "Želite li novo kupatilo?",
+    galleryCtaText: "Recite nam o svom projektu i javit ćemo vam se s prijedlogom. Uvijek odgovaramo u roku od 24 sata.",
     footerMotto: "Kvalitet. Pouzdanost. Rezultat.",
     backToTop: "Nazad na vrh",
   },

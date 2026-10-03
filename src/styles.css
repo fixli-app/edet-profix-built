@@ -216,6 +216,7 @@
   font-weight: 700;
   transition: color 180ms ease;
   &:hover { color: var(--primary); }
+  &[data-status="active"] { color: var(--primary); }
 }
 
 @utility eyebrow {

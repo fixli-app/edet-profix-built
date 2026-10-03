@@ -1,13 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
-import { ArrowRight, ArrowUp, Check, ChevronDown, ExternalLink, Hammer, Mail, MapPin, Menu, ShieldCheck, Sparkles, Target, Trees, Wrench, X } from "lucide-react";
+import { ArrowRight, ArrowUp, Check, ChevronDown, ExternalLink, Hammer, Mail, MapPin, ShieldCheck, Sparkles, Target, Trees, Wrench } from "lucide-react";
 import { z } from "zod";
 
 import builderAsset from "@/assets/edet-profix-builder-real.jpg.asset.json";
 import logoAsset from "@/assets/edet-profix-logo-transparent.png.asset.json";
+import { SiteHeader } from "@/components/site-header";
 import { SwedenMap } from "@/components/sweden-map";
 import { Button } from "@/components/ui/button";
-import { languages, translations, type LanguageCode } from "@/lib/site-translations";
+import { useLanguage } from "@/hooks/use-language";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,35 +32,17 @@ const contactSchema = z.object({
   email: z.string().trim().email().max(254),
   message: z.string().trim().min(1).max(1500),
 });
-const anchors = ["#tjanster", "#om-oss", "#varfor", "#kontakt"];
 
 function Index() {
-  const [language, setLanguage] = useState<LanguageCode>("sv");
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
-  const t = translations[language];
-  const navLabels = [t.nav.services, t.nav.about, t.nav.why, t.nav.contact];
 
   useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem("edet-language");
-      if (languages.some((item) => item.code === stored)) setLanguage(stored as LanguageCode);
-    } catch { /* Storage may be unavailable. */ }
     const onScroll = () => setShowTop(window.scrollY > 560);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    document.documentElement.lang = language;
-    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
-    try { window.localStorage.setItem("edet-language", language); } catch { /* Storage may be unavailable. */ }
-  }, [language]);
-
-  function changeLanguage(value: string) {
-    if (languages.some((item) => item.code === value)) setLanguage(value as LanguageCode);
-  }
 
   function submitContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -72,50 +55,9 @@ function Index() {
     window.location.href = `mailto:edet.profix.info@gmail.com?subject=${subject}&body=${body}`;
   }
 
-  const languageSelect = (mobile: boolean) => (
-    <label className={`flex items-center gap-2 text-sm font-bold ${mobile ? "text-header-foreground" : "text-header-foreground"}`}>
-      <span className="sr-only">{t.languageLabel}</span>
-      <select
-        aria-label={t.languageLabel}
-        value={language}
-        onChange={(event) => changeLanguage(event.target.value)}
-        className="min-h-10 max-w-full rounded-md border border-header-border bg-header px-2 text-sm text-header-foreground outline-none focus-visible:ring-2 focus-visible:ring-primary"
-        dir="auto"
-      >
-        {languages.map(({ code, label }) => <option key={code} value={code}>{label}</option>)}
-      </select>
-    </label>
-  );
-
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-header-border bg-header/95 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-5 lg:px-8">
-          <a href="#start" className="flex min-w-0 shrink-0 items-center" aria-label={t.homeLabel}>
-            <img src={logoAsset.url} alt="Edet Profix Bygg" className="h-auto w-32 object-contain sm:w-40" />
-          </a>
-          <nav className="hidden items-center gap-4 lg:gap-7 md:flex" aria-label={t.mainNavLabel}>
-            {anchors.map((href, index) => <a key={href} className="nav-link whitespace-nowrap" href={href}>{navLabels[index]}</a>)}
-          </nav>
-          <div className="hidden shrink-0 items-center gap-3 md:flex">
-            {languageSelect(false)}
-            <Button asChild className="hidden whitespace-nowrap px-4 xl:inline-flex"><a href="#kontakt">{t.freeQuote}</a></Button>
-          </div>
-          <Button
-            className="h-11 w-11 shrink-0 border border-primary bg-primary px-0 text-primary-foreground shadow-sm md:hidden"
-            onClick={() => setMenuOpen((open) => !open)}
-            aria-label={menuOpen ? t.menuClose : t.menuOpen}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-nav"
-          >{menuOpen ? <X size={21} /> : <Menu size={21} />}</Button>
-        </div>
-        {menuOpen && (
-          <nav id="mobile-nav" className="border-t border-header-border bg-header px-5 py-4 md:hidden" aria-label={t.mobileNavLabel}>
-            {anchors.map((href, index) => <a key={href} href={href} onClick={() => setMenuOpen(false)} className="block border-b border-header-border py-3 font-semibold text-header-foreground">{navLabels[index]}</a>)}
-            <div className="pt-4">{languageSelect(true)}</div>
-          </nav>
-        )}
-      </header>
+      <SiteHeader t={t} language={language} onLanguageChange={setLanguage} isHome />
 
       <main>
         <section id="start" className="hero-grid relative flex min-h-[800px] items-center overflow-hidden bg-hero pt-20 text-hero-foreground sm:min-h-[92svh]">
