@@ -11,6 +11,10 @@ import fasadEfter2Asset from "@/assets/fasad-efter-2.jpg.asset.json";
 import fasadEfter3Asset from "@/assets/fasad-efter-3.jpg.asset.json";
 import fasadFore1Asset from "@/assets/fasad-fore-1.jpg.asset.json";
 import fasadFore2Asset from "@/assets/fasad-fore-2.jpg.asset.json";
+import renovering1Asset from "@/assets/renovering-1.jpg.asset.json";
+import renovering2Asset from "@/assets/renovering-2.jpg.asset.json";
+import renovering3Asset from "@/assets/renovering-3.jpg.asset.json";
+import renovering4Asset from "@/assets/renovering-4.jpg.asset.json";
 import logoAsset from "@/assets/edet-profix-logo-transparent.png.asset.json";
 import takEfter1Asset from "@/assets/tak-efter-1.jpg.asset.json";
 import takEfter2Asset from "@/assets/tak-efter-2.jpg.asset.json";
@@ -39,8 +43,9 @@ type Project = {
   title: (t: SiteTranslation) => string;
   altBefore: (t: SiteTranslation) => string;
   altAfter: (t: SiteTranslation) => string;
-  beforeImages: { url: string }[];
-  afterImages: { url: string }[];
+  beforeImages?: { url: string }[];
+  afterImages?: { url: string }[];
+  inProgressImages?: { url: string }[];
   wideClass: string;
 };
 
