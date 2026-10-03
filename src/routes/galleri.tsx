@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown, ExternalLink } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 import badrumEfter1Asset from "@/assets/badrum-efter-1.jpg.asset.json";
 import badrumEfter2Asset from "@/assets/badrum-efter-2.jpg.asset.json";

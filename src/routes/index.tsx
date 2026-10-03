@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
-import { ArrowRight, ArrowUp, Check, ChevronDown, ExternalLink, Hammer, Mail, MapPin, ShieldCheck, Sparkles, Target, Trees, Wrench } from "lucide-react";
+import { ArrowRight, ArrowUp, Check, ChevronDown, Hammer, Mail, MapPin, ShieldCheck, Sparkles, Target, Trees, Wrench } from "lucide-react";
 import { z } from "zod";
 
 import builderAsset from "@/assets/edet-profix-builder-real.jpg.asset.json";
