@@ -101,6 +101,9 @@ function Index() {
   const { language, setLanguage, t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
   const [heroImage, setHeroImage] = useState(heroStartImage);
+  const [heroPrevImage, setHeroPrevImage] = useState<string | null>(null);
+  const [heroLoaded, setHeroLoaded] = useState(true);
+  const heroRef = useRef(heroStartImage);
 
   useEffect(() => {
     heroRotatingImages.forEach((src) => {
@@ -108,14 +111,24 @@ function Index() {
       img.src = src;
     });
     const id = setInterval(() => {
-      setHeroImage((prev) => {
-        let next = prev;
-        while (next === prev) next = heroRotatingImages[Math.floor(Math.random() * heroRotatingImages.length)] ?? prev;
-        return next;
-      });
+      const prev = heroRef.current;
+      let next = prev;
+      while (next === prev) next = heroRotatingImages[Math.floor(Math.random() * heroRotatingImages.length)] ?? prev;
+      if (next === prev) return;
+      heroRef.current = next;
+      setHeroPrevImage(prev);
+      setHeroLoaded(false);
+      setHeroImage(next);
     }, 10000);
     return () => clearInterval(id);
   }, []);
+
+  // Ta bort den gamla bilden ur stapeln när toningen är klar.
+  useEffect(() => {
+    if (!heroPrevImage) return;
+    const timer = setTimeout(() => setHeroPrevImage(null), 1200);
+    return () => clearTimeout(timer);
+  }, [heroPrevImage]);
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 560);
