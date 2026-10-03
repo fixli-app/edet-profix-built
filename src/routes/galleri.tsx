@@ -191,6 +191,13 @@ function ZoomableImage({
 }
 
 function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler }) {
+  const allImages = project.inProgressImages
+    ? project.inProgressImages.map((image) => ({ src: image.url, alt: project.altBefore(t) }))
+    : [
+        ...(project.beforeImages?.map((image) => ({ src: image.url, alt: project.altBefore(t) })) ?? []),
+        ...(project.afterImages?.map((image) => ({ src: image.url, alt: project.altAfter(t) })) ?? []),
+      ];
+
   if (project.inProgressImages) {
     return (
       <div className="mx-auto w-full max-w-5xl">
@@ -202,6 +209,8 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
               image={image}
               alt={project.altBefore(t)}
               onZoom={onZoom}
+              images={allImages}
+              index={index}
               className="aspect-[4/3]"
             />
           ))}
