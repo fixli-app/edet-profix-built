@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 import badrumEfter1Asset from "@/assets/badrum-efter-1.jpg.asset.json";
+import badrumEfter2Asset from "@/assets/badrum-efter-2.jpg.asset.json";
 import badrumFore1Asset from "@/assets/badrum-fore-1.jpg.asset.json";
 import badrumFore2Asset from "@/assets/badrum-fore-2.jpg.asset.json";
 import fasadEfter1Asset from "@/assets/fasad-efter-1.jpg.asset.json";
@@ -79,7 +80,7 @@ const projects: Project[] = [
     altAfter: (t) => t.galleryAltAfter,
     cover: badrumEfter1Asset,
     beforeImages: [badrumFore1Asset, badrumFore2Asset],
-    afterImages: [badrumEfter1Asset],
+    afterImages: [badrumEfter1Asset, badrumEfter2Asset],
     wideClass: "col-span-2 aspect-[3/1]",
   },
   {
