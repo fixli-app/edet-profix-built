@@ -113,7 +113,7 @@ function Index() {
         while (next === prev) next = heroRotatingImages[Math.floor(Math.random() * heroRotatingImages.length)] ?? prev;
         return next;
       });
-    }, 30000);
+    }, 10000);
     return () => clearInterval(id);
   }, []);
 
