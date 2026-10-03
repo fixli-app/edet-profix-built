@@ -3,7 +3,6 @@ import { useEffect, useState, type FormEvent } from "react";
 import { ArrowRight, ArrowUp, Check, ChevronDown, Hammer, Mail, MapPin, ShieldCheck, Sparkles, Target, Trees, Wrench } from "lucide-react";
 import { z } from "zod";
 
-import builderAsset from "@/assets/edet-profix-builder-real.jpg.asset.json";
 import logoAsset from "@/assets/edet-profix-logo-transparent.png.asset.json";
 import { SiteHeader } from "@/components/site-header";
 import { SwedenMap } from "@/components/sweden-map";
