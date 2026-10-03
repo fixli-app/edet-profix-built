@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Edet Profix Bygg | Bygg och renovering i Åstorp och Skåne" },
-      { name: "description", content: "Edet Profix Bygg utgår från Åstorp och arbetar i hela Skåne, inklusive Helsingborg, Ängelholm och Höganäs. Bygg, renovering, markarbete och underhåll." },
+      { name: "description", content: "Edet Profix Bygg utgår från Åstorp och arbetar i hela Skåne, inklusive Helsingborg, Ängelholm, Höganäs, Landskrona, Lund och Malmö. Bygg, renovering, markarbete och underhåll." },
       { property: "og:title", content: "Edet Profix Bygg | Bygg och renovering i Åstorp och Skåne" },
       { property: "og:description", content: "Bygg, renovering, markarbete och underhåll från Åstorp till hela Skåne. Flexibla beroende på uppdrag." },
       { property: "og:type", content: "website" },
