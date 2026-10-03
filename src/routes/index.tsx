@@ -189,7 +189,7 @@ function Index() {
         <section id="varfor" className="scroll-mt-20 py-20 sm:py-28">
           <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
             <div><p className="eyebrow">{t.whyEyebrow}</p><h2 className="section-title">{t.whyTitle}</h2><p className="mt-6 text-base leading-8 text-muted-foreground">{t.whyText}</p>
-              <figure className="mt-8 overflow-hidden rounded-lg border border-border bg-card shadow-strong"><img src={builderAsset.url} alt={t.photoAlt} className="aspect-[4/5] w-full object-cover object-center" /><figcaption className="border-t border-border px-5 py-4 text-sm font-bold text-foreground">{t.photoCaption}</figcaption></figure>
+              <figure className="mt-8 overflow-hidden rounded-lg border border-border bg-card shadow-strong"><img key={heroImage} src={heroImage} alt={t.photoAlt} className="aspect-[4/5] w-full animate-fade-in object-cover object-center" /><figcaption className="border-t border-border px-5 py-4 text-sm font-bold text-foreground">{t.photoCaption}</figcaption></figure>
             </div>
             <div>
               <div className="grid gap-3 sm:grid-cols-2">{t.reasons.map((reason, index) => <div key={index} className="flex min-h-20 items-center gap-4 border-b border-border p-3"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check size={17} strokeWidth={3} /></span><span className="font-semibold leading-6">{reason}</span></div>)}</div>
