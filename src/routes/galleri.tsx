@@ -263,6 +263,8 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
               image={image}
               alt={project.altBefore(t)}
               onZoom={onZoom}
+              images={allImages}
+              index={index}
               className={project.beforeImgClass ?? "aspect-[4/3]"}
             />
           ))}
@@ -277,6 +279,8 @@ function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTrans
               image={image}
               alt={project.altAfter(t)}
               onZoom={onZoom}
+              images={allImages}
+              index={(project.beforeImages?.length ?? 0) + index}
               className={
                 project.afterImages?.length === 1
                   ? "col-span-2 aspect-[16/9]"
