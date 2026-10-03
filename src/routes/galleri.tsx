@@ -31,6 +31,8 @@ import takEfter1Asset from "@/assets/tak-efter-1.jpg.asset.json";
 import takEfter2Asset from "@/assets/tak-efter-2.jpg.asset.json";
 import takFore1Asset from "@/assets/tak-fore-1.jpg.asset.json";
 import takFore2Asset from "@/assets/tak-fore-2.jpg.asset.json";
+import toalettEfter1Asset from "@/assets/toalett-efter-1.jpg.asset.json";
+import toalettFore1Asset from "@/assets/toalett-fore-1.jpg.asset.json";
 import terass1Asset from "@/assets/terass-1.jpg.asset.json";
 import terass2Asset from "@/assets/terass-2.jpg.asset.json";
 import terass3Asset from "@/assets/terass-3.jpg.asset.json";
@@ -44,7 +46,7 @@ export const Route = createFileRoute("/galleri")({
   head: () => ({
     meta: [
       { title: "Galleri – Före & efter | Edet Profix Bygg" },
-      { name: "description", content: "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, fasadmålning, takläggning, betongterrasser och pågående renoveringar av hela hus i Åstorp och hela Skåne." },
+      { name: "description", content: "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, toalettronovation, fasadmålning, takläggning, betongterrasser och pågående renoveringar av hela hus i Åstorp och hela Skåne." },
       { property: "og:title", content: "Galleri – Före & efter | Edet Profix Bygg" },
       { property: "og:description", content: "Bilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
       { property: "og:type", content: "website" },
@@ -62,6 +64,8 @@ type Project = {
   afterImages?: { url: string }[];
   inProgressImages?: { url: string }[];
   wideClass: string;
+  beforeImgClass?: string;
+  afterImgClass?: string;
 };
 
 const projects: Project[] = [
@@ -110,6 +114,15 @@ const projects: Project[] = [
     inProgressImages: [terass3Asset, terass2Asset, terass1Asset, terass4Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
+  {
+    title: (t) => t.toiletProject,
+    altBefore: (t) => t.toiletAltBefore,
+    altAfter: (t) => t.toiletAltAfter,
+    beforeImages: [toalettFore1Asset],
+    afterImages: [toalettEfter1Asset],
+    wideClass: "col-span-2 aspect-[16/10]",
+    afterImgClass: "aspect-[3/4] w-full bg-card object-cover",
+  },
 ];
 
 function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
@@ -133,7 +146,7 @@ function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
             <p className="bg-primary-soft px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary">{t.beforeLabel}</p>
             <div className="grid grid-cols-2 gap-px bg-border">
               {project.beforeImages?.map((image, index) => (
-                <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className="aspect-[4/3] w-full bg-card object-cover" />
+                <img key={index} src={image.url} alt={project.altBefore(t)} loading="lazy" className={project.beforeImgClass ?? "aspect-[4/3] w-full bg-card object-cover"} />
               ))}
             </div>
           </div>
@@ -146,7 +159,7 @@ function ProjectCard({ project, t }: { project: Project; t: SiteTranslation }) {
                   src={image.url}
                   alt={project.altAfter(t)}
                   loading={index === 0 ? undefined : "lazy"}
-                  className={index === 2 ? `${project.wideClass} w-full bg-card object-cover` : "aspect-[4/3] w-full bg-card object-cover"}
+                  className={index === 2 ? `${project.wideClass} w-full bg-card object-cover` : project.afterImgClass ?? "aspect-[4/3] w-full bg-card object-cover"}
                 />
               ))}
             </div>
