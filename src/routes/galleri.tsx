@@ -29,9 +29,9 @@ export const Route = createFileRoute("/galleri")({
   head: () => ({
     meta: [
       { title: "Galleri – Före & efter | Edet Profix Bygg" },
-      { name: "description", content: "Se före- och efterbilder från projekt av Edet Profix Bygg – badrumsrenovering, fasadmålning och takläggning i Åstorp och hela Skåne." },
+      { name: "description", content: "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, fasadmålning, takläggning och pågående interiörrenovering i Åstorp och hela Skåne." },
       { property: "og:title", content: "Galleri – Före & efter | Edet Profix Bygg" },
-      { property: "og:description", content: "Före- och efterbilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
+      { property: "og:description", content: "Bilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
