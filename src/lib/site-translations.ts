@@ -83,6 +83,9 @@ export type SiteTranslation = {
   facadeProject: string;
   facadeAltBefore: string;
   facadeAltAfter: string;
+  roofProject: string;
+  roofAltBefore: string;
+  roofAltAfter: string;
   galleryAltBefore: string;
   galleryAltAfter: string;
   galleryCtaTitle: string;
@@ -210,6 +213,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     facadeProject: "Fasadmålning & balkong",
     facadeAltBefore: "Fasaden och balkongen före målning",
     facadeAltAfter: "Fasaden och balkongen efter målning",
+    roofProject: "Takläggning – platt tak",
+    roofAltBefore: "Taket före – bart underlag och förberedelsearbete",
+    roofAltAfter: "Taket efter – nytt tätskiktsmembran lagt",
     galleryAltBefore: "Badrummet före renoveringen",
     galleryAltAfter: "Badrummet efter renoveringen",
     galleryCtaTitle: "Ska vi förvandla ditt badrum?",
@@ -336,6 +342,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     facadeProject: "Facade painting & balcony",
     facadeAltBefore: "The facade and balcony before painting",
     facadeAltAfter: "The facade and balcony after painting",
+    roofProject: "Roofing – flat roof",
+    roofAltBefore: "The roof before – bare decking and preparation",
+    roofAltAfter: "The roof after – new waterproofing membrane",
     galleryAltBefore: "The bathroom before renovation",
     galleryAltAfter: "The bathroom after renovation",
     galleryCtaTitle: "Shall we transform your bathroom?",
@@ -461,6 +470,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     facadeProject: "دهان الواجهة والشرفة",
     facadeAltBefore: "الواجهة والشرفة قبل الدهان",
     facadeAltAfter: "الواجهة والشرفة بعد الدهان",
+    roofProject: "أعمال التسقيف – سطح مستوٍ",
+    roofAltBefore: "السطح قبل البدء – القاعدة العارية وأعمال التحضير",
+    roofAltAfter: "السطح بعد الانتهاء – غشاء العزل المائي الجديد",
     galleryAltBefore: "الحمام قبل التجديد",
     galleryAltAfter: "الحمام بعد التجديد",
     galleryCtaTitle: "هل نحوّل حمامك؟",
@@ -587,6 +599,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     facadeProject: "Facademaling & altan",
     facadeAltBefore: "Fasaden og altanen før malingen",
     facadeAltAfter: "Fasaden og altanen efter malingen",
+    roofProject: "Taglægning – fladt tag",
+    roofAltBefore: "Taget før – bart underlag og forberedelse",
+    roofAltAfter: "Taget efter – nyt vandtæt membran",
     galleryAltBefore: "Badeværelset før renoveringen",
     galleryAltAfter: "Badeværelset efter renoveringen",
     galleryCtaTitle: "Skal vi forvandle dit badeværelse?",
@@ -714,6 +729,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     facadeProject: "Farbanje fasade i balkona",
     facadeAltBefore: "Fasada i balkon prije farbanja",
     facadeAltAfter: "Fasada i balkon poslije farbanja",
+    roofProject: "Pokrivanje krova – ravan krov",
+    roofAltBefore: "Krov prije – gola podloga i priprema",
+    roofAltAfter: "Krov poslije – nova hidroizolaciona membrana",
     galleryAltBefore: "Kupatilo prije renoviranja",
     galleryAltAfter: "Kupatilo poslije renoviranja",
     galleryCtaTitle: "Želite li novo kupatilo?",

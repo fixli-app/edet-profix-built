@@ -12,6 +12,10 @@ import fasadEfter3Asset from "@/assets/fasad-efter-3.jpg.asset.json";
 import fasadFore1Asset from "@/assets/fasad-fore-1.jpg.asset.json";
 import fasadFore2Asset from "@/assets/fasad-fore-2.jpg.asset.json";
 import logoAsset from "@/assets/edet-profix-logo-transparent.png.asset.json";
+import takEfter1Asset from "@/assets/tak-efter-1.jpg.asset.json";
+import takEfter2Asset from "@/assets/tak-efter-2.jpg.asset.json";
+import takFore1Asset from "@/assets/tak-fore-1.jpg.asset.json";
+import takFore2Asset from "@/assets/tak-fore-2.jpg.asset.json";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/use-language";
@@ -21,7 +25,7 @@ export const Route = createFileRoute("/galleri")({
   head: () => ({
     meta: [
       { title: "Galleri – Före & efter | Edet Profix Bygg" },
-      { name: "description", content: "Se före- och efterbilder från projekt av Edet Profix Bygg – bland annat badrumsrenovering och fasadmålning i Åstorp och hela Skåne." },
+      { name: "description", content: "Se före- och efterbilder från projekt av Edet Profix Bygg – badrumsrenovering, fasadmålning och takläggning i Åstorp och hela Skåne." },
       { property: "og:title", content: "Galleri – Före & efter | Edet Profix Bygg" },
       { property: "og:description", content: "Före- och efterbilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
       { property: "og:type", content: "website" },
@@ -55,6 +59,14 @@ const projects: Project[] = [
     altAfter: (t) => t.facadeAltAfter,
     beforeImages: [fasadFore1Asset, fasadFore2Asset],
     afterImages: [fasadEfter1Asset, fasadEfter2Asset, fasadEfter3Asset],
+    wideClass: "col-span-2 aspect-[16/10]",
+  },
+  {
+    title: (t) => t.roofProject,
+    altBefore: (t) => t.roofAltBefore,
+    altAfter: (t) => t.roofAltAfter,
+    beforeImages: [takFore1Asset, takFore2Asset],
+    afterImages: [takEfter1Asset, takEfter2Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
 ];
