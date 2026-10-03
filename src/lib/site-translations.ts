@@ -86,6 +86,9 @@ export type SiteTranslation = {
   roofProject: string;
   roofAltBefore: string;
   roofAltAfter: string;
+  wipProject: string;
+  wipLabel: string;
+  wipAlt: string;
   galleryAltBefore: string;
   galleryAltAfter: string;
   galleryCtaTitle: string;
@@ -216,6 +219,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     roofProject: "Takläggning – platt tak",
     roofAltBefore: "Taket före – bart underlag och förberedelsearbete",
     roofAltAfter: "Taket efter – nytt tätskiktsmembran lagt",
+    wipProject: "Interiörrenovering & kamin",
+    wipLabel: "Under arbete",
+    wipAlt: "Pågående interiörrenovering – gipsväggar och tak, spackling och nymurad kamin",
     galleryAltBefore: "Badrummet före renoveringen",
     galleryAltAfter: "Badrummet efter renoveringen",
     galleryCtaTitle: "Ska vi förvandla ditt badrum?",
@@ -345,6 +351,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     roofProject: "Roofing – flat roof",
     roofAltBefore: "The roof before – bare decking and preparation",
     roofAltAfter: "The roof after – new waterproofing membrane",
+    wipProject: "Interior renovation & fireplace",
+    wipLabel: "In progress",
+    wipAlt: "Ongoing interior renovation – drywall walls and ceilings, plastering and a newly built fireplace",
     galleryAltBefore: "The bathroom before renovation",
     galleryAltAfter: "The bathroom after renovation",
     galleryCtaTitle: "Shall we transform your bathroom?",
@@ -473,6 +482,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     roofProject: "أعمال التسقيف – سطح مستوٍ",
     roofAltBefore: "السطح قبل البدء – القاعدة العارية وأعمال التحضير",
     roofAltAfter: "السطح بعد الانتهاء – غشاء العزل المائي الجديد",
+    wipProject: "تجديد داخلي ومدفأة",
+    wipLabel: "قيد التنفيذ",
+    wipAlt: "تجديد داخلي جارٍ – جدران وأسقف جبسية، معجون وموقد مبني حديثًا",
     galleryAltBefore: "الحمام قبل التجديد",
     galleryAltAfter: "الحمام بعد التجديد",
     galleryCtaTitle: "هل نحوّل حمامك؟",
@@ -602,6 +614,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     roofProject: "Taglægning – fladt tag",
     roofAltBefore: "Taget før – bart underlag og forberedelse",
     roofAltAfter: "Taget efter – nyt vandtæt membran",
+    wipProject: "Indvendig renovering & kamin",
+    wipLabel: "Under arbejde",
+    wipAlt: "Igangværende indvendig renovering – gipsvægge og lofter, pudsning og nymuret kamin",
     galleryAltBefore: "Badeværelset før renoveringen",
     galleryAltAfter: "Badeværelset efter renoveringen",
     galleryCtaTitle: "Skal vi forvandle dit badeværelse?",
@@ -732,6 +747,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     roofProject: "Pokrivanje krova – ravan krov",
     roofAltBefore: "Krov prije – gola podloga i priprema",
     roofAltAfter: "Krov poslije – nova hidroizolaciona membrana",
+    wipProject: "Unutrašnja renovacija i kamin",
+    wipLabel: "U toku",
+    wipAlt: "Tekuća unutrašnja renovacija – gipsani zidovi i plafoni, malterisanje i novozidana kamin",
     galleryAltBefore: "Kupatilo prije renoviranja",
     galleryAltAfter: "Kupatilo poslije renoviranja",
     galleryCtaTitle: "Želite li novo kupatilo?",
