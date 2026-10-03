@@ -28,6 +28,7 @@ export type SiteTranslation = {
   values: Array<{ title: string; text: string }>;
   servicesEyebrow: string;
   servicesTitle: string;
+  examplesLabel: string;
   servicesIntro: string;
   services: Service[];
   aboutEyebrow: string;
@@ -98,6 +99,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       { title: "Resultat", text: "Omsorg i varje detalj" },
     ],
     servicesEyebrow: "Vad vi gör",
+    examplesLabel: "T.ex.",
     servicesTitle: "Från renovering till färdigt markarbete",
     servicesIntro:
       "Från mindre reparationer och invändiga renoveringar till plattsättning, dränering och byggstädning. Vi tar oss an både små och stora projekt för bostäder och kommersiella fastigheter.",
@@ -211,6 +213,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       { title: "Results", text: "Care in every detail" },
     ],
     servicesEyebrow: "What we do",
+    examplesLabel: "e.g.",
     servicesTitle: "From renovations to finished groundworks",
     servicesIntro:
       "From minor repairs and interior renovations to paving, drainage and post-construction cleaning. We handle projects of all sizes for homes and commercial properties.",
@@ -323,6 +326,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       { title: "النتائج", text: "عناية بكل تفصيل" },
     ],
     servicesEyebrow: "ماذا نقدم",
+    examplesLabel: "مثل",
     servicesTitle: "من الترميم إلى أعمال الأرض المكتملة",
     servicesIntro:
       "من الإصلاحات الصغيرة والتجديدات الداخلية إلى الرصف والصرف الصحي وتنظيف مواقع البناء. نتولى المشاريع الصغيرة والكبيرة للمنازل والعقارات التجارية.",
@@ -434,6 +438,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       { title: "Resultater", text: "Omhu i hver detalje" },
     ],
     servicesEyebrow: "Det laver vi",
+    examplesLabel: "f.eks.",
     servicesTitle: "Fra renovering til færdigt anlægsarbejde",
     servicesIntro:
       "Fra mindre reparationer og indvendige renoveringer til belægning, dræning og byggerengøring. Vi påtager os både små og store projekter for boliger og erhvervsejendomme.",
@@ -546,6 +551,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       { title: "Rezultat", text: "Pažnja u svakom detalju" },
     ],
     servicesEyebrow: "Šta radimo",
+    examplesLabel: "npr.",
     servicesTitle: "Od renoviranja do završenih vanjskih radova",
     servicesIntro:
       "Od manjih popravki i unutrašnjih renoviranja do popločavanja, drenaže i čišćenja nakon gradnje. Preuzimamo male i velike projekte za domove i poslovne objekte.",
