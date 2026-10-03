@@ -227,9 +227,11 @@ function ExpandedImages({ project, t }: { project: Project; t: SiteTranslation }
               alt={project.altAfter(t)}
               loading="lazy"
               className={
-                index === 2
-                  ? `${project.wideClass} w-full bg-card object-cover`
-                  : (project.afterImgClass ?? "aspect-[4/3] w-full bg-card object-cover")
+                project.afterImages?.length === 1
+                  ? "col-span-2 aspect-[16/9] w-full bg-card object-cover"
+                  : index === 2
+                    ? `${project.wideClass} w-full bg-card object-cover`
+                    : (project.afterImgClass ?? "aspect-[4/3] w-full bg-card object-cover")
               }
             />
           ))}
