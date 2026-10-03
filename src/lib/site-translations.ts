@@ -93,6 +93,9 @@ export type SiteTranslation = {
   houseAlt: string;
   terraceProject: string;
   terraceAlt: string;
+  toiletProject: string;
+  toiletAltBefore: string;
+  toiletAltAfter: string;
   galleryAltBefore: string;
   galleryAltAfter: string;
   galleryCtaTitle: string;
@@ -230,6 +233,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     houseAlt: "Pågående totalrenovering av hus – nya golv, målade väggar och tak, badrum och köksmontage",
     terraceProject: "Betongterrass",
     terraceAlt: "Gjutning av betongterrass med trappsteg – armering, formsättning och slät yta",
+    toiletProject: "Toalettronovation",
+    toiletAltBefore: "Toalett före renovering",
+    toiletAltAfter: "Renoverad toalett med nya plattor och målad vägg",
     galleryAltBefore: "Badrummet före renoveringen",
     galleryAltAfter: "Badrummet efter renoveringen",
     galleryCtaTitle: "Ska vi förvandla ditt badrum?",
@@ -366,6 +372,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     houseAlt: "Ongoing full house renovation – new floors, painted walls and ceilings, bathrooms and kitchen installation",
     terraceProject: "Concrete terrace",
     terraceAlt: "Concrete terrace with steps under construction – reinforcement, formwork and smooth finish",
+    toiletProject: "Toilet renovation",
+    toiletAltBefore: "Toilet before renovation",
+    toiletAltAfter: "Renovated toilet with new tiles and a painted wall",
     galleryAltBefore: "The bathroom before renovation",
     galleryAltAfter: "The bathroom after renovation",
     galleryCtaTitle: "Shall we transform your bathroom?",
@@ -501,6 +510,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     houseAlt: "تجديد شامل جارٍ للمنزل – أرضيات جديدة، جدران وأسقف مطليّة، حمّامات وتركيب مطبخ",
     terraceProject: "شرفة خرسانية",
     terraceAlt: "صب شرفة خرسانية مع درجات قيد التنفيذ – التسليح والقوالب وسطح أملس",
+    toiletProject: "تجديد دورة المياه",
+    toiletAltBefore: "دورة المياه قبل التجديد",
+    toiletAltAfter: "دورة مياه مجددة مع بلاط جديد وجدار مطلي",
     galleryAltBefore: "الحمام قبل التجديد",
     galleryAltAfter: "الحمام بعد التجديد",
     galleryCtaTitle: "هل نحوّل حمامك؟",
@@ -637,6 +649,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     houseAlt: "Igangværende totalrenovering af hus – nye gulve, malede vægge og lofter, badeværelser og køkkenmontering",
     terraceProject: "Betonterrasse",
     terraceAlt: "Støbning af betonterrasse med trin under udførelse – armering, forskalling og glat overflade",
+    toiletProject: "Toiletrenovering",
+    toiletAltBefore: "Toilet før renovering",
+    toiletAltAfter: "Renoveret toilet med nye fliser og malet væg",
     galleryAltBefore: "Badeværelset før renoveringen",
     galleryAltAfter: "Badeværelset efter renoveringen",
     galleryCtaTitle: "Skal vi forvandle dit badeværelse?",
@@ -774,6 +789,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     houseAlt: "Tekuća potpuna renovacija kuće – novi podovi, bojeni zidovi i plafoni, kupatila i montaža kuhinje",
     terraceProject: "Betonska terasa",
     terraceAlt: "Izlivavanje betonske terase sa stepenicima u toku – armatura, oplata i glatka površina",
+    toiletProject: "Renovacija toaleta",
+    toiletAltBefore: "Toalet prije renovacije",
+    toiletAltAfter: "Renovirani toalet sa novim pločicama i obojenim zidom",
     galleryAltBefore: "Kupatilo prije renoviranja",
     galleryAltAfter: "Kupatilo poslije renoviranja",
     galleryCtaTitle: "Želite li novo kupatilo?",
