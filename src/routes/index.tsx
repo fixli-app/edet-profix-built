@@ -94,7 +94,7 @@ function Index() {
       setHeroPrevImage(prev);
       setHeroLoaded(false);
       setHeroImage(next);
-    }, 10000);
+    }, 30000);
     return () => clearInterval(id);
   }, []);
 
