@@ -253,7 +253,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     roofAltBefore: "Taket före – bart underlag och förberedelsearbete",
     roofAltAfter: "Taket efter – nytt tätskiktsmembran lagt",
     wipProject: "Interiörrenovering & kamin",
-    wipLabel: "Under arbete",
+    wipLabel: "Under arbetet",
     wipAlt: "Pågående interiörrenovering – gipsväggar och tak, spackling och nymurad kamin",
     houseProject: "Husrenovering – hela huset",
     houseAlt: "Pågående totalrenovering av hus – nya golv, målade väggar och tak, badrum och köksmontage",
