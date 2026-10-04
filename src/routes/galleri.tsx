@@ -47,6 +47,9 @@ import uterum7Asset from "@/assets/uterum-7.jpg.asset.json";
 import uterum8Asset from "@/assets/uterum-8.jpg.asset.json";
 import uterum9Asset from "@/assets/uterum-9.jpg.asset.json";
 import uterum10Asset from "@/assets/uterum-10.jpg.asset.json";
+import uterum11Asset from "@/assets/uterum-11.jpg.asset.json";
+import uterum12Asset from "@/assets/uterum-12.jpg.asset.json";
+import uterum13Asset from "@/assets/uterum-13.jpg.asset.json";
 import { ImageLightbox } from "@/components/image-lightbox";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
@@ -164,14 +167,17 @@ const projects: Project[] = [
     altAfter: (t) => t.uterumAlt,
     cover: uterum10Asset,
     inProgressImages: [
+      uterum11Asset,
       uterum1Asset,
       uterum2Asset,
       uterum3Asset,
       uterum4Asset,
       uterum5Asset,
+      uterum12Asset,
       uterum6Asset,
       uterum7Asset,
       uterum8Asset,
+      uterum13Asset,
       uterum9Asset,
       uterum10Asset,
     ],
