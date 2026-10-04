@@ -96,6 +96,8 @@ export type SiteTranslation = {
   terraceAlt: string;
   uterumProject: string;
   uterumAlt: string;
+  sunroomProject2: string;
+  sunroomAlt2: string;
   toiletProject: string;
   toiletAltBefore: string;
   toiletAltAfter: string;
@@ -259,6 +261,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     terraceAlt: "Gjutning av betongterrass med trappsteg – armering, formsättning och slät yta",
     uterumProject: "Uterum – platsbyggt",
     uterumAlt: "Uterum som byggs från grunden – stomme, tak, panel och innervägg i trä",
+    sunroomProject2: "Uterum – tillbyggnad",
+    sunroomAlt2: "Uterum under byggnad – panel, tak och golv i trä",
     toiletProject: "Toalettrenovation",
     toiletAltBefore: "Toalett före renovering",
     toiletAltAfter: "Renoverad toalett med nya plattor och målad vägg",
@@ -424,6 +428,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     terraceAlt: "Concrete terrace with steps under construction – reinforcement, formwork and smooth finish",
     uterumProject: "Sunroom – custom built",
     uterumAlt: "Sunroom under construction – timber frame, roof, cladding and interior wood paneling",
+    sunroomProject2: "Sunroom – extension",
+    sunroomAlt2: "Sunroom under construction – timber cladding, roof and decking",
     toiletProject: "Toilet renovation",
     toiletAltBefore: "Toilet before renovation",
     toiletAltAfter: "Renovated toilet with new tiles and a painted wall",
@@ -582,6 +588,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     terraceAlt: "صب شرفة خرسانية مع درجات قيد التنفيذ – التسليح والقوالب وسطح أملس",
     uterumProject: "غرفة شمسية – مبنية خصيصًا",
     uterumAlt: "غرفة شمسية قيد الإنشاء – هيكل خشبي وسقف وتكسية وجدران داخلية من الخشب",
+    sunroomProject2: "غرفة شمسية – توسعة",
+    sunroomAlt2: "غرفة شمسية قيد الإنشاء – تكسية خشبية وسقف وأرضية من الخشب",
     toiletProject: "تجديد دورة المياه",
     toiletAltBefore: "دورة المياه قبل التجديد",
     toiletAltAfter: "دورة مياه مجددة مع بلاط جديد وجدار مطلي",
@@ -746,6 +754,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     terraceAlt: "Støbning af betonterrasse med trin under udførelse – armering, forskalling og glat overflade",
     uterumProject: "Vinterhave – bygget på mål",
     uterumAlt: "Vinterhave under opførelse – trækonstruktion, tag, beklædning og indervægge i træ",
+    sunroomProject2: "Vinterhave – tilbygning",
+    sunroomAlt2: "Vinterhave under opførelse – træbeklædning, tag og gulv",
     toiletProject: "Toiletrenovering",
     toiletAltBefore: "Toilet før renovering",
     toiletAltAfter: "Renoveret toilet med nye fliser og malet væg",
@@ -910,6 +920,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     terraceAlt: "Izlivavanje betonske terase sa stepenicima u toku – armatura, oplata i glatka površina",
     uterumProject: "Zimski vrt – izrada po mjeri",
     uterumAlt: "Zimski vrt u izgradnji – drvena konstrukcija, krov, obloga i unutrašnji zidovi od drveta",
+    sunroomProject2: "Zimski vrt – dogradnja",
+    sunroomAlt2: "Zimski vrt u izgradnji – drvena obloga, krov i pod",
     toiletProject: "Renovacija toaleta",
     toiletAltBefore: "Toalet prije renovacije",
     toiletAltAfter: "Renovirani toalet sa novim pločicama i obojenim zidom",
