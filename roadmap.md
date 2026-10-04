@@ -10,3 +10,4 @@
 - [x] Sjätte galleriprojekt: Betongterrass – gjutning med trappsteg (4 bilder, "Under arbete"), komprimerade bilder, fem språk, verifierad på dator/mobil.
 - [x] Sjunde galleriprojekt: Toalettrenovation – före/efter sida vid sida (1 + 1 bild), komprimerade bilder, fem språk, verifierad på dator/mobil.
 - [x] Galleri ombyggt till utvecklingsbara projektkort (cover + "Visa bilder", expanderar till full bredd), ny CTA-text längst ner på alla fem språk
+- [x] Åttonde galleriprojekt: Uterum – platsbyggt (10 bilder, "Under arbete", i byggordning från stomme till färdig innervägg), komprimerade bilder (~55–120 KB), fem språk, verifierad på dator med bildvisaren.
