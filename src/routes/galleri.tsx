@@ -37,6 +37,16 @@ import terass1Asset from "@/assets/terass-1.jpg.asset.json";
 import terass2Asset from "@/assets/terass-2.jpg.asset.json";
 import terass3Asset from "@/assets/terass-3.jpg.asset.json";
 import terass4Asset from "@/assets/terass-4.jpg.asset.json";
+import uterum1Asset from "@/assets/uterum-1.jpg.asset.json";
+import uterum2Asset from "@/assets/uterum-2.jpg.asset.json";
+import uterum3Asset from "@/assets/uterum-3.jpg.asset.json";
+import uterum4Asset from "@/assets/uterum-4.jpg.asset.json";
+import uterum5Asset from "@/assets/uterum-5.jpg.asset.json";
+import uterum6Asset from "@/assets/uterum-6.jpg.asset.json";
+import uterum7Asset from "@/assets/uterum-7.jpg.asset.json";
+import uterum8Asset from "@/assets/uterum-8.jpg.asset.json";
+import uterum9Asset from "@/assets/uterum-9.jpg.asset.json";
+import uterum10Asset from "@/assets/uterum-10.jpg.asset.json";
 import { ImageLightbox } from "@/components/image-lightbox";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
@@ -50,7 +60,7 @@ export const Route = createFileRoute("/galleri")({
       {
         name: "description",
         content:
-          "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, toalettrenovation, fasadmålning, takläggning, betongterrasser och pågående renoveringar av hela hus i Åstorp och hela Skåne.",
+          "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, toalettrenovation, fasadmålning, takläggning, betongterrasser, uterum och pågående renoveringar av hela hus i Åstorp och hela Skåne.",
       },
       { property: "og:title", content: "Galleri – Före & efter | Edet Profix Bygg" },
       { property: "og:description", content: "Bilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
@@ -147,6 +157,25 @@ const projects: Project[] = [
     afterImages: [toalettEfter1Asset],
     wideClass: "col-span-2 aspect-[16/10]",
     afterImgClass: "aspect-[3/4] w-full bg-card object-cover",
+  },
+  {
+    title: (t) => t.uterumProject,
+    altBefore: (t) => t.uterumAlt,
+    altAfter: (t) => t.uterumAlt,
+    cover: uterum10Asset,
+    inProgressImages: [
+      uterum1Asset,
+      uterum2Asset,
+      uterum3Asset,
+      uterum4Asset,
+      uterum5Asset,
+      uterum6Asset,
+      uterum7Asset,
+      uterum8Asset,
+      uterum9Asset,
+      uterum10Asset,
+    ],
+    wideClass: "col-span-2 aspect-[16/10]",
   },
 ];
 
