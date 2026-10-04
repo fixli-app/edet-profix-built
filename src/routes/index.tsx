@@ -67,35 +67,10 @@ const contactSchema = z.object({
   message: z.string().trim().min(1).max(1500),
 });
 
-// Bildspel: börjar alltid med aktuell startbild, roterar slumpmässigt var 10e sekund.
+// Bildspel: roterar enbart mellan de två aktuella startbilderna, var 30e sekund.
 // Aldrig före-bilder — bara färdiga projektbilder och pågående arbete.
-const heroStartImage = "/images/edet-profix-builder-real.jpg";
-const heroRotatingImages = [
-  "/images/badrum-efter-1.jpg",
-  "/images/badrum-efter-2.jpg",
-  "/images/badrum-efter-3.jpg",
-  "/images/fasad-efter-1.jpg",
-  "/images/fasad-efter-2.jpg",
-  "/images/fasad-efter-3.jpg",
-  "/images/tak-efter-1.jpg",
-  "/images/tak-efter-2.jpg",
-  "/images/hus-1.jpg",
-  "/images/hus-2.jpg",
-  "/images/hus-3.jpg",
-  "/images/hus-4.jpg",
-  "/images/hus-6.jpg",
-  "/images/hus-8.jpg",
-  "/images/hus-9.jpg",
-  "/images/hus-11.jpg",
-  "/images/renovering-1.jpg",
-  "/images/renovering-2.jpg",
-  "/images/renovering-3.jpg",
-  "/images/renovering-4.jpg",
-  "/images/terass-1.jpg",
-  "/images/terass-2.jpg",
-  "/images/terass-4.jpg",
-  "/images/toalett-efter-1.jpg",
-];
+const heroStartImage = "/images/hero-1.jpg";
+const heroRotatingImages = ["/images/hero-2.jpg"];
 
 function Index() {
   const { language, setLanguage, t } = useLanguage();
@@ -119,7 +94,7 @@ function Index() {
       setHeroPrevImage(prev);
       setHeroLoaded(false);
       setHeroImage(next);
-    }, 10000);
+    }, 30000);
     return () => clearInterval(id);
   }, []);
 
