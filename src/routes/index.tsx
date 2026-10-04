@@ -67,43 +67,13 @@ const contactSchema = z.object({
   message: z.string().trim().min(1).max(1500),
 });
 
-// Bildspel: roterar enbart mellan de två aktuella startbilderna, var 30e sekund.
-// Aldrig före-bilder — bara färdiga projektbilder och pågående arbete.
-const heroStartImage = "/images/hero-1.jpg";
-const heroRotatingImages = ["/images/hero-2.jpg"];
+// Enbart gubben (hantverkaren) på startsidan – ingen rotation, inga husbilder.
+const heroImageSrc = "/images/hero-1.jpg";
 
 function Index() {
   const { language, setLanguage, t } = useLanguage();
   const [showTop, setShowTop] = useState(false);
-  const [heroImage, setHeroImage] = useState(heroStartImage);
-  const [heroPrevImage, setHeroPrevImage] = useState<string | null>(null);
-  const [heroLoaded, setHeroLoaded] = useState(true);
-  const heroRef = useRef(heroStartImage);
 
-  useEffect(() => {
-    heroRotatingImages.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-    const id = setInterval(() => {
-      const prev = heroRef.current;
-      let next = prev;
-      while (next === prev) next = heroRotatingImages[Math.floor(Math.random() * heroRotatingImages.length)] ?? prev;
-      if (next === prev) return;
-      heroRef.current = next;
-      setHeroPrevImage(prev);
-      setHeroLoaded(false);
-      setHeroImage(next);
-    }, 30000);
-    return () => clearInterval(id);
-  }, []);
-
-  // Ta bort den gamla bilden ur stapeln när toningen är klar.
-  useEffect(() => {
-    if (!heroPrevImage) return;
-    const timer = setTimeout(() => setHeroPrevImage(null), 1200);
-    return () => clearTimeout(timer);
-  }, [heroPrevImage]);
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 560);
