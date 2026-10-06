@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Images } from "lucide-react";
+import { ArrowRight, Images, List, LayoutGrid } from "lucide-react";
 
 import badrumEfter1Asset from "@/assets/badrum-efter-1.jpg.asset.json";
 import badrumEfter2Asset from "@/assets/badrum-efter-2.jpg.asset.json";
@@ -74,7 +74,11 @@ export const Route = createFileRoute("/galleri")({
   component: GalleriPage,
 });
 
+type Category = "all" | "sunrooms" | "bathrooms" | "renovation" | "exterior";
+const categories: Category[] = ["all", "sunrooms", "bathrooms", "renovation", "exterior"];
+
 type Project = {
+  category: Exclude<Category, "all">;
   title: (t: SiteTranslation) => string;
   altBefore: (t: SiteTranslation) => string;
   altAfter: (t: SiteTranslation) => string;
@@ -89,6 +93,7 @@ type Project = {
 
 const projects: Project[] = [
   {
+    category: "sunrooms",
     title: (t) => t.uterumProject,
     altBefore: (t) => t.uterumAlt,
     altAfter: (t) => t.uterumAlt,
@@ -109,6 +114,7 @@ const projects: Project[] = [
     wideClass: "col-span-2 aspect-[16/10]",
   },
   {
+    category: "sunrooms",
     title: (t) => t.sunroomProject2,
     altBefore: (t) => t.sunroomAlt2,
     altAfter: (t) => t.sunroomAlt2,
@@ -117,6 +123,7 @@ const projects: Project[] = [
     wideClass: "col-span-2 aspect-[16/10]",
   },
   {
+    category: "bathrooms",
     title: (t) => t.bathroomProject,
     altBefore: (t) => t.galleryAltBefore,
     altAfter: (t) => t.galleryAltAfter,
@@ -126,6 +133,7 @@ const projects: Project[] = [
     wideClass: "col-span-2 aspect-[3/1]",
   },
   {
+    category: "exterior",
     title: (t) => t.facadeProject,
     altBefore: (t) => t.facadeAltBefore,
     altAfter: (t) => t.facadeAltAfter,
@@ -135,6 +143,7 @@ const projects: Project[] = [
     wideClass: "col-span-2 aspect-[16/10]",
   },
   {
+    category: "exterior",
     title: (t) => t.roofProject,
     altBefore: (t) => t.roofAltBefore,
     altAfter: (t) => t.roofAltAfter,
@@ -144,6 +153,7 @@ const projects: Project[] = [
     wideClass: "col-span-2 aspect-[16/10]",
   },
   {
+    category: "renovation",
     title: (t) => t.wipProject,
     altBefore: (t) => t.wipAlt,
     altAfter: (t) => t.wipAlt,
@@ -152,6 +162,7 @@ const projects: Project[] = [
     wideClass: "col-span-2 aspect-[16/10]",
   },
   {
+    category: "renovation",
     title: (t) => t.houseProject,
     altBefore: (t) => t.houseAlt,
     altAfter: (t) => t.houseAlt,
@@ -172,6 +183,7 @@ const projects: Project[] = [
     wideClass: "col-span-2 aspect-[16/10]",
   },
   {
+    category: "exterior",
     title: (t) => t.terraceProject,
     altBefore: (t) => t.terraceAlt,
     altAfter: (t) => t.terraceAlt,
@@ -180,6 +192,7 @@ const projects: Project[] = [
     wideClass: "col-span-2 aspect-[16/10]",
   },
   {
+    category: "bathrooms",
     title: (t) => t.toiletProject,
     altBefore: (t) => t.toiletAltBefore,
     altAfter: (t) => t.toiletAltAfter,
@@ -193,7 +206,7 @@ const projects: Project[] = [
 
 type ZoomHandler = (images: { src: string; alt: string }[], index: number) => void;
 
-function ProjectCard({ project, t, onZoom }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler }) {
+function ProjectCard({ project, t, onZoom, compact }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler; compact: boolean }) {
   const images = project.inProgressImages
     ? project.inProgressImages.map((image) => ({ src: image.url, alt: project.altBefore(t) }))
     : [
@@ -203,33 +216,36 @@ function ProjectCard({ project, t, onZoom }: { project: Project; t: SiteTranslat
   const badge = project.inProgressImages ? t.wipLabel : `${t.beforeLabel} · ${t.afterLabel}`;
 
   return (
-    <article className="overflow-hidden rounded-lg border border-border bg-card shadow-strong">
+    <article className={`overflow-hidden rounded-lg border border-border bg-card ${compact ? "" : "shadow-strong"}`}>
       <Button
         type="button"
         variant="ghost"
         onClick={() => onZoom(images, 0)}
         aria-label={`${project.title(t)} · ${t.expandLabel}`}
         aria-haspopup="dialog"
-        className="group block h-auto w-full rounded-none p-0 text-start hover:bg-card"
+        className={`group h-auto w-full rounded-none p-0 text-start hover:bg-secondary ${compact ? "grid grid-cols-[96px_minmax(0,1fr)] items-stretch sm:grid-cols-[120px_minmax(0,1fr)]" : "block"}`}
       >
         <div className="relative overflow-hidden">
           <img
             src={project.cover.url}
             alt={project.title(t)}
             loading="lazy"
-            className="aspect-[16/9] w-full bg-card object-cover transition-transform duration-300 motion-reduce:transition-none group-hover:scale-[1.03]"
+            className={`w-full bg-card object-cover transition-transform duration-300 motion-reduce:transition-none group-hover:scale-[1.03] ${compact ? "absolute inset-0 h-full" : "aspect-[16/9]"}`}
           />
-          <span className="absolute start-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-bold uppercase tracking-wide text-foreground shadow-soft backdrop-blur-sm">
+          <span className={`${compact ? "hidden" : ""} absolute start-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-bold uppercase tracking-wide text-foreground shadow-soft backdrop-blur-sm`}>
             {badge}
           </span>
-          <span className="absolute end-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-background/85 px-3 py-1 text-xs font-bold text-foreground shadow-soft backdrop-blur-sm">
+          <span className={`${compact ? "hidden" : ""} absolute end-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-background/85 px-3 py-1 text-xs font-bold text-foreground shadow-soft backdrop-blur-sm`}>
             <Images size={14} aria-hidden="true" /> {images.length}
           </span>
         </div>
-        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-4 sm:px-5">
-          <h2 className="min-w-0 whitespace-normal text-base font-extrabold sm:text-lg">{project.title(t)}</h2>
+        <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-3 py-4 sm:px-5">
+          <div className="min-w-0">
+            <h2 className="whitespace-normal text-sm font-extrabold sm:text-lg">{project.title(t)}</h2>
+            {compact && <p className="mt-2 flex flex-wrap items-center gap-2 whitespace-normal text-xs font-medium text-muted-foreground"><span>{badge}</span><span className="inline-flex items-center gap-1"><Images size={13} aria-hidden="true" />{images.length}</span></p>}
+          </div>
           <span className="inline-flex shrink-0 items-center gap-1.5 text-xs font-bold text-primary sm:text-sm">
-            {t.expandLabel}
+            {!compact && <span>{t.expandLabel}</span>}
             <ArrowRight size={18} className="rtl:rotate-180" aria-hidden="true" />
           </span>
         </div>
@@ -240,6 +256,9 @@ function ProjectCard({ project, t, onZoom }: { project: Project; t: SiteTranslat
 
 function GalleriPage() {
   const { language, setLanguage, t } = useLanguage();
+  const [category, setCategory] = useState<Category>("all");
+  const [compact, setCompact] = useState(true);
+  const filteredProjects = projects.filter((project) => category === "all" || project.category === category);
   const [lightbox, setLightbox] = useState<{ images: { src: string; alt: string }[]; index: number } | null>(null);
 
   return (
@@ -251,20 +270,30 @@ function GalleriPage() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <p className="eyebrow">{t.galleryEyebrow}</p>
             <h1 className="section-title">{t.galleryTitle}</h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground">{t.galleryIntro}</p>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-8">{t.galleryIntro}</p>
           </div>
         </section>
 
         <section className="py-8 sm:py-12">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-5 md:grid-cols-2 lg:px-8">
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.title(t)}
-                project={project}
-                t={t}
-                onZoom={(images, index) => setLightbox({ images, index })}
-              />
-            ))}
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <div className="mb-5 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3">
+              <label className="min-w-0 text-xs font-bold text-muted-foreground">
+                {t.galleryFilters.label}
+                <select value={category} onChange={(event) => { const value = categories.find((item) => item === event.target.value); if (value) setCategory(value); }} className="mt-2 block h-11 w-full min-w-0 rounded-md border border-border bg-card px-3 text-sm font-semibold text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                  {categories.map((item) => <option key={item} value={item}>{t.galleryFilters[item]} ({item === "all" ? projects.length : projects.filter((project) => project.category === item).length})</option>)}
+                </select>
+              </label>
+              <div className="flex shrink-0 gap-1" role="group" aria-label={t.galleryFilters.label}>
+                <Button variant={compact ? "default" : "outline"} size="icon" className="h-11 w-11" title={t.galleryFilters.list} aria-label={t.galleryFilters.list} aria-pressed={compact} onClick={() => setCompact(true)}><List size={20} /></Button>
+                <Button variant={!compact ? "default" : "outline"} size="icon" className="h-11 w-11" title={t.galleryFilters.grid} aria-label={t.galleryFilters.grid} aria-pressed={!compact} onClick={() => setCompact(false)}><LayoutGrid size={20} /></Button>
+              </div>
+            </div>
+            <p className="mb-3 text-xs font-semibold text-muted-foreground" role="status">{filteredProjects.length} {t.galleryFilters.projects}</p>
+            <div className={`grid grid-cols-1 ${compact ? "gap-3 md:grid-cols-2" : "gap-5 md:grid-cols-2 lg:grid-cols-3"}`}>
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.title(t)} project={project} t={t} compact={compact} onZoom={(images, index) => setLightbox({ images, index })} />
+              ))}
+            </div>
           </div>
         </section>
 
