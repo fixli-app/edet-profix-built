@@ -15,4 +15,4 @@
 - [x] Gör galleriet kompakt: öppna projektets bilder direkt i bildvisaren utan långa expanderade bildrader och kontrollera mobilbläddring.
 - [x] Lägg till projekttypsfilter och kompakt lista med valbar bildöversikt, på fem språk, och kontrollera mobil/dator.
 - [x] Lägg till tre projekt av åtta nya bilder (4 + 3 + 1), komprimera och spara lokalt för Vercel, översätt och kontrollera bildvisaren.
-- [ ] Visa tydlig bildstatus i bildvisaren och kontrollera att Före/Efter ändras vid bläddring.
+- [x] Visa tydlig bildstatus i bildvisaren och kontrollera att Före/Efter ändras vid bläddring.

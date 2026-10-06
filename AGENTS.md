@@ -16,3 +16,4 @@
 - Gallery project cards open their complete image sequence directly in the shared ImageLightbox instead of rendering expanded image grids, to keep browsing compact on mobile.
 - Gallery overview uses local project-category filtering and a compact list by default with an optional photo grid; both views share the same project data and viewer.
 - Use completedImages for gallery sequences that show a finished project without a before/after pair; keep inProgressImages for ongoing work so project badges remain accurate.
+- Carry each image's translated status as explicit LightboxImage label metadata and display it with the viewer counter, so navigation preserves visible before/after context.
