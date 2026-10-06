@@ -13,3 +13,4 @@
 - Reuse the shared semantic design tokens and UI controls so the brand remains consistent and maintainable.
 - Keep all visible site copy in a local typed translation dictionary and persist language preference in browser storage, because the single-page site must work consistently in five languages without a translation service.
 - Store site images as real files in public/images and point asset.json urls there — the site is also deployed to Vercel, where Lovable-hosted asset paths do not resolve.
+- Gallery project cards open their complete image sequence directly in the shared ImageLightbox instead of rendering expanded image grids, to keep browsing compact on mobile.
