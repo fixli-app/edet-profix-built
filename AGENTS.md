@@ -15,3 +15,4 @@
 - Store site images as real files in public/images and point asset.json urls there — the site is also deployed to Vercel, where Lovable-hosted asset paths do not resolve.
 - Gallery project cards open their complete image sequence directly in the shared ImageLightbox instead of rendering expanded image grids, to keep browsing compact on mobile.
 - Gallery overview uses local project-category filtering and a compact list by default with an optional photo grid; both views share the same project data and viewer.
+- Use completedImages for gallery sequences that show a finished project without a before/after pair; keep inProgressImages for ongoing work so project badges remain accurate.

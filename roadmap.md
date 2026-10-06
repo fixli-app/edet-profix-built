@@ -14,4 +14,4 @@
 - [x] Nionde galleriprojekt: Uterum – tillbyggnad (2 bilder, "Under arbete") – de två sista bilderna bröts ut från Uterum – platsbyggt (nu 11 bilder), fem språk, verifierad på dator och mobil med bildvisaren.
 - [x] Gör galleriet kompakt: öppna projektets bilder direkt i bildvisaren utan långa expanderade bildrader och kontrollera mobilbläddring.
 - [x] Lägg till projekttypsfilter och kompakt lista med valbar bildöversikt, på fem språk, och kontrollera mobil/dator.
-- [ ] Lägg till tre projekt av åtta nya bilder (4 + 3 + 1), komprimera och spara lokalt för Vercel, översätt och kontrollera bildvisaren.
+- [x] Lägg till tre projekt av åtta nya bilder (4 + 3 + 1), komprimera och spara lokalt för Vercel, översätt och kontrollera bildvisaren.
