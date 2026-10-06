@@ -107,6 +107,7 @@ export type SiteTranslation = {
   galleryCtaText: string;
   expandLabel: string;
   collapseLabel: string;
+  galleryFilters: { label: string; all: string; sunrooms: string; bathrooms: string; renovation: string; exterior: string; list: string; grid: string; projects: string };
 };
 
 export const translations: Record<LanguageCode, SiteTranslation> = {
@@ -273,6 +274,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Från badrum och tak till hela hus – vi tar oss an uppdrag i hela Skåne, med utgångspunkt i Åstorp. Berätta om ditt projekt så återkommer vi inom 24 timmar.",
     expandLabel: "Visa bilder",
     collapseLabel: "Dölj bilder",
+    galleryFilters: { label: "Projekttyp", all: "Alla projekt", sunrooms: "Uterum", bathrooms: "Badrum & toalett", renovation: "Renovering", exterior: "Tak, fasad & terrass", list: "Kompakt lista", grid: "Bildöversikt", projects: "projekt" },
     footerMotto: "Kvalitet. Pålitlighet. Resultat.",
     siteCredit: "Webbdesign: Haris Hasanbegovic, Höganäs",
     backToTop: "Tillbaka till toppen",
@@ -440,6 +442,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "From bathrooms and roofs to entire houses – we take on projects across Skåne, based in Åstorp. Tell us about your project and we will get back to you within 24 hours.",
     expandLabel: "Show photos",
     collapseLabel: "Hide photos",
+    galleryFilters: { label: "Project type", all: "All projects", sunrooms: "Sunrooms", bathrooms: "Bathrooms & toilets", renovation: "Renovation", exterior: "Roofs, facades & terraces", list: "Compact list", grid: "Photo grid", projects: "projects" },
     footerMotto: "Quality. Reliability. Results.",
     siteCredit: "Web design: Haris Hasanbegovic, Höganäs",
     backToTop: "Back to top",
@@ -600,6 +603,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "من الحمامات والأسطح إلى المنازل بأكملها – ننفذ مشاريع في جميع أنحاء سكونه، ومقرنا أستورب. أخبرنا عن مشروعك وسنعود إليك خلال 24 ساعة.",
     expandLabel: "عرض الصور",
     collapseLabel: "إخفاء الصور",
+    galleryFilters: { label: "نوع المشروع", all: "جميع المشاريع", sunrooms: "غرف شمسية", bathrooms: "الحمامات ودورات المياه", renovation: "التجديد", exterior: "الأسطح والواجهات والتراسات", list: "قائمة مختصرة", grid: "عرض الصور", projects: "مشاريع" },
     footerMotto: "الجودة. الموثوقية. النتائج.",
     siteCredit: "تصميم الموقع: Haris Hasanbegovic، Höganäs",
     backToTop: "العودة إلى الأعلى",
@@ -766,6 +770,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Fra badeværelser og tage til hele huse – vi tager opgaver i hele Skåne med udgangspunkt i Åstorp. Fortæl os om dit projekt, så vender vi tilbage inden for 24 timer.",
     expandLabel: "Vis billeder",
     collapseLabel: "Skjul billeder",
+    galleryFilters: { label: "Projekttype", all: "Alle projekter", sunrooms: "Udestuer", bathrooms: "Badeværelser & toiletter", renovation: "Renovering", exterior: "Tag, facade & terrasse", list: "Kompakt liste", grid: "Billedoversigt", projects: "projekter" },
     footerMotto: "Kvalitet. Pålidelighed. Resultater.",
     siteCredit: "Webdesign: Haris Hasanbegovic, Höganäs",
     backToTop: "Tilbage til toppen",
@@ -932,6 +937,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Od kupatila i krovova do cijelih kuća – preuzimamo poslove u cijeloj Skåne, sa sjedištem u Åstorp. Recite nam o svom projektu i odgovorit ćemo u roku od 24 sata.",
     expandLabel: "Prikaži slike",
     collapseLabel: "Sakrij slike",
+    galleryFilters: { label: "Vrsta projekta", all: "Svi projekti", sunrooms: "Zimski vrtovi", bathrooms: "Kupatila i toaleti", renovation: "Renoviranje", exterior: "Krovovi, fasade i terase", list: "Kompaktna lista", grid: "Pregled slika", projects: "projekata" },
     footerMotto: "Kvalitet. Pouzdanost. Rezultat.",
     siteCredit: "Dizajn weba: Haris Hasanbegovic, Höganäs",
     backToTop: "Nazad na vrh",
