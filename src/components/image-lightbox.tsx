@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from "lucide-react";
 
-type LightboxImage = { src: string; alt: string };
+export type LightboxImage = { src: string; alt: string; label?: string };
 
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 4;
@@ -234,11 +234,12 @@ export function ImageLightbox({
           >
             <ChevronRight size={24} className="rtl:rotate-180" />
           </button>
-          <span className="absolute start-1/2 top-4 z-10 -translate-x-1/2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-white">
-            {index + 1} / {images.length}
-          </span>
         </>
       )}
+      <div role="status" aria-live="polite" aria-atomic="true" className="absolute inset-x-16 top-4 z-10 flex flex-col items-center gap-2 text-center">
+        {image.label && <span className="max-w-full rounded-md border border-primary/30 bg-background px-4 py-2 text-sm font-bold text-foreground shadow-strong">{image.label}</span>}
+        {hasMany && <span className="rounded-md bg-background px-3 py-1.5 text-xs font-bold text-foreground">{index + 1} / {images.length}</span>}
+      </div>
       <div className="absolute bottom-4 start-1/2 z-10 flex -translate-x-1/2 items-center gap-2">
         <button
           type="button"

@@ -58,7 +58,7 @@ import uterum10Asset from "@/assets/uterum-10.jpg.asset.json";
 import uterum11Asset from "@/assets/uterum-11.jpg.asset.json";
 import uterum12Asset from "@/assets/uterum-12.jpg.asset.json";
 import uterum13Asset from "@/assets/uterum-13.jpg.asset.json";
-import { ImageLightbox } from "@/components/image-lightbox";
+import { ImageLightbox, type LightboxImage } from "@/components/image-lightbox";
 import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/use-language";
@@ -240,15 +240,15 @@ const projects: Project[] = [
   },
 ];
 
-type ZoomHandler = (images: { src: string; alt: string }[], index: number) => void;
+type ZoomHandler = (images: LightboxImage[], index: number) => void;
 
 function ProjectCard({ project, t, onZoom, compact }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler; compact: boolean }) {
   const sequence = project.inProgressImages ?? project.completedImages;
   const images = sequence
-    ? sequence.map((image) => ({ src: image.url, alt: project.altBefore(t) }))
+    ? sequence.map((image) => ({ src: image.url, alt: project.altBefore(t), label: project.inProgressImages ? t.wipLabel : t.completedLabel }))
     : [
-        ...(project.beforeImages?.map((image) => ({ src: image.url, alt: `${t.beforeLabel} · ${project.altBefore(t)}` })) ?? []),
-        ...(project.afterImages?.map((image) => ({ src: image.url, alt: `${t.afterLabel} · ${project.altAfter(t)}` })) ?? []),
+        ...(project.beforeImages?.map((image) => ({ src: image.url, alt: `${t.beforeLabel} · ${project.altBefore(t)}`, label: t.beforeLabel })) ?? []),
+        ...(project.afterImages?.map((image) => ({ src: image.url, alt: `${t.afterLabel} · ${project.altAfter(t)}`, label: t.afterLabel })) ?? []),
       ];
   const badge = project.inProgressImages ? t.wipLabel : project.completedImages ? t.completedLabel : `${t.beforeLabel} · ${t.afterLabel}`;
 
@@ -296,7 +296,7 @@ function GalleriPage() {
   const [category, setCategory] = useState<Category>("all");
   const [compact, setCompact] = useState(true);
   const filteredProjects = projects.filter((project) => category === "all" || project.category === category);
-  const [lightbox, setLightbox] = useState<{ images: { src: string; alt: string }[]; index: number } | null>(null);
+  const [lightbox, setLightbox] = useState<{ images: LightboxImage[]; index: number } | null>(null);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
