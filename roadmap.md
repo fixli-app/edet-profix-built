@@ -12,4 +12,4 @@
 - [x] Galleri ombyggt till utvecklingsbara projektkort (cover + "Visa bilder", expanderar till full bredd), ny CTA-text längst ner på alla fem språk
 - [x] Åttonde galleriprojekt: Uterum – platsbyggt (13 bilder, "Under arbete", i byggordning från stomme till färdig innervägg), komprimerade bilder (~55–120 KB), fem språk, verifierad på dator med bildvisaren.
 - [x] Nionde galleriprojekt: Uterum – tillbyggnad (2 bilder, "Under arbete") – de två sista bilderna bröts ut från Uterum – platsbyggt (nu 11 bilder), fem språk, verifierad på dator och mobil med bildvisaren.
-- [ ] Gör galleriet kompakt: öppna projektets bilder direkt i bildvisaren utan långa expanderade bildrader och kontrollera mobilbläddring.
+- [x] Gör galleriet kompakt: öppna projektets bilder direkt i bildvisaren utan långa expanderade bildrader och kontrollera mobilbläddring.
