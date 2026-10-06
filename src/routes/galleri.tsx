@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, Images } from "lucide-react";
 
 import badrumEfter1Asset from "@/assets/badrum-efter-1.jpg.asset.json";
 import badrumEfter2Asset from "@/assets/badrum-efter-2.jpg.asset.json";
@@ -191,199 +191,49 @@ const projects: Project[] = [
   },
 ];
 
-function LabelBar({ label }: { label: string }) {
-  return (
-    <p className="bg-primary-soft px-4 py-3 text-sm font-bold uppercase tracking-wide text-primary sm:px-6">{label}</p>
-  );
-}
-
 type ZoomHandler = (images: { src: string; alt: string }[], index: number) => void;
 
-function ZoomableImage({
-  image,
-  alt,
-  className,
-  onZoom,
-  images,
-  index,
-}: {
-  image: { url: string };
-  alt: string;
-  className: string;
-  onZoom: ZoomHandler;
-  images: { src: string; alt: string }[];
-  index: number;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={() => onZoom(images, index)}
-      aria-label={alt}
-      className={`group relative block w-full cursor-zoom-in overflow-hidden ${className}`}
-    >
-      <img
-        src={image.url}
-        alt={alt}
-        loading="lazy"
-        className="h-full w-full bg-card object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-      />
-    </button>
-  );
-}
-
-function ExpandedImages({ project, t, onZoom }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler }) {
-  const allImages = project.inProgressImages
+function ProjectCard({ project, t, onZoom }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler }) {
+  const images = project.inProgressImages
     ? project.inProgressImages.map((image) => ({ src: image.url, alt: project.altBefore(t) }))
     : [
-        ...(project.beforeImages?.map((image) => ({ src: image.url, alt: project.altBefore(t) })) ?? []),
-        ...(project.afterImages?.map((image) => ({ src: image.url, alt: project.altAfter(t) })) ?? []),
+        ...(project.beforeImages?.map((image) => ({ src: image.url, alt: `${t.beforeLabel} · ${project.altBefore(t)}` })) ?? []),
+        ...(project.afterImages?.map((image) => ({ src: image.url, alt: `${t.afterLabel} · ${project.altAfter(t)}` })) ?? []),
       ];
-
-  if (project.inProgressImages) {
-    return (
-      <div className="mx-auto w-full max-w-5xl">
-        <LabelBar label={t.wipLabel} />
-        <div className="grid grid-cols-2 gap-px bg-border">
-          {project.inProgressImages.map((image, index) => (
-            <ZoomableImage
-              key={index}
-              image={image}
-              alt={project.altBefore(t)}
-              onZoom={onZoom}
-              images={allImages}
-              index={index}
-              className="aspect-[4/3]"
-            />
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  if (project.beforeImages?.length === 1 && project.afterImages?.length === 1) {
-    return (
-      <div className="mx-auto grid w-full max-w-3xl grid-cols-2 gap-px bg-border">
-        <div>
-          <LabelBar label={t.beforeLabel} />
-          {project.beforeImages?.[0] && (
-            <ZoomableImage
-              image={project.beforeImages[0]}
-              alt={project.altBefore(t)}
-              onZoom={onZoom}
-              images={allImages}
-              index={0}
-              className="aspect-square"
-            />
-          )}
-        </div>
-        <div>
-          <LabelBar label={t.afterLabel} />
-          {project.afterImages?.[0] && (
-            <ZoomableImage
-              image={project.afterImages[0]}
-              alt={project.altAfter(t)}
-              onZoom={onZoom}
-              images={allImages}
-              index={1}
-              className="aspect-square"
-            />
-          )}
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="mx-auto flex w-full max-w-5xl flex-col gap-px bg-border">
-      <div>
-        <LabelBar label={t.beforeLabel} />
-        <div className="grid grid-cols-2 gap-px bg-border">
-          {project.beforeImages?.map((image, index) => (
-            <ZoomableImage
-              key={index}
-              image={image}
-              alt={project.altBefore(t)}
-              onZoom={onZoom}
-              images={allImages}
-              index={index}
-              className={project.beforeImgClass ?? "aspect-[4/3]"}
-            />
-          ))}
-        </div>
-      </div>
-      <div>
-        <LabelBar label={t.afterLabel} />
-        <div className="grid grid-cols-2 gap-px bg-border">
-          {project.afterImages?.map((image, index) => (
-            <ZoomableImage
-              key={index}
-              image={image}
-              alt={project.altAfter(t)}
-              onZoom={onZoom}
-              images={allImages}
-              index={(project.beforeImages?.length ?? 0) + index}
-              className={
-                project.afterImages?.length === 1
-                  ? "col-span-2 aspect-[16/9]"
-                  : index === 2
-                    ? project.wideClass
-                    : (project.afterImgClass ?? "aspect-[4/3]")
-              }
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ProjectCard({ project, t, onZoom }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler }) {
-  const [open, setOpen] = useState(false);
-  const imageCount =
-    project.inProgressImages?.length ?? (project.beforeImages?.length ?? 0) + (project.afterImages?.length ?? 0);
   const badge = project.inProgressImages ? t.wipLabel : `${t.beforeLabel} · ${t.afterLabel}`;
 
   return (
-    <article
-      className={`overflow-hidden rounded-lg border border-border bg-card shadow-strong transition-all duration-300 md:col-span-1 ${open ? "md:col-span-2" : ""}`}
-    >
-      <button
+    <article className="overflow-hidden rounded-lg border border-border bg-card shadow-strong">
+      <Button
         type="button"
-        onClick={() => setOpen((value) => !value)}
-        aria-expanded={open}
-        className="block w-full cursor-pointer text-start"
+        variant="ghost"
+        onClick={() => onZoom(images, 0)}
+        aria-label={`${project.title(t)} · ${t.expandLabel}`}
+        aria-haspopup="dialog"
+        className="group block h-auto w-full rounded-none p-0 text-start hover:bg-card"
       >
         <div className="relative overflow-hidden">
           <img
             src={project.cover.url}
             alt={project.title(t)}
             loading="lazy"
-            className={`w-full bg-card object-cover transition-all duration-500 ${open ? "aspect-[21/9]" : "aspect-[16/10] hover:scale-[1.03]"}`}
+            className="aspect-[16/9] w-full bg-card object-cover transition-transform duration-300 motion-reduce:transition-none group-hover:scale-[1.03]"
           />
           <span className="absolute start-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-bold uppercase tracking-wide text-foreground shadow-soft backdrop-blur-sm">
             {badge}
           </span>
-          <span className="absolute end-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-bold text-foreground shadow-soft backdrop-blur-sm">
-            {imageCount}
+          <span className="absolute end-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-background/85 px-3 py-1 text-xs font-bold text-foreground shadow-soft backdrop-blur-sm">
+            <Images size={14} aria-hidden="true" /> {images.length}
           </span>
         </div>
-        <div className="flex items-center justify-between gap-4 px-5 py-4">
-          <h2 className="text-lg font-extrabold">{project.title(t)}</h2>
-          <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-bold text-primary">
-            {open ? t.collapseLabel : t.expandLabel}
-            <ChevronDown size={18} className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-4 sm:px-5">
+          <h2 className="min-w-0 whitespace-normal text-base font-extrabold sm:text-lg">{project.title(t)}</h2>
+          <span className="inline-flex shrink-0 items-center gap-1.5 text-xs font-bold text-primary sm:text-sm">
+            {t.expandLabel}
+            <ArrowRight size={18} className="rtl:rotate-180" aria-hidden="true" />
           </span>
         </div>
-      </button>
-      <div
-        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
-      >
-        <div className="overflow-hidden">
-          <div className="border-t border-border py-px">
-            <ExpandedImages project={project} t={t} onZoom={onZoom} />
-          </div>
-        </div>
-      </div>
+      </Button>
     </article>
   );
 }
@@ -397,7 +247,7 @@ function GalleriPage() {
       <SiteHeader t={t} language={language} onLanguageChange={setLanguage} isHome={false} />
 
       <main className="pt-20">
-        <section className="border-b border-border bg-secondary py-16 sm:py-20">
+        <section className="border-b border-border bg-secondary py-8 sm:py-12">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <p className="eyebrow">{t.galleryEyebrow}</p>
             <h1 className="section-title">{t.galleryTitle}</h1>
@@ -405,7 +255,7 @@ function GalleriPage() {
           </div>
         </section>
 
-        <section className="py-16 sm:py-24">
+        <section className="py-8 sm:py-12">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-5 md:grid-cols-2 lg:px-8">
             {projects.map((project) => (
               <ProjectCard
