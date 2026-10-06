@@ -2,6 +2,14 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Images, List, LayoutGrid } from "lucide-react";
 
+import deck1Asset from "@/assets/altan-1.jpg.asset.json";
+import deck2Asset from "@/assets/altan-2.jpg.asset.json";
+import deck3Asset from "@/assets/altan-3.jpg.asset.json";
+import deck4Asset from "@/assets/altan-4.jpg.asset.json";
+import steps1Asset from "@/assets/tratrappa-1.jpg.asset.json";
+import steps2Asset from "@/assets/tratrappa-2.jpg.asset.json";
+import steps3Asset from "@/assets/tratrappa-3.jpg.asset.json";
+import patio1Asset from "@/assets/uteplats-tak-1.jpg.asset.json";
 import badrumEfter1Asset from "@/assets/badrum-efter-1.jpg.asset.json";
 import badrumEfter2Asset from "@/assets/badrum-efter-2.jpg.asset.json";
 import badrumFore1Asset from "@/assets/badrum-fore-1.jpg.asset.json";
@@ -86,6 +94,7 @@ type Project = {
   beforeImages?: { url: string }[];
   afterImages?: { url: string }[];
   inProgressImages?: { url: string }[];
+  completedImages?: { url: string }[];
   wideClass: string;
   beforeImgClass?: string;
   afterImgClass?: string;
@@ -120,6 +129,33 @@ const projects: Project[] = [
     altAfter: (t) => t.sunroomAlt2,
     cover: uterum12Asset,
     inProgressImages: [uterum12Asset, uterum13Asset],
+    wideClass: "col-span-2 aspect-[16/10]",
+  },
+  {
+    category: "exterior",
+    title: (t) => t.newGalleryProjects.deck,
+    altBefore: (t) => t.newGalleryProjects.deckAlt,
+    altAfter: (t) => t.newGalleryProjects.deckAlt,
+    cover: deck4Asset,
+    completedImages: [deck1Asset, deck2Asset, deck3Asset, deck4Asset],
+    wideClass: "col-span-2 aspect-[16/10]",
+  },
+  {
+    category: "exterior",
+    title: (t) => t.newGalleryProjects.steps,
+    altBefore: (t) => t.newGalleryProjects.stepsAlt,
+    altAfter: (t) => t.newGalleryProjects.stepsAlt,
+    cover: steps2Asset,
+    completedImages: [steps1Asset, steps2Asset, steps3Asset],
+    wideClass: "col-span-2 aspect-[16/10]",
+  },
+  {
+    category: "exterior",
+    title: (t) => t.newGalleryProjects.patio,
+    altBefore: (t) => t.newGalleryProjects.patioAlt,
+    altAfter: (t) => t.newGalleryProjects.patioAlt,
+    cover: patio1Asset,
+    completedImages: [patio1Asset],
     wideClass: "col-span-2 aspect-[16/10]",
   },
   {
@@ -207,13 +243,14 @@ const projects: Project[] = [
 type ZoomHandler = (images: { src: string; alt: string }[], index: number) => void;
 
 function ProjectCard({ project, t, onZoom, compact }: { project: Project; t: SiteTranslation; onZoom: ZoomHandler; compact: boolean }) {
-  const images = project.inProgressImages
-    ? project.inProgressImages.map((image) => ({ src: image.url, alt: project.altBefore(t) }))
+  const sequence = project.inProgressImages ?? project.completedImages;
+  const images = sequence
+    ? sequence.map((image) => ({ src: image.url, alt: project.altBefore(t) }))
     : [
         ...(project.beforeImages?.map((image) => ({ src: image.url, alt: `${t.beforeLabel} · ${project.altBefore(t)}` })) ?? []),
         ...(project.afterImages?.map((image) => ({ src: image.url, alt: `${t.afterLabel} · ${project.altAfter(t)}` })) ?? []),
       ];
-  const badge = project.inProgressImages ? t.wipLabel : `${t.beforeLabel} · ${t.afterLabel}`;
+  const badge = project.inProgressImages ? t.wipLabel : project.completedImages ? t.completedLabel : `${t.beforeLabel} · ${t.afterLabel}`;
 
   return (
     <article className={`overflow-hidden rounded-lg border border-border bg-card ${compact ? "" : "shadow-strong"}`}>
