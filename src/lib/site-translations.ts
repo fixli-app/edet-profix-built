@@ -107,6 +107,8 @@ export type SiteTranslation = {
   galleryCtaText: string;
   expandLabel: string;
   collapseLabel: string;
+  completedLabel: string;
+  newGalleryProjects: { deck: string; deckAlt: string; steps: string; stepsAlt: string; patio: string; patioAlt: string };
   galleryFilters: { label: string; all: string; sunrooms: string; bathrooms: string; renovation: string; exterior: string; list: string; grid: string; projects: string };
 };
 
@@ -274,6 +276,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Från badrum och tak till hela hus – vi tar oss an uppdrag i hela Skåne, med utgångspunkt i Åstorp. Berätta om ditt projekt så återkommer vi inom 24 timmar.",
     expandLabel: "Visa bilder",
     collapseLabel: "Dölj bilder",
+    completedLabel: "Färdigt projekt",
+    newGalleryProjects: {"deck": "Altanbygge med trappsteg", "deckAlt": "Altan vid rött hus – från regelverk till färdig trall med trappsteg", "steps": "Trätrappa vid uteplats", "stepsAlt": "Platsbyggd trätrappa och träbeklädnad vid glasparti", "patio": "Överbyggd uteplats", "patioAlt": "Uteplats med tak, trästolpar och insynsskydd i trä"},
     galleryFilters: { label: "Projekttyp", all: "Alla projekt", sunrooms: "Uterum", bathrooms: "Badrum & toalett", renovation: "Renovering", exterior: "Tak, fasad & terrass", list: "Kompakt lista", grid: "Bildöversikt", projects: "projekt" },
     footerMotto: "Kvalitet. Pålitlighet. Resultat.",
     siteCredit: "Webbdesign: Haris Hasanbegovic, Höganäs",
@@ -442,6 +446,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "From bathrooms and roofs to entire houses – we take on projects across Skåne, based in Åstorp. Tell us about your project and we will get back to you within 24 hours.",
     expandLabel: "Show photos",
     collapseLabel: "Hide photos",
+    completedLabel: "Completed project",
+    newGalleryProjects: {"deck": "Deck with steps", "deckAlt": "Deck beside a red house – from timber framing to finished decking with steps", "steps": "Wooden patio steps", "stepsAlt": "Custom wooden steps and cladding beside glass doors", "patio": "Covered patio", "patioAlt": "Patio with a roof, timber posts and a wooden privacy screen"},
     galleryFilters: { label: "Project type", all: "All projects", sunrooms: "Sunrooms", bathrooms: "Bathrooms & toilets", renovation: "Renovation", exterior: "Roofs, facades & terraces", list: "Compact list", grid: "Photo grid", projects: "projects" },
     footerMotto: "Quality. Reliability. Results.",
     siteCredit: "Web design: Haris Hasanbegovic, Höganäs",
@@ -603,6 +609,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "من الحمامات والأسطح إلى المنازل بأكملها – ننفذ مشاريع في جميع أنحاء سكونه، ومقرنا أستورب. أخبرنا عن مشروعك وسنعود إليك خلال 24 ساعة.",
     expandLabel: "عرض الصور",
     collapseLabel: "إخفاء الصور",
+    completedLabel: "مشروع مكتمل",
+    newGalleryProjects: {"deck": "بناء تراس خشبي مع درجات", "deckAlt": "تراس بجانب منزل أحمر من الهيكل الخشبي إلى الأرضية المكتملة مع درجات", "steps": "درجات خشبية للفناء", "stepsAlt": "درجات وكسوة خشبية مصممة بجانب أبواب زجاجية", "patio": "فناء مسقوف", "patioAlt": "فناء بسقف وأعمدة خشبية وحاجز خشبي للخصوصية"},
     galleryFilters: { label: "نوع المشروع", all: "جميع المشاريع", sunrooms: "غرف شمسية", bathrooms: "الحمامات ودورات المياه", renovation: "التجديد", exterior: "الأسطح والواجهات والتراسات", list: "قائمة مختصرة", grid: "عرض الصور", projects: "مشاريع" },
     footerMotto: "الجودة. الموثوقية. النتائج.",
     siteCredit: "تصميم الموقع: Haris Hasanbegovic، Höganäs",
@@ -770,6 +778,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Fra badeværelser og tage til hele huse – vi tager opgaver i hele Skåne med udgangspunkt i Åstorp. Fortæl os om dit projekt, så vender vi tilbage inden for 24 timer.",
     expandLabel: "Vis billeder",
     collapseLabel: "Skjul billeder",
+    completedLabel: "Færdigt projekt",
+    newGalleryProjects: {"deck": "Træterrasse med trin", "deckAlt": "Terrasse ved rødt hus – fra træskelet til færdige terrassebrædder med trin", "steps": "Trætrappe ved terrasse", "stepsAlt": "Specialbygget trætrappe og træbeklædning ved glasparti", "patio": "Overdækket terrasse", "patioAlt": "Terrasse med tag, træstolper og afskærmning i træ"},
     galleryFilters: { label: "Projekttype", all: "Alle projekter", sunrooms: "Udestuer", bathrooms: "Badeværelser & toiletter", renovation: "Renovering", exterior: "Tag, facade & terrasse", list: "Kompakt liste", grid: "Billedoversigt", projects: "projekter" },
     footerMotto: "Kvalitet. Pålidelighed. Resultater.",
     siteCredit: "Webdesign: Haris Hasanbegovic, Höganäs",
@@ -937,6 +947,8 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
       "Od kupatila i krovova do cijelih kuća – preuzimamo poslove u cijeloj Skåne, sa sjedištem u Åstorp. Recite nam o svom projektu i odgovorit ćemo u roku od 24 sata.",
     expandLabel: "Prikaži slike",
     collapseLabel: "Sakrij slike",
+    completedLabel: "Završen projekat",
+    newGalleryProjects: {"deck": "Drvena terasa sa stepenicama", "deckAlt": "Terasa uz crvenu kuću – od drvene konstrukcije do gotovog poda sa stepenicama", "steps": "Drvene stepenice uz terasu", "stepsAlt": "Drvene stepenice i obloga po mjeri uz staklena vrata", "patio": "Natkrivena terasa", "patioAlt": "Terasa s krovom, drvenim stubovima i drvenom pregradom za privatnost"},
     galleryFilters: { label: "Vrsta projekta", all: "Svi projekti", sunrooms: "Zimski vrtovi", bathrooms: "Kupatila i toaleti", renovation: "Renoviranje", exterior: "Krovovi, fasade i terase", list: "Kompaktna lista", grid: "Pregled slika", projects: "projekata" },
     footerMotto: "Kvalitet. Pouzdanost. Rezultat.",
     siteCredit: "Dizajn weba: Haris Hasanbegovic, Höganäs",
