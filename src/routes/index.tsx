@@ -12,16 +12,26 @@ import { useLanguage } from "@/hooks/use-language";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Edet Profix Bygg | Bygg och renovering i Åstorp och Skåne" },
-      { name: "description", content: "Edet Profix Bygg utgår från Åstorp och arbetar i hela Skåne, inklusive Helsingborg, Ängelholm, Höganäs, Landskrona, Lund och Malmö. Bygg, renovering, markarbete och underhåll." },
-      { property: "og:title", content: "Edet Profix Bygg | Bygg och renovering i Åstorp och Skåne" },
-      { property: "og:description", content: "Bygg, renovering, markarbete och underhåll från Åstorp till hela Skåne. Flexibla beroende på uppdrag." },
+      { title: "Snickare i Skåne | Trädäck & uterum – Edet Profix Bygg" },
+      {
+        name: "description",
+        content:
+          "Söker du snickare i Skåne? Edet Profix bygger trädäck, altaner och uterum samt hjälper till med renovering. Vi utgår från Åstorp och arbetar i hela Skåne.",
+      },
+      { property: "og:title", content: "Snickare i Skåne | Trädäck & uterum – Edet Profix Bygg" },
+      {
+        property: "og:description",
+        content:
+          "Vi bygger trädäck, altaner och uterum och hjälper till med renovering i hela Skåne, med utgångspunkt i Åstorp.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.edetprofix.se/" },
+      { property: "og:image", content: "https://www.edetprofix.se/images/hero-1.jpg" },
       { property: "og:locale", content: "sv_SE" },
       { name: "geo.region", content: "SE-M" },
       { name: "geo.placename", content: "Åstorp, Skåne" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://www.edetprofix.se/images/hero-1.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://www.edetprofix.se/" }],
     scripts: [
@@ -29,12 +39,14 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "LocalBusiness",
+          "@type": "GeneralContractor",
           "@id": "https://www.edetprofix.se/#foretag",
           name: "Edet Profix Bygg",
-          description: "Byggföretag i Åstorp som utför bygg, renovering, markarbete och underhåll i hela Skåne.",
+          description:
+            "Snickare och byggföretag med bas i Åstorp. Vi bygger trädäck, altaner och uterum samt utför renovering och byggservice i hela Skåne.",
           url: "https://www.edetprofix.se/",
           email: "edet.profix.info@gmail.com",
+          image: "https://www.edetprofix.se/images/hero-1.jpg",
           address: {
             "@type": "PostalAddress",
             addressLocality: "Åstorp",
@@ -51,7 +63,30 @@ export const Route = createFileRoute("/")({
             { "@type": "City", name: "Lund" },
             { "@type": "City", name: "Malmö" },
           ],
-          knowsAbout: ["Bygg", "Renovering", "Badrumsrenovering", "Köksrenovering", "Takläggning", "Fasadmålning", "Betongarbete", "Markarbete", "Underhåll"],
+          knowsAbout: [
+            "Snickeri",
+            "Trädäck",
+            "Altanbygge",
+            "Uterum",
+            "Platsbyggda uterum",
+            "Badrumsrenovering",
+            "Köksrenovering",
+            "Takläggning",
+            "Fasadmålning",
+            "Betongarbete",
+            "Markarbete",
+            "Fastighetsunderhåll",
+          ],
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Bygg- och snickeritjänster i Skåne",
+            itemListElement: [
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bygga trädäck och altan" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bygga och renovera uterum" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Snickeri och byggservice" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Renovering och fastighetsunderhåll" } },
+            ],
+          },
           sameAs: ["https://offerta.se/foretag/edet-profix-bygg"],
         }),
       },

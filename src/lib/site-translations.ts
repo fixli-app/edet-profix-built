@@ -126,7 +126,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     heroTitle: "Bygg och renovering i Skåne",
     heroAccent: "med start i Åstorp.",
     heroText:
-      "Från reparationer och renovering till markarbete och byggstädning. Vi utgår från Åstorp, arbetar i hela Skåne och kan resa längre beroende på uppdraget.",
+      "Vi bygger trädäck, altaner och uterum och hjälper till med renovering, markarbete och byggservice. Vi utgår från Åstorp och arbetar i hela Skåne.",
     requestQuote: "Begär en offert",
     seeServices: "Se våra tjänster",
     values: [
@@ -136,19 +136,19 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     ],
     servicesEyebrow: "Vad vi gör",
     examplesLabel: "T.ex.",
-    servicesTitle: "Från renovering till färdigt markarbete",
+    servicesTitle: "Snickeri, trädäck och uterum i Skåne",
     servicesIntro:
-      "Från mindre reparationer och invändiga renoveringar till plattsättning, dränering och byggstädning. Vi tar oss an både små och stora projekt för bostäder och kommersiella fastigheter.",
+      "Söker du snickare för trädäck, altan eller uterum? Edet Profix Bygg hjälper dig från planering till färdigt snickeri. Vi utgår från Åstorp och tar uppdrag i hela Skåne, bland annat i Helsingborg, Ängelholm, Höganäs, Landskrona, Lund och Malmö.",
     services: [
       {
         title: "Renovering & bygg",
-        text: "Invändiga renoveringar, ombyggnationer och kompletta bygglösningar.",
-        examples: ["Badrumsrenovering", "Köksrenovering", "Golvläggning", "Altan & uterum"],
+        text: "Snickeri, altanbygge och ombyggnationer för hem och fastigheter.",
+        examples: ["Trädäck & altanbygge", "Bygga uterum", "Badrumsrenovering", "Köksrenovering"],
       },
       {
         title: "Fastighetsunderhåll",
         text: "Löpande underhåll och reparationer som håller fastigheten i bästa skick.",
-        examples: ["Tak & fasad", "Fönster & dörrar", "Snickerier", "Reparationer"],
+        examples: ["Snickeriarbeten", "Fönster & dörrar", "Tak & fasad", "Reparationer"],
       },
       {
         title: "Mark & anläggning",
@@ -164,7 +164,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     aboutEyebrow: "Om Edet Profix Bygg",
     aboutTitle: "Ett byggföretag med bas i Åstorp",
     aboutTextOne:
-      "Behöver du renovera inomhus, reparera en fastighet, lägga plattor eller ordna byggstädningen? Vi tar oss an flera delar av projektet och pratar igenom arbetets omfattning innan vi lämnar offert.",
+      "Behöver du en snickare för att bygga trädäck, altan eller uterum? Vi hjälper även till med renovering och byggservice. Vi går igenom projektets omfattning tillsammans innan vi lämnar offert.",
     aboutTextTwo:
       "Åstorp är vår utgångspunkt. Vi tar uppdrag i hela Skåne, bland annat i Helsingborg, Ängelholm, Höganäs, Landskrona, Lund och Malmö. För rätt uppdrag kan vi vara flexibla även utanför området.",
     missionTitle: "Vårt uppdrag",
@@ -176,7 +176,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     whyTitle: "Ett samtal om hela jobbet",
     whyText:
       "Vi arbetar med både bygg, löpande underhåll, markarbete och städning efteråt. Berätta vad som behöver göras, så går vi igenom nästa steg och vad som passar just ditt projekt.",
-    photoAlt: "Byggare från Edet Profix Bygg i ett färdigställt träarbete",
+    photoAlt: "Snickare från Edet Profix Bygg vid ett färdigställt byggprojekt",
     photoCaption: "Byggarbete på plats – från första genomgång till färdigt resultat.",
     reasons: [
       "En förfrågan kan omfatta flera typer av byggarbete",
@@ -243,9 +243,9 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     mailSubject: (name) => `Förfrågan från ${name}`,
     mailBody: (name, email, message) => `Namn: ${name}\nE-post: ${email}\n\n${message}`,
     galleryEyebrow: "Våra projekt",
-    galleryTitle: "Före & efter",
+    galleryTitle: "Trädäck, uterum och byggprojekt",
     galleryIntro:
-      "Exempel på projekt vi har utfört i Skåne. Här ser du skillnaden vi gör – från slitet och gammalt till nytt och fräscht. Vi fyller på med fler projekt löpande.",
+      "Se bilder på trädäck, altaner och uterum som vi bygger och renoverar i Skåne. Här finns också exempel på badrumsrenovering, takläggning och fasadarbeten från Åstorp med omnejd.",
     beforeLabel: "Före",
     afterLabel: "Efter",
     bathroomProject: "Badrumsrenovering",
@@ -262,10 +262,10 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     houseAlt: "Pågående totalrenovering av hus – nya golv, målade väggar och tak, badrum och köksmontage",
     terraceProject: "Betongterrass",
     terraceAlt: "Gjutning av betongterrass med trappsteg – armering, formsättning och slät yta",
-    uterumProject: "Uterum – platsbyggt",
-    uterumAlt: "Uterum som byggs från grunden – stomme, tak, panel och innervägg i trä",
-    sunroomProject2: "Uterum – tillbyggnad",
-    sunroomAlt2: "Uterum under byggnad – panel, tak och golv i trä",
+    uterumProject: "Platsbyggt uterum – snickeri från grund till tak",
+    uterumAlt: "Snickeri av platsbyggt uterum – trästomme, tak, panel och innervägg",
+    sunroomProject2: "Uterum – snickrad tillbyggnad",
+    sunroomAlt2: "Snickare bygger uterum med träpanel, tak och golv",
     toiletProject: "Toalettrenovation",
     toiletAltBefore: "Toalett före renovering",
     toiletAltAfter: "Renoverad toalett med nya plattor och målad vägg",
@@ -277,7 +277,7 @@ export const translations: Record<LanguageCode, SiteTranslation> = {
     expandLabel: "Visa bilder",
     collapseLabel: "Dölj bilder",
     completedLabel: "Färdigt projekt",
-    newGalleryProjects: {"deck": "Altanbygge med trappsteg", "deckAlt": "Altan vid rött hus – från regelverk till färdig trall med trappsteg", "steps": "Trätrappa vid uteplats", "stepsAlt": "Platsbyggd trätrappa och träbeklädnad vid glasparti", "patio": "Överbyggd uteplats", "patioAlt": "Uteplats med tak, trästolpar och insynsskydd i trä"},
+    newGalleryProjects: {"deck": "Trädäck och altanbygge med trappa", "deckAlt": "Snickrat trädäck vid rött hus – från regelverk till färdig altan med trappsteg", "steps": "Platsbyggd trätrappa vid uteplats", "stepsAlt": "Snickrad trätrappa och träbeklädnad vid glasparti", "patio": "Överbyggd uteplats i trä", "patioAlt": "Uteplats med trätak, trästolpar och insynsskydd"},
     galleryFilters: { label: "Projekttyp", all: "Alla projekt", sunrooms: "Uterum", bathrooms: "Badrum & toalett", renovation: "Renovering", exterior: "Tak, fasad & terrass", list: "Kompakt lista", grid: "Bildöversikt", projects: "projekt" },
     footerMotto: "Kvalitet. Pålitlighet. Resultat.",
     siteCredit: "Webbdesign: Haris Hasanbegovic, Höganäs",

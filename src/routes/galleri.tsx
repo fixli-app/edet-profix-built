@@ -67,17 +67,25 @@ import type { SiteTranslation } from "@/lib/site-translations";
 export const Route = createFileRoute("/galleri")({
   head: () => ({
     meta: [
-      { title: "Galleri – Före & efter | Edet Profix Bygg" },
+      { title: "Trädäck, uterum & byggprojekt i Skåne | Edet Profix" },
       {
         name: "description",
         content:
-          "Se bilder från projekt av Edet Profix Bygg – badrumsrenovering, toalettrenovation, fasadmålning, takläggning, betongterrasser, uterum och pågående renoveringar av hela hus i Åstorp och hela Skåne.",
+          "Se bilder på trädäck, altaner och uterum byggda av Edet Profix i Skåne. Utforska även badrumsrenovering, takläggning och fasadarbeten från Åstorp med omnejd.",
       },
-      { property: "og:title", content: "Galleri – Före & efter | Edet Profix Bygg" },
-      { property: "og:description", content: "Bilder från våra renoveringsprojekt i Åstorp och hela Skåne." },
+      { property: "og:title", content: "Trädäck, uterum & byggprojekt i Skåne | Edet Profix" },
+      {
+        property: "og:description",
+        content: "Se bilder på trädäck, altaner, uterum och renoveringar från Edet Profix Bygg i Skåne.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.edetprofix.se/galleri" },
+      { property: "og:image", content: "https://www.edetprofix.se/images/altan-4.jpg" },
+      { property: "og:locale", content: "sv_SE" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://www.edetprofix.se/images/altan-4.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://www.edetprofix.se/galleri" }],
   }),
   component: GalleriPage,
 });
