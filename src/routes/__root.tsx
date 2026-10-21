@@ -7,10 +7,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -38,9 +37,6 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
   const displayError = error instanceof Error ? error : new Error("Unknown application error");
   console.error(displayError);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(displayError, { boundary: "tanstack_root_error_component" });
-  }, [displayError]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">

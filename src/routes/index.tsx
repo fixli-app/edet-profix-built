@@ -17,23 +17,23 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Edet Profix Bygg | Bygg och renovering i Åstorp och Skåne" },
       { property: "og:description", content: "Bygg, renovering, markarbete och underhåll från Åstorp till hela Skåne. Flexibla beroende på uppdrag." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://edet-profix-built.lovable.app/" },
+      { property: "og:url", content: "https://www.edetprofix.se/" },
       { property: "og:locale", content: "sv_SE" },
       { name: "geo.region", content: "SE-M" },
       { name: "geo.placename", content: "Åstorp, Skåne" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://edet-profix-built.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://www.edetprofix.se/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "@id": "https://edet-profix-built.lovable.app/#foretag",
+          "@id": "https://www.edetprofix.se/#foretag",
           name: "Edet Profix Bygg",
           description: "Byggföretag i Åstorp som utför bygg, renovering, markarbete och underhåll i hela Skåne.",
-          url: "https://edet-profix-built.lovable.app/",
+          url: "https://www.edetprofix.se/",
           email: "edet.profix.info@gmail.com",
           address: {
             "@type": "PostalAddress",
